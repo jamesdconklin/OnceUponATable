@@ -21,7 +21,7 @@ This project will produce a WebApp inspired by [roll20](roll20.net) that will pr
 * [React Components](./component-hierarchy.md)
 * [API endpoints](./api-endpoints.md)
 * [DB schema](./schema.md)
-* [Sample State](./sample-state)
+* [Sample State](./sample-state.md)
 
 ## Implementation Timeline
 ### Note: I foresee needing to meet with project manager to sanity-check time estimates or to prune non-core features to better fit a 9-11 day timeline.
