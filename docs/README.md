@@ -24,8 +24,6 @@ This project will produce a WebApp inspired by [roll20](roll20.net) that will pr
 * [Sample State](./sample-state.md)
 
 ## Implementation Timeline
-### Note: I foresee needing to meet with project manager to sanity-check time estimates or to prune non-core features to better fit a 9-11 day timeline.
-
 
 ### Phase 1: Backend Setup and Front-End User Authentication (1 Day)
 **Objective:** Functioning Rails project with front-end authentication and user bootstrapping. Set up demo login. 
