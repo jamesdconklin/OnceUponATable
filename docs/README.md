@@ -11,8 +11,8 @@ This project will produce a WebApp inspired by [roll20](roll20.net) that will pr
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and demo login
-- [ ] Game display and search
-- [ ] Chat with extra whisper and roll commands
+- [ ] Game display and listing
+- [ ] Chat with roll commands
 - [ ] Persistable and Jointly manipulable tabletop representation
 - [ ] Asset library from which users can import images and tokens to the tabletop and to which they can upload their own images.
 
@@ -24,26 +24,18 @@ This project will produce a WebApp inspired by [roll20](roll20.net) that will pr
 * [Sample State](./sample-state.md)
 
 ## Implementation Timeline
-### Note: I foresee needing to meet with project manager to sanity-check time estimates or to prune non-core features to better fit a 9-11 day timeline.
 
-
-### Phase 1: Backend Setup and Front-End User Authentication (2 Days)
+### Phase 1: Backend Setup and Front-End User Authentication (1 Day)
 **Objective:** Functioning Rails project with front-end authentication and user bootstrapping. Set up demo login. 
 
 ### Phase 2: Games Model, API, components (minus play) (2 Days)
-**Obective** Games can be created, read, and edited through the API. They can be searched for by tag/GM/system/players in the web app.
+**Obective** Games can be created, read, and edited through the API. They appear indexed by player on player show pages. Players can sign up for games if there's enough room. GMs can sign up players or remove players from games. 
 
-### Phase 3: Game Tags Model, API, and integration into Game Listing and Index components. (1 Day)
-**Objective**  GMs can add or remove tags from Game new/edit forms.
-
-### Phase 4: Game Signup Model, API, and integration into GameListing Component (1 Day)
-**Objective** Players can sign up to games. GMs can approve or disapprove signup requests.
-
-### Phase 5: PlayTable Model, API, and PlayTable component. (3 Days)
+### Phase 3: PlayTable Model, API, and PlayTable component. (4 Days)
 **Objective** Players/GMs can manipulate map and tokens in PlayTable component. Concurrent changes are either prevented or reconciled. Table state can be saved and loaded and is pushed to other players on change.
 
-### Phase 6: Chat/Messages Model, API, and component (2 Days)
-**Objective** Players/GMs can write and view messages to the chat component. Chat will support commands like whisper and roll.
+### Phase 4: Chat/Messages Model, API, and component (2 Days)
+**Objective** Players/GMs can write and view messages to the chat component. Chat will support at least a roller command.
 
-### Phase 7: Assets Model, API, and component (2 Days)
+### Phase 5: Assets Model, API, and component (2 Days)
 **Objective** Players/GMs can upload assets to external service and import them into the PlayTable. Such tokens can be marked with labeled and colored dots.
