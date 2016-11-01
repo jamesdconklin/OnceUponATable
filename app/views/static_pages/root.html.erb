@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      <% if current_user %>
+        <% user_dict = render('api/users/user.json.jbuilder', user: current_user) %>
+        <% user_dict = user_dict.html_safe %>
+        window.currentUser = <%= user_dict %>;
+      <% end %>
+    </script>
+    <title>ChairBnB</title>
+  </head>
+  <body>
+    <div id="root">
+
+    </div>
+  </body>
+</html>
