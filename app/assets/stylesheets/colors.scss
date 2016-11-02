@@ -1,0 +1,22 @@
+$navy : #060928;
+$starlight: #ffffd5;
+$starshadow: #bfbf65;
+$parchment: #cda987;
+$sepia: #483216;
+$hardwood: #875634;
+
+footer, header {
+  color: white;
+  text-shadow: 0 0 4px $starshadow;
+  background: $navy;
+}
+
+.content {
+  background: $parchment;
+}
+
+ul.nav-dropdown {
+  // background: red;
+  // color: $sepia;
+  // background: $hardwood;
+}
