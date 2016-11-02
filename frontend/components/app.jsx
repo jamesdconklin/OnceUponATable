@@ -7,9 +7,7 @@ const App = ({ children }) => (
   <div className="App">
     <HeaderContainer />
     <section className="content center-horiz">
-      <section className="content-center">
         {children}
-      </section>
     </section>
     <Footer />
   </div>

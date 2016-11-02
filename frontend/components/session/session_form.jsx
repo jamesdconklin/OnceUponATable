@@ -54,21 +54,23 @@ class SessionForm extends React.Component {
     let altRoute = `/${altType.toLowerCase().split(' ').join('')}`;
 
     return (
-      <section className="center-horiz">
-        <section className="center-vert">
-          <form id="user-session-form"
-                onSubmit={this.handleSubmit}
-                onChange={this.handleChange}>
-            <h2>{this.props.formType}</h2>
-            <input type="text" id="username" placeholder="Username: " />
-            <br/>
-            <input type="password" id="password" placeholder="Password: " />
-            <br/>
-            { this.renderErrors() }
-            <input type="submit"/>
-            <br/>
-            Do you wish to <Link to={altRoute}>{altType}</Link> instead?
-          </form>
+      <section className="content-center">
+        <section className="center-horiz">
+          <section className="center-vert">
+            <form id="user-session-form"
+                  onSubmit={this.handleSubmit}
+                  onChange={this.handleChange}>
+              <h2>{this.props.formType}</h2>
+              <input type="text" id="username" placeholder="Username: " />
+              <br/>
+              <input type="password" id="password" placeholder="Password: " />
+              <br/>
+              { this.renderErrors() }
+              <input type="submit"/>
+              <br/>
+              Do you wish to <Link to={altRoute}>{altType}</Link> instead?
+            </form>
+          </section>
         </section>
       </section>
     );

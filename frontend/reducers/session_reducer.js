@@ -18,6 +18,8 @@ export const SessionReducer = (state = _defaultState, action) => {
   switch (action.type) {
     case LOGOUT:
       console.log("SessionReducer LOGOUT caught", action);
+      hashHistory.push(`/`);
+
       return _defaultState;
 
     case RECEIVE_ERRORS:
@@ -26,7 +28,7 @@ export const SessionReducer = (state = _defaultState, action) => {
 
     case RECEIVE_CURRENT_USER:
       console.log("SessionReducer RCU caught", action);
-      hashHistory.push("/");
+      hashHistory.push(`/users/${action.user.id}`);
 
       return {currentUser: action.user, errors: []};
 

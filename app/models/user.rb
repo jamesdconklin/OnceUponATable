@@ -32,6 +32,23 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+
+  has_many(
+    :run_games,
+    class_name: :Game,
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many :game_signups
+
+  has_many(
+    :played_games,
+    through: :game_signups,
+    source: :game
+  )
+
+
   private
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token

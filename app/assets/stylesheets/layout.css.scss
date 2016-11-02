@@ -6,6 +6,21 @@ $content_width: 800px;
   height: 100vh;
 }
 
+
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.splash-desc-container, .splash-image-container{
+  width: 50%;
+}
+
+.splash-desc {
+  padding: 10px;
+}
+
 .content-center {
   width: $content_width;
   // border: 1px solid purple;

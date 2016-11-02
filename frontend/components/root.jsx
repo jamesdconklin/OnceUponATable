@@ -3,20 +3,24 @@ import App from './app';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SessionFormContainer from './session/session_form_container';
+import SplashContainer from './splash/splash_container';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const Root = ({store}) => {
 
   const _redirectIfLoggedIn = () => {
-    if (store.getState().session.currentUser) {
-      hashHistory.replace("/");
-    } 
+    console.log("Logged In Already");
+    let user = store.getState().session.currentUser;
+    if (user) {
+      hashHistory.replace(`/users/${user.id}`);
+    }
   };
   return (
    <Provider store={store}>
      <MuiThemeProvider>
        <Router history={hashHistory}>
          <Route path="/" component={App} >
+           <IndexRoute component={SplashContainer} onEnter={_redirectIfLoggedIn}/>
            <Route path="/login" component={SessionFormContainer}
                   onEnter={_redirectIfLoggedIn}/>
            <Route path="/signup" component={SessionFormContainer}
