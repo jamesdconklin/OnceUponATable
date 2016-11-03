@@ -1,7 +1,7 @@
 # Roll20 Clone
 #### (Proper Clone Name TBD)
 
-[Development Site @ Heroku](https://google.com)
+[Development Site @ Heroku](https://onceuponatable.herokuapp.com)
 
 [Project Tracker @ Trello](https://trello.com/b/GbL9K7Bt/roll20-clone-project)
 
