@@ -1,0 +1,44 @@
+@import "colors";
+
+form {
+  color: $sepia;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: lighten($parchment, 10%);
+  border: 2px solid $oak;
+  border-radius: 2px;
+  margin: 0 auto;
+  box-shadow: 5px 5px transparentize($sepia, 0.9);
+}
+
+form > * {
+  margin: 5px;
+  padding: 5px;
+}
+
+form h1 {
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+form > input[type=text],
+form > input[type=password] {
+  border-bottom: 1px solid $sepia;
+}
+
+form .button{
+  text-align: center;
+  cursor: pointer;
+  background-color: $parchment;
+  // border: 1px solid $sepia;
+  // border-radius: 5px;
+  box-shadow: 2px 2px transparentize($sepia, 0.6);
+
+}
+
+::-webkit-input-placeholder {
+  color: transparentize(#777, 0.5);
+}

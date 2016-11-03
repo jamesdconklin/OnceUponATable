@@ -19,12 +19,12 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 14px;
 	font: inherit;
 	vertical-align: baseline;
 	background: inherit;
   color: inherit;
-	text-shadow: none;
+	/*box-sizing: border-box;*/
 
 }
 /* HTML5 display-role reset for older browsers */
@@ -53,3 +53,32 @@ table {
 a {
   text-decoration: none;
 }
+
+/*Begin novel changes.*/
+
+input, label, select, button, textarea {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: middle;
+	background: none;
+	color: inherit;
+}
+
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select
+{
+	outline: none;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+input:focus {outline: 0;}

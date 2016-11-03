@@ -36,20 +36,20 @@ class UserTab extends React.Component {
         <div className="center-vert" onClick={toggleDropDown}>
           <span >
             {userName}
-            <ul className={`nav-dropdown ${hidden}`}>
-              <li onClick={(e) => hashHistory.push(`/users/${userId}`)}>
-                User Page
-              </li>
-              <li onClick={logout}>
-                Sign Out
-              </li>
-            </ul>
           </span>
+          <ul className={`nav-dropdown ${hidden}`}>
+            <li onClick={(e) => hashHistory.push(`/users/${userId}`)}>
+              User Page
+            </li>
+            <li onClick={logout}>
+              Sign Out
+            </li>
+          </ul>
         </div>
       );
     } else {
       ret = (<div className="center-vert" onClick={()=>hashHistory.push("/login")}>
-        Log In
+        <span>Log In</span>
       </div>);
     }
     return ret;

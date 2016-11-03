@@ -1,0 +1,84 @@
+@import "colors";
+
+
+$header_height: 50px;
+
+$navbar_bg_color: $nightsky;
+$navbar_link_color: $starlight;
+$navbar_link_shadow: $starglow;
+
+header {
+  background-color: $navbar_bg_color;
+  color: $navbar_link_color;
+  box-shadow: 0 0 10px $sepia;
+}
+
+.header-logo {
+  text-shadow: 0 3px 0 $sepia, 0 2px 0 $sepia, 0 1px 0 $sepia;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.header-nav, .header-logo {
+  user-select: none;
+  width: 50%;
+}
+
+.header-nav {
+  position: relative;
+}
+
+.header-logo {
+  text-align: center;
+}
+
+.header-nav > div {
+  font-size: 24px;
+  text-shadow: 0 2px 0 $sepia, 0 1px 0 $sepia;
+
+  &:hover {
+    border-bottom: 4px solid $oak;
+    border-radius: 2px;
+  }
+
+  &:focus {
+    border: none;
+  }
+
+}
+
+.nav-dropdown {
+  box-sizing: border-box;
+  color: $sepia;
+  font-size: 16px;
+  text-shadow: none;
+  border: 2px solid $oak;
+  border-radius: 4px;
+  background-color: lighten($parchment, 10%);
+  padding: 5px 10px;
+  position: absolute;
+  top: calc(#{$header_height} + 0px);
+  left: 0%;
+  width: 100%;
+}
+
+
+.nav-dropdown li {
+  padding: 20px 5px;
+  text-align: left;
+  border-bottom: 2px solid transparentize($sepia, 0.4);
+}
+
+.nav-dropdown li:last-child {
+  border: none;
+}
+
+
+
+.header-nav > *:hover {
+  // // background-color: lighten($navbar_bg_color, 7%);
+  // text-shadow: none;
+  // // text-shadow: 0 0 5px $navbar_link_shadow;
+  // text-shadow: 0 0 12px $starlight; //$navbar_link_shadow;
+  // color: lighten($navbar_link_color, 10%);
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter, Link, hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -60,15 +60,19 @@ class SessionForm extends React.Component {
             <form id="user-session-form"
                   onSubmit={this.handleSubmit}
                   onChange={this.handleChange}>
-              <h2>{this.props.formType}</h2>
+              <h1>{this.props.formType}</h1>
               <input type="text" id="username" placeholder="Username: " />
               <br/>
               <input type="password" id="password" placeholder="Password: " />
               <br/>
               { this.renderErrors() }
-              <input type="submit"/>
-              <br/>
-              Do you wish to <Link to={altRoute}>{altType}</Link> instead?
+              <button type="submit" className="button">
+                {this.props.formType}
+              </button>
+              <button className="button"
+                     onClick={this.props.demoLogin}>
+                Demo Login
+              </button>
             </form>
           </section>
         </section>

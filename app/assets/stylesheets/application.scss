@@ -11,7 +11,10 @@
  * file per style scope.
  *
  *= require reset
- *= require layout
  *= require colors
+ *= require header
+ *= require content
+ *= require form
+ *= require layout
  *= require_self
  */

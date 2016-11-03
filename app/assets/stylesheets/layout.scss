@@ -1,0 +1,102 @@
+@import "colors";
+
+footer {
+  background-color: $nightsky;
+  color: $starlight;
+}
+
+// Measurements:
+$header_height: 50px;
+$footer_height: 30px;
+$content_width: 800px;
+$fixed_vertical_space: calc(#{$header-height} + #{$footer_height});
+$clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
+
+// Layout classes
+
+.content {
+  min-height: $clear_vertical_space;
+}
+
+.splash-desc-container, .splash-image-container{
+  width: 50%;
+  padding: 15px;
+}
+
+.splash-desc {
+  padding: 10px;
+}
+
+.content-center {
+  width: $content_width;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+.center-vert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%
+}
+
+.content-center > * {
+  height: 100%;
+}
+
+
+.header-nav > * {
+  position: relative;
+  text-align: center;
+  width: 50%;
+}
+
+
+
+.content {
+  background: $parchment;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+body {
+  padding-top: $header_height;
+  padding-bottom: $footer-height;
+}
+
+header {
+  height: $header_height;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+}
+
+footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  height: $footer_height;
+}
+
+
+.hidden {
+  display: none;
+}
+.showing {
+  display: block;
+}
