@@ -1,9 +1,5 @@
 import React from 'react';
 
-import AppBar from 'material-ui/AppBar';
-import MenuItem from 'material-ui/MenuItem';
-import Menu from 'material-ui/Menu';
-
 import GamesTab from './games_tab';
 import UserTab from './user_tab';
 

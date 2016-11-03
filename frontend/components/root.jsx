@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SessionFormContainer from './session/session_form_container';
 import SplashContainer from './splash/splash_container';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const Root = ({store}) => {
 
@@ -17,17 +16,15 @@ const Root = ({store}) => {
   };
   return (
    <Provider store={store}>
-     <MuiThemeProvider>
-       <Router history={hashHistory}>
-         <Route path="/" component={App} >
-           <IndexRoute component={SplashContainer} onEnter={_redirectIfLoggedIn}/>
-           <Route path="/login" component={SessionFormContainer}
-                  onEnter={_redirectIfLoggedIn}/>
-           <Route path="/signup" component={SessionFormContainer}
-                  onEnter={_redirectIfLoggedIn}/>
-         </Route>
-       </Router>
-     </MuiThemeProvider>
+     <Router history={hashHistory}>
+       <Route path="/" component={App} >
+         <IndexRoute component={SplashContainer} onEnter={_redirectIfLoggedIn}/>
+         <Route path="/login" component={SessionFormContainer}
+                onEnter={_redirectIfLoggedIn}/>
+         <Route path="/signup" component={SessionFormContainer}
+                onEnter={_redirectIfLoggedIn}/>
+       </Route>
+     </Router>
    </Provider>
   );
 };
