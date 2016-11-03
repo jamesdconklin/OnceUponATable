@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: Roll20Clone_production
-  username: Roll20Clone
-  password: <%= ENV['ROLL20CLONE_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: Roll20Clone_production
+#   username: Roll20Clone
+#   password: <%= ENV['ROLL20CLONE_DATABASE_PASSWORD'] %>
