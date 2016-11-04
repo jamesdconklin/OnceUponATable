@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :users, only: [:create]
+  get 'user_signup/api/Canvas'
+  end
+
+  namespace :api do
+    resources :users, only: [:create, :show], defaults: { format: :json }
     resource :session, only: [:create, :destroy]
+    resources :games, except: [:new, :edit], defaults: { format: :json } do
+      resource :canvas, only: [:show, :update]
+      resources :players,
+                only: [:create, :destroy], defaults: { format: :json }
+    end
   end
   root to: 'static_pages#root'
   # The priority is based upon order of creation: first created -> highest priority.

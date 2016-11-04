@@ -15,7 +15,13 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
 // Layout classes
 
 .content {
-  min-height: $clear_vertical_space;
+  height: $clear_vertical_space;
+  // overflow-y: scroll;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .splash-desc-container, .splash-image-container{

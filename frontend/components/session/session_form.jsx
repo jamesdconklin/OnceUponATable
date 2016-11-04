@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-
+    this.demoLogin = this.props.demoLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
                 {this.props.formType}
               </button>
               <button className="button"
-                     onClick={this.props.demoLogin}>
+                     onClick={this.demoLogin}>
                 Demo Login
               </button>
             </form>

@@ -1,5 +1,9 @@
 class Api::SessionsController < ApplicationController
   def create
+    if current_user
+      render status: 400, json: ["You are already logged in"]
+      return
+    end
     filtered_params = user_params
     if filtered_params
       @user = User.find_by_credentials(

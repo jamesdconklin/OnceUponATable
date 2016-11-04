@@ -1,121 +1,101 @@
 ```js
 
 {
-  currentUser: {
-    id: 1,
-    username: "Barry Bybax"
+  session: {
+    currentUser: {
+      id: 1,
+      username: "Barry Bybax"
+    },
+    errors: []
   },
-  forms: {
-    signup {
-      errors: []
-    },
-    login {
-      errors: []
-    },
-    imageUpload {
-      errors: []
-    },
-  }
-  gameFilters: {
-    gm: {
-      name: "IHeartTPKs",
-      id: 2
-    },
-    tags: [
+  gamesLists: {
+    run: [
       {
         id: 1,
-        tag: "Post-Apocalyptic"
-      }
-    ]
-    system : {
-      id: 1
-      system: "FalloutRPG"
-    }
-  },
-  gameListings: [
-    {
-      id: 1,
-      players: {
-        active: [
-          {
-            id: 1,
-            username: "Barry Bybax"
-          },
-          {
-            id: 3,
-            username: "Harold"
-          }
-        ],
-        pending: [
-          {
-            id: 4,
-            username: "Brenda"
-          }
-        ]
-      },
-      gm: {
-        username: "IHeartTPKs",
-        id: 2
-      },
-      title: "Try not to die",
-      description: "You try to survive. I try to kill you."
-      active, true,
-      system: "FalloutRPG",
-      tags: [
-        "Post-Apocalyptic",
-        "Hard-Mode"
-      ],
-      currPlayers: 2,
-      maxPlayers: 4
-    }
-  ],
-  currentGame : {
-    id: 1,
-    title: "Try not to die",
-    description: "You try to survive. I try to kill you."
-    active: true,
-    gm: {
-      username: "IHeartTPKs",
-      id: 2
-    },
-    tags: [
-      "Post-Apocalyptic",
-      "Hard-Mode"
-    ],
-    canvasState : [Binary],
-    num_players: 4,
-    players: {
-      active: [
-        {
+        title: "Room of Bores",
+        system: "AD&D",
+        description: "You. Will. Die.\n\n\n(of boredom)",
+        gm: {
           id: 1,
           username: "Barry Bybax"
-        },
-        {
-          id: 3,
-          username: "Harold"
         }
-      ],
-      pending: [
-        {
+        max_players: 4,
+        num_players: 1
+        current_player: 1
+      }
+
+    ],
+    playing: [
+      {
+        id: 3,
+        title: "Torn Tapestry",
+        system: "PFRPG",
+        description: "Pull aside the veil and breathe magic back into the world.",
+        gm: {
           id: 4,
-          username: "Brenda"
-        }
-      ]
+          username: "jamesui"
+        },
+        max_players: 4,
+        num_players: 3
+        current_player: 2
+      }
+    ]
+  },
+  gameDetail: {
+    id: 3,
+    title: "Torn Tapestry",
+    system: "PFRPG",
+    description: "Pull aside the veil and breathe magic back into the world.",
+    gm: {
+      id: 4,
+      username: "jamesui"
     },
-    chatHistory: [
+    active: true,
+    players: [
+      { id: 1, username: "Barry Bybax"},
+      { id: 2, username: "Flak"},
+      { id: 3, username: "Armford Bradstrong"}
+    ],
+    max_players: 4,
+    current_player: 2
+  },
+  gameState: {
+    gm: {
+      id: 4,
+      username: 'jamesui'
+    },
+    players: [
+      { id: 1, username: "Barry Bybax"},
+      { id: 2, username: "Flak"},
+      { id: 3, username: "Armford Bradstrong"}
+    ],
+    chat: [
       {
         author: "Barry Bybax",
         body: "/roll d20+10",
         result: "d20+10: 24"
-        whisper: []
       },
       {
-        author: "Gerald",
-        body: "I stab Barry in the back",
+        author: "Jamesui",
+        body: "DC was 25. I'm afraid you've died, Barry.",
         result: "",
-        whisper: ["IHeartTPKs"]
       }
     ],
+    canvas : {
+      objects: {
+        1: {
+          class: "square"
+          layer: "map",
+          pos_x: 100,
+          pos_y: 150,
+          rot: 3.14,
+          other_props: other_values
+        }
+      },
+      delta_ord: 39,
+      checcksum: "foobarbazhamspameggs",
+      current_player: 2
+    },
     assets: [
       {
         id: 23,
@@ -125,4 +105,5 @@
     ]
   }
 }
+
 ```
