@@ -15,7 +15,7 @@ export const requestListedUser = (id) => ({
   id
 });
 
-export const receiveViewedUser = (user) => ({
+export const receiveListedUser = (user) => ({
   type: RECEIVE_LISTED_USER,
   user
 });

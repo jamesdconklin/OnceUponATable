@@ -13,12 +13,13 @@ import { requestListedGames, requestListedUser }
 const Root = ({store}) => {
   const _loadGameList = ({params}) => {
     console.log("LGL params", params);
-    store.dispatch(requestListedUser(params.id));
+    store.dispatch(requestListedUser(params.user_id));
     store.dispatch(requestListedGames("played", params.user_id));
     store.dispatch(requestListedGames("run", params.user_id));
   };
 
   const _redirectIfLoggedIn = () => {
+    console.log("REDIRECT IF LOGGED IN");
     let user = store.getState().session.currentUser;
     if (user) {
       hashHistory.replace(`/users/${user.id}`);

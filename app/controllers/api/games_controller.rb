@@ -75,7 +75,7 @@ class Api::GamesController < ApplicationController
     params.require(:game)
           .permit(
             :title, :system, :user_id, :description, :canvas_state,
-            :canvas_delta, :active, :num_players, :current_player,
+            :canvas_delta, :active, :max_players, :current_player,
             :delta_ord, :canvas_checksum, :id
           )
   end

@@ -17,7 +17,7 @@ export default (state = _defaultState, action) => {
       console.log("GL reducer RLG caught", action);
       newState[action.category] = action.games;
     case RECEIVE_LISTED_USER:
-      console.log("GL reducer RLG caught", action);
+      console.log("GL reducer RLU caught", action);
       return merge(newState, {user: action.user});
     default:
       console.log("GL Reducer default caught", action);

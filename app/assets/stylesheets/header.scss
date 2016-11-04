@@ -10,7 +10,8 @@ $navbar_link_shadow: $starglow;
 header {
   background-color: $navbar_bg_color;
   color: $navbar_link_color;
-  box-shadow: 0 0 10px $sepia;
+  box-shadow: 0 0 15px $sepia;
+  // border-bottom: 2px solid darken($nightsky, 10%);
 }
 
 .header-logo {

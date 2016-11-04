@@ -14,6 +14,14 @@ class SessionForm extends React.Component {
     this.demoLogin = this.props.demoLogin.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.router.push("/");
+    }
+
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
     let user = this.state;
@@ -55,8 +63,8 @@ class SessionForm extends React.Component {
 
     return (
       <section className="content-center">
-        <section className="center-horiz">
-          <section className="center-vert">
+        <section className="center-vert">
+          <section className="center-horiz">
             <form id="user-session-form"
                   onSubmit={this.handleSubmit}
                   onChange={this.handleChange}>

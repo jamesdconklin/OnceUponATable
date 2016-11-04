@@ -15,9 +15,7 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
 // Layout classes
 
 .content {
-  height: $clear_vertical_space;
-  // overflow-y: scroll;
-
+  min-height: $clear_vertical_space;
 }
 
 ::-webkit-scrollbar {
@@ -49,6 +47,7 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
 .center-horiz {
   display: flex;
   justify-content: center;
+  // height: 100%;
 }
 
 .center-vert {
@@ -58,9 +57,9 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
   height: 100%
 }
 
-.content-center > * {
-  height: 100%;
-}
+// .content-center > * {
+//   height: 100%;
+// }
 
 
 .header-nav > * {
@@ -80,6 +79,10 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  font-size: 18px;
+}
+
 body {
   padding-top: $header_height;
   padding-bottom: $footer-height;
@@ -90,11 +93,14 @@ header {
   width: 100vw;
   position: fixed;
   top: 0px;
+  z-index: 10;
+
 }
 
 footer {
   width: 100vw;
   position: fixed;
+  z-index: 10;
   bottom: 0px;
   height: $footer_height;
 }

@@ -19,7 +19,7 @@ system          | integer     | not null, foreign key (references systems), inde
 user_id         | integer     | not null, foreign key (references users), indexed
 canvas_state    | text/binary | not null,
 active         | boolean     |
-num_players     | integer     |
+max_players     | integer     |
 current_player  | integer     | not null, foreign key (references users), indexed
 
 ## systems

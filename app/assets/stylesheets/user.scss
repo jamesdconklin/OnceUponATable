@@ -1,6 +1,29 @@
 @import 'colors';
 
+$user_header_height: 50px;
+
 .user-main {
-  border: 2px solid $sepia;
-  width: 100%;
+  // border: 2px solid $oak;
+  // background: lighten($oak, 10%);
+}
+
+.user-header {
+  margin: 20px 10px 10px 10px;
+  text-align: center;
+  padding: 10px;
+  border-top: 3px solid $oak;
+  border-bottom: 3px solid $oak;
+}
+
+.user-header h1 {
+  // background-color: $nightsky;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-color: $sepia;
+}
+
+.user-main li {
+  margin: 5px 10px;
+  position: relative;
 }
