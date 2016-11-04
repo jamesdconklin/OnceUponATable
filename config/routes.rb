@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   namespace :api do
-  get 'user_signup/api/Canvas'
-  end
-
-  namespace :api do
     resources :users, only: [:create, :show], defaults: { format: :json }
     resource :session, only: [:create, :destroy]
     resources :games, except: [:new, :edit], defaults: { format: :json } do

@@ -33,9 +33,9 @@ const Root = ({store}) => {
                onEnter={_redirectIfLoggedIn}/>
         <Route path="/signup" component={SessionFormContainer}
                onEnter={_redirectIfLoggedIn}/>
-             <Route path="/users/:user_id"
-                    component={UserContainer}
-                    onEnter={_loadGameList}/>
+        <Route path="/users/:user_id"
+               component={UserContainer}
+               onEnter={_loadGameList}/>
        </Route>
      </Router>
    </Provider>
