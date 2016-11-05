@@ -26,6 +26,19 @@ Game.create!(
   max_players: 4
 )
 
+door_smash = "Sometimes I lie awake at night, thinking there's too \
+much storytelling in this game of ours and not enough kicking in \
+doors, wrecking the creatures behind them, and stealing their stuff. \
+Let's fix that together!"
+
+Game.create!(
+  user_id: 2,
+  title: "These Doors are Made for Kicking",
+  system: "PFRPG",
+  description: door_smash
+)
+
 GameSignup.create(game_id: 1, user_id: 2)
 GameSignup.create(game_id: 1, user_id: 3)
 GameSignup.create(game_id: 1, user_id: 4)
+GameSignup.create!(game_id: 2, user_id: 5)

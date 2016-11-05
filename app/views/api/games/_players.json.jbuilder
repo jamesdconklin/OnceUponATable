@@ -1,5 +1,3 @@
-json.players Hash[
-  players.map do |player|
-    [player.id, {id: player.id, username: player.username}]
-  end
-]
+json.array! players do |player|
+  json.partial! 'api/users/user', user: player
+end
