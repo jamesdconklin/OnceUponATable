@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def user_params
     begin
-      ret = params.require(:user).permit(:username, :password)
+      ret = params.require(:user).permit(:username, :password, :image_url)
     rescue
       ret = nil
     ensure

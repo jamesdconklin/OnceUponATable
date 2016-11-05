@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import GameDetail from './game_detail';
 import React from 'react';
-import { enlist } from '../../actions/game_detail_actions';
+import { enlist, deEnlist } from '../../actions/game_detail_actions';
 
 
 const mapStateToProps = ({gameDetail, session}) => ({
@@ -12,9 +12,11 @@ const mapStateToProps = ({gameDetail, session}) => ({
 const mapDispatchToProps = (dispatch) => ({
   enlist: (game_id, user_id) => (e) => {
     e.preventDefault();
-    console.log(enlist);
-    // console.log("howdy");
     dispatch(enlist(game_id, user_id));
+  },
+  deEnlist: (game_id, user_id) => (e) => {
+    e.preventDefault();
+    dispatch(deEnlist(game_id, user_id));
   }
 });
 

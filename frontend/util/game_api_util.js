@@ -1,3 +1,5 @@
+import { merge } from 'lodash';
+
 export const fetchGames = (query) => (success, error) => {
   success = success || console.log;
   error = error || console.log;
@@ -37,6 +39,11 @@ export const deleteGame = (id) => (success, error) => {
 export const createGame = (game) => (success, error) => {
   success = success || console.log;
   error = error || console.log;
+
+  game = merge({}, game);
+  delete game.id;
+
+  console.log("API: CreateGame with Payload: ", game);
 
   $.ajax({
     url: `/api/games`,
@@ -79,7 +86,7 @@ export const signOff = (game_id, user_id) => (success, error) => {
   error = error || console.log;
 
   $.ajax({
-    url: `/api/games/${game_id}/players`,
+    url: `/api/games/${game_id}/players/${user_id}`,
     method: "DELETE",
     data: {game_signup: {user_id}},
     success,

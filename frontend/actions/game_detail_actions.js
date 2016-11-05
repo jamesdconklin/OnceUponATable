@@ -2,6 +2,29 @@ export const RECEIVE_GAME_DETAIL = "RECEIVE_GAME_DETAIL";
 export const REQUEST_GAME_DETAIL = "REQUEST_GAME_DETAIL";
 export const ENLIST = "ENLIST";
 export const DE_ENLIST = "DE_ENLIST";
+export const UPDATE_GAME = "UPDATE_GAME";
+export const CREATE_GAME = "CREATE_GAME";
+export const CLEAR_GAME_DETAIL = "CLEAR_GAME_DETAIL";
+export const RECEIVE_GAME_ERRORS = "RECEIVE_GAME_ERRORS";
+
+export const receiveGameErrors = (errors) => ({
+  type: RECEIVE_GAME_ERRORS,
+  errors
+});
+
+export const clearGameDetail = () => ({
+  type: CLEAR_GAME_DETAIL
+});
+
+export const updateGame = (game) => ({
+  type: UPDATE_GAME,
+  game
+});
+
+export const createGame = (game) => ({
+  type: CREATE_GAME,
+  game
+});
 
 export const receiveGameDetail = (game) => ({
   type: RECEIVE_GAME_DETAIL,

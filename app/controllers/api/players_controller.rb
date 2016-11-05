@@ -17,7 +17,8 @@ class Api::PlayersController < ApplicationController
   end
 
   def destroy
-    @signup = Game.find_by(game_signup_params)
+    p "params", game_signup_params
+    @signup = GameSignup.find_by(game_signup_params)
     if @signup
       if @signup.game.gm == current_user || signup.user == current_user
         @signup.destroy
@@ -32,7 +33,7 @@ class Api::PlayersController < ApplicationController
   end
 
   def game_signup_params
-    ret_params = { game_id: params[:game_id]}
+    ret_params = { game_id: params[:game_id] }
     begin
       ret_params.merge!(params.require(:game_signup).permit(:user_id))
     rescue ActionController::ParameterMissing

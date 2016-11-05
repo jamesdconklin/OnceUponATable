@@ -28,23 +28,22 @@ class UserTab extends React.Component {
     let ret;
     if (userId) {
       let dropdownHidden = this.state.dropDown ? "showing" : "hidden";
-      let hoverBorderHidden = this.state.dropDown ?  "hidden": "showing";
       let toggleDropDown = (e) => {
         e.stopPropagation();
         this.setState({dropDown: this.state.dropDown ^ true});
       };
       ret = (
-        <div className={`center-vert user-tab ${hoverBorderHidden}`}
+        <div className={`center-vert user-tab ${dropdownHidden}`}
              onClick={toggleDropDown}>
-          <span >
+          <a className="header-link">
             {userName}
-          </span>
+          </a>
           <ul className={`nav-dropdown ${dropdownHidden}`}>
             <li onClick={(e) => hashHistory.push(`/users/${userId}`)}>
-              User Page
+              <a>User Page</a>
             </li>
             <li onClick={logout}>
-              Sign Out
+              <a>Sign Out</a>
             </li>
           </ul>
         </div>

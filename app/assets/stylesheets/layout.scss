@@ -72,6 +72,8 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
 
 .content {
   background: $parchment;
+  margin-top: $header_height;
+  margin-bottom: $footer-height;
 }
 
 h1 {
@@ -83,10 +85,10 @@ h2 {
   font-size: 18px;
 }
 
-body {
-  padding-top: $header_height;
-  padding-bottom: $footer-height;
-}
+// body {
+//   padding-top: $header_height;
+//   padding-bottom: $footer-height;
+// }
 
 header {
   height: $header_height;

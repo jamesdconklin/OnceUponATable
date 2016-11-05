@@ -12,30 +12,28 @@ form {
   border-radius: 2px;
   margin: 0 auto;
   box-shadow: 5px 5px transparentize($sepia, 0.9);
-}
 
-form > * {
-  margin: 5px;
-  padding: 5px;
-}
+  h1 {
+    font-size: 16px;
+    text-decoration: underline;
+  }
 
-form h1 {
-  font-size: 16px;
-  text-decoration: underline;
-}
+  input[type=text],
+  input[type=password] {
+    border-bottom: 1px solid $sepia;
+  }
 
-form > input[type=text],
-form > input[type=password] {
-  border-bottom: 1px solid $sepia;
-}
+  .button{
+    text-align: center;
+    cursor: pointer;
+    background-color: $parchment;
+    box-shadow: 2px 2px transparentize($sepia, 0.6);
+  }
 
-form .button{
-  text-align: center;
-  cursor: pointer;
-  background-color: $parchment;
-  // border: 1px solid $sepia;
-  // border-radius: 5px;
-  box-shadow: 2px 2px transparentize($sepia, 0.6);
+  * {
+    margin: 5px;
+    padding: 5px;
+  }
 
 }
 

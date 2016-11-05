@@ -7,8 +7,8 @@ class GameDetail extends React.Component {
     super(props);
   }
   render() {
-    // console.log(this.props);
-    let { gameDetail, currentUser, enlist } = this.props;
+    console.log(this.props);
+    let { gameDetail, currentUser, enlist, deEnlist } = this.props;
     return (
       <section className="content-center">
         <section className="game-detail-main">
@@ -30,7 +30,7 @@ class GameDetail extends React.Component {
                     <tr>
                       <th>Players: </th>
                       <td>
-                        {Object.keys(gameDetail.players).length}/{gameDetail.max_players}
+                        {Object.keys(gameDetail.players).length}/{gameDetail.max_players || "--"}
                       </td>
                     </tr>
                   </tbody>
@@ -39,7 +39,8 @@ class GameDetail extends React.Component {
               <div className="game-detail-players">
                 <ul>
                   {Object.values(gameDetail.players).map(
-                    (player) => <PlayerLink key={player.id} player={player}/>
+                    (player) => <PlayerLink key={player.id} player={player}
+                                            deEnlist={deEnlist(gameDetail.id, player.id)}/>
                   )}
                   {currentUser ?  (
                     <li>

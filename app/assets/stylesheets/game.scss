@@ -7,6 +7,9 @@
   overflow-y: scroll;
   text-align: center;
 
+  h2 {
+    font-size: 24px;
+  }
 }
 
 .game-index-item {
@@ -14,9 +17,6 @@
 
 }
 
-.game-index h2 {
-  font-size: 24px;
-}
 
 .game-index-item {
   box-sizing: border-box;
@@ -41,10 +41,8 @@
 .game-index-item-description {
   box-sizing: inherit;
   height: inherit;
-  // font-size: 12px;
   position: absolute;
 
-  // top: -60px;
   padding: 5px 5px 5px 10px;
   margin: 5px 10px;
   width: calc(100% - 25px);

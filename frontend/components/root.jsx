@@ -7,6 +7,8 @@ import SplashContainer from './splash/splash_container';
 import UserContainer from './user/user_container';
 import GameDetailContainer from './game/game_detail_container';
 import { requestGameDetail } from '../actions/game_detail_actions';
+import GameFormContainer from './game/game_form_container';
+import Canvas from './canvas/canvas';
 
 import { requestListedGames, requestListedUser }
   from '../actions/game_list_actions';
@@ -30,23 +32,29 @@ const Root = ({store}) => {
     }
   };
   return (
-   <Provider store={store}>
-     <Router history={hashHistory}>
-       <Route path="/" component={App} >
-        <IndexRoute component={SplashContainer} onEnter={_redirectIfLoggedIn}/>
-        <Route path="/login" component={SessionFormContainer}
-               onEnter={_redirectIfLoggedIn}/>
-        <Route path="/signup" component={SessionFormContainer}
-               onEnter={_redirectIfLoggedIn}/>
-        <Route path="/users/:user_id"
-               component={UserContainer}
-               onEnter={_loadGameList}/>
-        <Route path="/games/:game_id"
-               component={GameDetailContainer}
-               onEnter={_loadGameDetail}/>
-       </Route>
-     </Router>
-   </Provider>
+    <Provider store={store}>
+      <Router history={hashHistory}>
+        <Route path="/canvas/:game_id" component={Canvas}/>
+        <Route path="/" component={App} >
+          <IndexRoute component={SplashContainer}
+                      onEnter={_redirectIfLoggedIn}/>
+          <Route path="/login" component={SessionFormContainer}
+                 onEnter={_redirectIfLoggedIn}/>
+          <Route path="/signup" component={SessionFormContainer}
+                 onEnter={_redirectIfLoggedIn}/>
+          <Route path="/users/:user_id"
+                 component={UserContainer}
+                 onEnter={_loadGameList}/>
+          <Route path="/games/new"
+                 component={GameFormContainer}/>
+          <Route path="/games/:game_id">
+            <IndexRoute component={GameDetailContainer}
+                        onEnter={_loadGameDetail}/>
+            <Route path="/games/:game_id/edit" component={GameFormContainer}/>
+          </Route>
+        </Route>
+      </Router>
+    </Provider>
   );
 };
 
