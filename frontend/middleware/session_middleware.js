@@ -14,19 +14,19 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   const sessionSuccess = user => dispatch(receiveCurrentUser(user));
   switch (action.type) {
     case LOGOUT:
-      console.log("SessionMiddlewre LOGOUT caught", action);
+      // console.log("SessionMiddlewre LOGOUT caught", action);
       api.logout(
         () => next(action)
       );
       break;
 
     case LOGIN:
-      console.log("SessionMiddlewre LOGIN caught", action);
+      // console.log("SessionMiddlewre LOGIN caught", action);
       api.login({user: action.user})(sessionSuccess, errorHandler);
       return next(action);
 
     case SIGNUP:
-      console.log("SessionMiddlewre SIGNUP caught", action);
+      // console.log("SessionMiddlewre SIGNUP caught", action);
       api.signup({user: action.user})(sessionSuccess, errorHandler);
       return next(action);
 

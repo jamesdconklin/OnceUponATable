@@ -5,9 +5,7 @@
   padding: 5px;
   margin: 10px 5px;
   overflow-y: scroll;
-  // border: 1px dashed orange;
   text-align: center;
-  // background: lighten($oak, 10%);
 
 }
 
@@ -20,14 +18,10 @@
   font-size: 24px;
 }
 
-
 .game-index-item {
   box-sizing: border-box;
   background: lighten($parchment, 10%);
   margin: 15px;
-  // border-top: 5px solid darken($parchment, 10%);
-  // border-bottom: 5px solid darken($parchment, 10%);
-  // max-height: 100px;
   text-align: left;
   box-shadow: 0 0 5px transparentize($oak, 0.5);
 }
@@ -51,7 +45,7 @@
   position: absolute;
 
   // top: -60px;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
   margin: 5px 10px;
   width: calc(100% - 25px);
   -webkit-transition: left 0.5s ease-in-out;
@@ -59,8 +53,6 @@
   -o-transition: left 0.5s ease-in-out;
   -ms-transition:  left 0.5s ease-in-out;
   transition: left 0.5s ease-in-out;
-  // overflow-x: hidden;
-
 
   &.collapse-left {
     left: 0;
@@ -69,7 +61,6 @@
   &.collapse-right {
     left: 100%;
   }
-
 }
 
 .game-index-item a {
@@ -83,30 +74,21 @@
   overflow: hidden
 }
 
-
 .game-index-item-details {
   line-height: 1.5;
-  // font-size: 12px;
-  // height: inherit;
   box-sizing: inherit;
   width: calc(100% - 25px);
-  padding: 5px;
+  padding: 5px 10px 5px 5px;
   position: absolute;
-  // top: -5px;
-  // left: -5px;
   margin: 5px 10px;
   -webkit-transition: left 0.5s ease-in-out;
   -moz-transition: left 0.5s ease-in-out;
   -o-transition: left 0.5s ease-in-out;
   -ms-transition: left 0.5s ease-in-out;
   transition: left 0.5s ease-in-out;
-  // overflow-x: hidden;
-
 
   &.collapse-left {
-    // display: none;
     left: -100%;
-    // width: 0%;
   }
 
   &.collapse-right {
@@ -136,5 +118,80 @@
   &.collapse-right {
     left: calc(100% - 10px);
     box-shadow: -4px 0 transparentize($oak, 0.8), -2px 0 transparentize($oak, 0.8)
+  }
+}
+
+.game-detail-main {
+  margin: 15px;
+}
+
+.game-detail-img {
+  width: 40%;
+  margin: 10px;
+  img {
+    border-top: 10px solid $nightsky;
+    border-bottom: 10px solid $nightsky;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.game-detail-body {
+  width: 60%;
+  margin: 10px;
+  background-color: lighten($parchment, 10%);
+
+
+  h1 {
+    padding: 5px 10px;
+    box-shadow: 0 5px transparentize($oak, 0.7);
+
+
+    background-color: $nightsky;
+    color: $starlight;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .table-wrap {
+    padding: 0 5px;
+    table {
+      tr {
+        border-top: 1px solid transparentize($oak, 0.7);
+
+        // border: 1px solid yellow;
+        td {
+          padding: 5px 10px 10px 10px;
+          a {
+            text-decoration: underline;
+          }
+        }
+        th {
+          line-height: 2;
+          padding: 5px 10px 10px 10px;
+
+        }
+      }
+    }
+  }
+}
+
+.game-detail-players {
+  margin: 10px;
+  border-top: 2px solid $sepia;
+  ul {
+    display: flex;
+
+    li {
+      display: inline-block;
+      float: left;
+      a {
+        img {
+          margin: 10px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
   }
 }

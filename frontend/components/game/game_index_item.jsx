@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 
 class GameIndexItem extends React.Component {
   constructor(props) {
-    console.log("GII constructor");
     super(props);
     this.state = {
       collapse: "left"
@@ -25,7 +24,6 @@ class GameIndexItem extends React.Component {
             </div>
             <div className={`game-index-item-divider collapse-${this.state.collapse}`}
               onClick={(e) => {
-                console.log("Collapse click");
                 this.setState(
                   {collapse: this.state.collapse === "left" ? "right" : "left"}
                 );
@@ -42,7 +40,6 @@ class GameIndexItem extends React.Component {
         </div>
       </li>
     );
-    console.log(ret);
     return ret;
   }
 }

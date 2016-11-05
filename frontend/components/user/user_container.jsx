@@ -5,7 +5,8 @@ import User from './user';
 const mapStateToProps = ({gamesList, session}) => ({
   run: gamesList.run,
   played: gamesList.played,
-  user: gamesList.user
+  user: gamesList.user,
+  currentUser: session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({});

@@ -17,23 +17,23 @@ export const SessionReducer = (state = _defaultState, action) => {
   var newState = merge({}, state);
   switch (action.type) {
     case LOGOUT:
-      console.log("SessionReducer LOGOUT caught", action);
+      // console.log("SessionReducer LOGOUT caught", action);
       // hashHistory.push(`/`);
 
       return _defaultState;
 
     case RECEIVE_ERRORS:
-      console.log("SessionReducer RE caught", action);
+      // console.log("SessionReducer RE caught", action);
       return merge(newState, {errors: action.errors.responseJSON});
 
     case RECEIVE_CURRENT_USER:
-      console.log("SessionReducer RCU caught", action);
+      // console.log("SessionReducer RCU caught", action);
       // hashHistory.push(`/users/${action.user.id}`);
 
       return {currentUser: action.user, errors: []};
 
     default:
-    console.log("SessionReducer DEFAULT caught", action);
+    // console.log("SessionReducer DEFAULT caught", action);
     return newState;
   }
 };

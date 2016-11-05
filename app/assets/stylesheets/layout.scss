@@ -93,8 +93,7 @@ header {
   width: 100vw;
   position: fixed;
   top: 0px;
-  z-index: 10;
-
+  z-index: 3;
 }
 
 footer {
@@ -103,12 +102,4 @@ footer {
   z-index: 10;
   bottom: 0px;
   height: $footer_height;
-}
-
-
-.hidden {
-  display: none;
-}
-.showing {
-  display: block;
 }

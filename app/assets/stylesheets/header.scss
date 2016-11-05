@@ -49,19 +49,47 @@ header {
 }
 
 .nav-dropdown {
+
+  right: 100px;
   box-sizing: border-box;
   color: $sepia;
   font-size: 16px;
   text-shadow: none;
   border: 2px solid $oak;
+  // border-bottom: 2px solid $oak;
   border-radius: 4px;
   background-color: lighten($parchment, 10%);
   padding: 5px 10px;
   position: absolute;
-  top: calc(#{$header_height} + 0px);
+  // top: calc(#{$header_height} + 0px);
   left: 0%;
   width: 100%;
+  z-index: -1;
+  -webkit-transition: top 0.5s ease-in-out;
+  -moz-transition: top 0.5s ease-in-out;
+  -o-transition: top 0.5s ease-in-out;
+  -ms-transition:  top 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out;
+
+  &.hidden {
+    top: -100px;
+  }
+
+  &.showing {
+    top: 50px;
+  }
 }
+
+// .user-tab {
+//   -webkit-transition: border 0.5s ease-in-out;
+//   -moz-transition: border 0.5s ease-in-out;
+//   -o-transition: border 0.5s ease-in-out;
+//   -ms-transition:  border 0.5s ease-in-out;
+//   transition: border 0.5s ease-in-out;
+//   &.hidden:hover {
+//     border: 0px;
+//   }
+// }
 
 
 .nav-dropdown li {
