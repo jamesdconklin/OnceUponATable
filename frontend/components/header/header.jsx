@@ -16,7 +16,7 @@ class Header extends React.Component {
       <header className="center-horiz">
         <section className="content-center flex-between">
           <div className="header-logo center-vert">
-            <Link to="/" className="glow">Once Upon a Table</Link>
+            <Link to="/">Once Upon a Table</Link>
           </div>
           <div className="header-nav flex-between">
               <GamesTab userId={userId}/>

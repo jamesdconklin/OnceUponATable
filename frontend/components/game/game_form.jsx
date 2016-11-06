@@ -7,20 +7,13 @@ class GameForm extends React.Component {
     super(props);
 
     this.state = {
-        id: 0,
-        title: "",
-        system: "",
-        description: "",
-        gm: {
-          id: 0,
-          username: ""
-        },
-        active: false,
-        players: [],
-        max_players: null,
-        current_player: 0,
+        changed: {},
         errors: []
     };
+
+    if (props.routeParams.game_id) {
+      this.state.id = props.routeParams.game_id;
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -44,12 +37,25 @@ class GameForm extends React.Component {
     );
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('CWRP');
+  //   console.log(nextProps);
+  //   console.log(this.props);
+  //   if (this.props.edit) {
+  //     console.log(this.props);
+  //     this.setState(this.props.gameDetail);
+  //   }
+  // }
+
   handleChange(e) {
     e.preventDefault();
     let targ = e.target;
     let field = targ.id;
     let value = targ.value;
-    this.setState({[field]: value});
+    this.setState({
+      [field]: value,
+      changed: merge(this.state.changed, {[field]: true})
+    });
   }
 
   handleSubmit(e) {
@@ -58,7 +64,8 @@ class GameForm extends React.Component {
   }
 
   render() {
-
+    console.log("STATE", this.state);
+    console.log("PROPS", this.props);
     let {edit, gameDetail, currentUser, type, processForm} = this.props;
     return (
       <section className="content-center">
@@ -69,20 +76,19 @@ class GameForm extends React.Component {
                   onChange={this.handleChange}>
               <h1>{type}</h1>
               <input type="text" id="title" placeholder="Title: "
-                     defaultValue={this.state.title || (edit && gameDetail.title) || ""}/>
+                     value={this.state.title || (!this.state.changed.title && edit && gameDetail.title) || "" }/>
               <br/>
               <input type="text" id="system" placeholder="System: "
-                     defaultValue={this.state.system || (edit && gameDetail.system) || ""}/>
+                     value={this.state.system || (!this.state.changed.system && edit && gameDetail.system) || "" }/>
               <br/>
               <textarea id="description" placeholder="Description: "
-                        defaultValue={this.state.description || (edit && gameDetail.description) || ""}/>
+                        value={this.state.description || (edit && !this.state.changed.description && gameDetail.description) || ""}/>
 
               <br/>
               <label>Max Players:
                 <input type="number" id="max_players" min="0"
-                       defaultValue={this.state.max_players ||
-                                     (edit && gameDetail.max_players) ||
-                                     0}/>
+                       value={this.state.max_players ||
+                                     (edit && !this.state.changed.max_players && gameDetail.max_players)}/>
              </label>
               <br/>
               <label>Active?

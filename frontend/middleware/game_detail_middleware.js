@@ -35,7 +35,8 @@ export default ({dispatch}) => next => action => {
       break;
     case REQUEST_GAME_DETAIL:
       fetchGame(action.id)(
-        (game) => dispatch(receiveGameDetail(game))
+        (game) => dispatch(receiveGameDetail(game)),
+        (errors) => hashHistory.push("/")
       );
       break;
   }

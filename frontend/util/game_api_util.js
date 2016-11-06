@@ -43,8 +43,6 @@ export const createGame = (game) => (success, error) => {
   game = merge({}, game);
   delete game.id;
 
-  console.log("API: CreateGame with Payload: ", game);
-
   $.ajax({
     url: `/api/games`,
     type: "POST",

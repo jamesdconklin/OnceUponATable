@@ -11,13 +11,18 @@ header {
   background-color: $navbar_bg_color;
   color: $navbar_link_color;
   box-shadow: 0 0 15px $sepia;
-  // border-bottom: 2px solid darken($nightsky, 10%);
 }
 
 .header-logo {
+  text-align: center;
   text-shadow: 0 3px 0 $sepia, 0 2px 0 $sepia, 0 1px 0 $sepia;
   font-size: 36px;
   font-weight: bold;
+  //
+  // &:hover {
+  //   border-bottom: 4px solid $oak;
+  //   border-radius: 0 0 4px 4px;
+  // }
 }
 
 .header-nav, .header-logo {
@@ -31,7 +36,7 @@ header {
   & > * {
     &:hover {
 
-      .hidden, .showing {
+      .hidden {
         display: inline-block;
       }
 
@@ -43,6 +48,7 @@ header {
       }
     }
 
+    cursor: pointer;
     .header-link {
       font-size: 24px;
       text-shadow: 0 2px 0 $sepia, 0 1px 0 $sepia;
@@ -86,19 +92,17 @@ header {
 
         }
       }
-
-      &.hidden {
-        // top: -76px;
-        max-height: 0px;
-      }
-
-      &.showing {
-        max-height: 100px;
-      }
     }
   }
 }
 
-.header-logo {
-  text-align: center;
+.nav-dropdown {
+  &.showing {
+    display: inline-block;
+    max-height: 100px;
+  }
+  &.hidden {
+    // top: -76px;
+    max-height: 0px;
+  }
 }

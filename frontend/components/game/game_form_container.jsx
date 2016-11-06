@@ -7,7 +7,6 @@ import { requestGameDetail, updateGame, createGame }
 var edit;
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
   edit = !(ownProps.routeParams.game_id === undefined);
   return ({
     gameDetail: state.gameDetail,

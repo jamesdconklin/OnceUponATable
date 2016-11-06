@@ -6,20 +6,9 @@ class UserTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        username: "",
-        password: ""
-      },
       dropDown: false
     };
-    this.handleChange = this.handleChange.bind(this);
     $(window).click((e) => this.setState({dropDown: false}));
-  }
-
-  handleChange(key) {
-    return (e) => {
-      this.setState({[key]: e.target.value});
-    };
   }
 
   render() {
@@ -27,18 +16,18 @@ class UserTab extends React.Component {
 
     let ret;
     if (userId) {
-      let dropdownHidden = this.state.dropDown ? "showing" : "hidden";
+      let dropDownHidden = this.state.dropDown ? "showing" : "hidden";
       let toggleDropDown = (e) => {
         e.stopPropagation();
         this.setState({dropDown: this.state.dropDown ^ true});
       };
       ret = (
-        <div className={`center-vert user-tab ${dropdownHidden}`}
+        <div className={`center-vert user-tab ${dropDownHidden}`}
              onClick={toggleDropDown}>
           <a className="header-link">
             {userName}
           </a>
-          <ul className={`nav-dropdown ${dropdownHidden}`}>
+          <ul className={`nav-dropdown ${dropDownHidden}`}>
             <li onClick={(e) => hashHistory.push(`/users/${userId}`)}>
               <a>User Page</a>
             </li>
@@ -49,9 +38,12 @@ class UserTab extends React.Component {
         </div>
       );
     } else {
-      ret = (<div className="center-vert" onClick={()=>hashHistory.push("/login")}>
-        <span>Log In</span>
-      </div>);
+      ret = (
+        <div className="center-vert user-tab" onClick={()=>hashHistory.push("/login")} >
+          <a className="header-link">Log In</a>
+          <div className="nav-dropdown hidden">"HoverBar"</div>
+        </div>
+      );
     }
     return ret;
   }

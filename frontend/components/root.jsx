@@ -29,8 +29,21 @@ const Root = ({store}) => {
     let user = store.getState().session.currentUser;
     if (user) {
       hashHistory.replace(`/users/${user.id}`);
+      return false;
     }
+    return true;
   };
+
+  const _redirectIfLoggedOut = () => {
+    let user = store.getState().session.currentUser;
+    if (!user) {
+      hashHistory.replace(`/`);
+      return false;
+    }
+    return true;
+  };
+
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -46,11 +59,14 @@ const Root = ({store}) => {
                  component={UserContainer}
                  onEnter={_loadGameList}/>
           <Route path="/games/new"
-                 component={GameFormContainer}/>
+                 component={GameFormContainer}
+                 onEnter={_redirectIfLoggedOut}/>
           <Route path="/games/:game_id">
             <IndexRoute component={GameDetailContainer}
                         onEnter={_loadGameDetail}/>
-            <Route path="/games/:game_id/edit" component={GameFormContainer}/>
+            <Route path="/games/:game_id/edit"
+                   component={GameFormContainer}
+                   onEnter={(params) => _redirectIfLoggedOut && _loadGameDetail(params)}/>
           </Route>
         </Route>
       </Router>

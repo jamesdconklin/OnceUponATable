@@ -4,7 +4,6 @@ class Api::GamesController < ApplicationController
   def index
     @games = Game.all.includes(:players)
     params.each do |k, v|
-      # debugger
       k = k.to_sym
       if k == :player_id
         @games = @games.includes(:game_signups).where(
@@ -43,14 +42,16 @@ class Api::GamesController < ApplicationController
   end
 
   def update
+    # debugger
     @game = Game.find_by(id: params[:id])
     if @game
       return unless require_login(@game.user_id)
-      unless @game.update(game_params)
+      if @game.update(game_params)
+        render :show
+      else
         render status: :unprocessable_entity,
                json: @game.errors.full_messages
       end
-      render :show
     else
       render status: :not_found,
              json: ["game with id #{params[:id]} not found"]

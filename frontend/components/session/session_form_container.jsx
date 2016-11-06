@@ -14,9 +14,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     demoLogin: function (e) {
       console.log("DEMOLOGIN");
-      // e.stopPropagation();
-      // dispatch(login(demoLogin));
-      this.setState(demoLogin);
+      e.stopPropagation();
+      e.preventDefault();
+      dispatch(login(demoLogin));
+      // this.setState(demoLogin);
     },
     formType: (ownProps.location.pathname === "/signup") ? "Sign Up" : "Log In",
     processForm: ({user}) => {

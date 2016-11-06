@@ -6,6 +6,45 @@ class GameDetail extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  _userLinks(game, user) {
+    let edit, play;
+
+    if (!user) {
+      return "";
+    }
+
+    if (user.id === game.gm.id) {
+      edit = (
+        <Link to={`/games/${game.id}/edit`}>
+          Edit Game
+        </Link>
+      );
+    } else {
+      edit = "";
+    }
+
+    if (game.players.map(p => p.id)
+      .concat(game.gm.id).
+        indexOf(user.id) >= 0) {
+      play = (
+        <Link to={`/canvas/${game.id}`}>
+          Join Game
+        </Link>
+      );
+    } else {
+      play = "";
+    }
+
+    return (
+      <div>
+        {edit}
+        <br/>
+        {play}
+      </div>
+    );
+  }
+
   render() {
     console.log(this.props);
     let { gameDetail, currentUser, enlist, deEnlist } = this.props;
@@ -15,6 +54,7 @@ class GameDetail extends React.Component {
           <section className="flex-between">
             <div className="game-detail-img">
               <img src="http://www.pacinno.eu/wp-content/uploads/2014/05/placeholder-Copy-1024x769.png"/>
+              {this._userLinks(gameDetail, currentUser)}
             </div>
             <div className="game-detail-body">
               <h1>{gameDetail.title}</h1>
