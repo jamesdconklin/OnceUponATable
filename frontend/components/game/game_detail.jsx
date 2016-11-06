@@ -116,7 +116,8 @@ class GameDetail extends React.Component {
                           if (gameDetail.gm.id === currentUser.id) {
                             this._openModal();
                           } else {
-                            enlist(gameDetail.id, currentUser.id)();
+                            console.log("SIGNUP");
+                            enlist(gameDetail.id, currentUser.id)(e);
                           }
                         }
                       }
