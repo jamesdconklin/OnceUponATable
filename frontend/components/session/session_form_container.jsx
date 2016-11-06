@@ -13,15 +13,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     demoLogin: function (e) {
-      console.log("DEMOLOGIN");
       e.stopPropagation();
       e.preventDefault();
       dispatch(login(demoLogin));
-      // this.setState(demoLogin);
     },
     formType: (ownProps.location.pathname === "/signup") ? "Sign Up" : "Log In",
     processForm: ({user}) => {
-      console.log("PROCESS");
       if (ownProps.location.pathname === "/signup") {
         dispatch(signup(user));
       } else if (ownProps.location.pathname === "/login") {

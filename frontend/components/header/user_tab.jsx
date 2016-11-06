@@ -8,7 +8,18 @@ class UserTab extends React.Component {
     this.state = {
       dropDown: false
     };
-    $(window).click((e) => this.setState({dropDown: false}));
+  }
+
+  componentDidMount() {
+    $(window).click((e) => {
+      let t = e.target;
+      while (t != document && t.id !== "user-header" && t.id !== "root") {
+        t = t.parentNode;
+      }
+      if (t.id !== "user-header") {
+        this.setState({dropDown: false});
+      }
+    });
   }
 
   render() {
@@ -18,11 +29,11 @@ class UserTab extends React.Component {
     if (userId) {
       let dropDownHidden = this.state.dropDown ? "showing" : "hidden";
       let toggleDropDown = (e) => {
-        e.stopPropagation();
         this.setState({dropDown: this.state.dropDown ^ true});
       };
       ret = (
         <div className={`center-vert user-tab ${dropDownHidden}`}
+             id="user-header"
              onClick={toggleDropDown}>
           <a className="header-link">
             {userName}

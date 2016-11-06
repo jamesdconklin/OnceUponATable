@@ -21,7 +21,7 @@ const _defaultState = {
 export default (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-  console.log("GDR caught: ", action);
+  // console.log("GDR caught: ", action);
   switch (action.type) {
     case RECEIVE_GAME_ERRORS:
       newState.errors = action.errors;

@@ -25,6 +25,7 @@ time, mark, audio, video {
 	background: inherit;
   color: inherit;
 	text-align: inherit;
+	outline: none;
 	/*box-sizing: border-box;*/
 
 }

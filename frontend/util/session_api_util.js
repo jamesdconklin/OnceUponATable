@@ -15,9 +15,6 @@ export const login = (data) => (success, error) => {
   success = success || console.log;
   error = error || console.log;
 
-  console.log("Login Data");
-  console.log(data);
-
   $.ajax({
     url: "/api/session",
     type: "POST",

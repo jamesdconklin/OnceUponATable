@@ -9,6 +9,7 @@
 
   h2 {
     font-size: 24px;
+    // text-shadow: 0 1px $oak;
   }
 }
 
@@ -16,7 +17,6 @@
   background-color: $oak;
 
 }
-
 
 .game-index-item {
   box-sizing: border-box;
@@ -143,6 +143,7 @@
 
   h1 {
     padding: 5px 10px;
+    text-shadow: 0 1px $oak, 0 2px $oak;
     box-shadow: 0 5px transparentize($oak, 0.7);
 
 
@@ -175,21 +176,35 @@
 }
 
 .game-detail-players {
-  margin: 10px;
-  border-top: 2px solid $sepia;
+  padding: 0 5px 5px 5px;
   ul {
-    display: flex;
-
+    // border-top: 2px solid transparentize($sepia, 0.4);
+    // margin: 5px 0;
     li {
       display: inline-block;
-      float: left;
+      margin: 10px 10px;
       a {
-        img {
-          margin: 10px;
-          width: 40px;
-          height: 40px;
-        }
+
       }
     }
   }
+}
+
+.user-signup {
+  border-top: 10px solid $nightsky;
+  border-bottom: 10px solid $nightsky;
+  border-left: 1px solid $nightsky;
+  border-right: 1px solid $nightsky;
+  border-radius: 10px;
+  padding: 10px;
+  background: lighten($parchment, 10%);
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  position: fixed;
+  top: calc(50vh - 150px);
+  bottom: calc(50vh - 150px);
+  left: calc(50vw - 200px);
+  right: calc(50vw - 200px);
+  z-index: 21;
 }

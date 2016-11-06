@@ -7,12 +7,12 @@ class Api::GamesController < ApplicationController
       k = k.to_sym
       if k == :player_id
         @games = @games.includes(:game_signups).where(
-          game_signups: { user_id: v }
+          game_signups: { user_id: "#{v}" }
         ).references(:game_signups)
       elsif k == :gm_id
-        @games = @games.where(user_id: v)
+        @games = @games.where(user_id: "#{v}")
       elsif [:title, :description, :system].include?(k)
-        @games = @games.where(k => v)
+        @games = @games.where(k => "#{v}")
       end
     end
   end

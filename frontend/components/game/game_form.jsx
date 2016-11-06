@@ -37,16 +37,6 @@ class GameForm extends React.Component {
     );
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   console.log('CWRP');
-  //   console.log(nextProps);
-  //   console.log(this.props);
-  //   if (this.props.edit) {
-  //     console.log(this.props);
-  //     this.setState(this.props.gameDetail);
-  //   }
-  // }
-
   handleChange(e) {
     e.preventDefault();
     let targ = e.target;
@@ -64,8 +54,6 @@ class GameForm extends React.Component {
   }
 
   render() {
-    console.log("STATE", this.state);
-    console.log("PROPS", this.props);
     let {edit, gameDetail, currentUser, type, processForm} = this.props;
     return (
       <section className="content-center">
@@ -81,15 +69,13 @@ class GameForm extends React.Component {
               <input type="text" id="system" placeholder="System: "
                      value={this.state.system || (!this.state.changed.system && edit && gameDetail.system) || "" }/>
               <br/>
+              <input type="text" id="max_players" placeholder="Number of Players: "
+                value={this.state.max_players ||
+                  (edit && !this.state.changed.max_players && gameDetail.max_players) || ""}/>
+                <br/>
               <textarea id="description" placeholder="Description: "
                         value={this.state.description || (edit && !this.state.changed.description && gameDetail.description) || ""}/>
 
-              <br/>
-              <label>Max Players:
-                <input type="number" id="max_players" min="0"
-                       value={this.state.max_players ||
-                                     (edit && !this.state.changed.max_players && gameDetail.max_players)}/>
-             </label>
               <br/>
               <label>Active?
                 <select id="active" placeholder="Active? ">

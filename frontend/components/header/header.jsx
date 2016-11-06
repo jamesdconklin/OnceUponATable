@@ -10,6 +10,7 @@ class Header extends React.Component {
     super(props);
   }
 
+
   render() {
     let {userId, userName, login, logout} = this.props;
     return (
