@@ -20,7 +20,7 @@ class Api::PlayersController < ApplicationController
     p "params", game_signup_params
     @signup = GameSignup.find_by(game_signup_params)
     if @signup
-      if @signup.game.gm == current_user || signup.user == current_user
+      if @signup.game.gm == current_user || @signup.user == current_user
         @signup.destroy
         render json: @signup
       else

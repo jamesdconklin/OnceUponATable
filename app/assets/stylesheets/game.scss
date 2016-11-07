@@ -14,11 +14,7 @@
 }
 
 .game-index-item {
-  background-color: $oak;
-
-}
-
-.game-index-item {
+  border-radius: 10px 10px 0 0;
   box-sizing: border-box;
   background: lighten($parchment, 10%);
   margin: 15px;
@@ -144,7 +140,10 @@
   h1 {
     padding: 5px 10px;
     text-shadow: 0 1px $oak, 0 2px $oak;
-    box-shadow: 0 5px transparentize($oak, 0.7);
+    box-shadow: 0 1px transparentize($nightsky, 0.9),
+                0 2px transparentize($nightsky, 0.9),
+                0 3px transparentize($nightsky, 0.9),
+                0 4px transparentize($nightsky, 0.9);
 
 
     background-color: $nightsky;
@@ -160,6 +159,7 @@
 
         // border: 1px solid yellow;
         td {
+          min-width: 300px;
           padding: 5px 10px 10px 10px;
           a {
             text-decoration: underline;
@@ -183,28 +183,110 @@
     li {
       display: inline-block;
       margin: 10px 10px;
-      a {
+      position: relative;
+      div.player-link {
+        a {
 
+        }
+
+        .icon.small {
+          position: absolute;
+          top: 30px;
+          right: 0px;
+        }
       }
     }
   }
 }
 
 .user-signup {
-  border-top: 10px solid $nightsky;
-  border-bottom: 10px solid $nightsky;
-  border-left: 1px solid $nightsky;
-  border-right: 1px solid $nightsky;
-  border-radius: 10px;
-  padding: 10px;
-  background: lighten($parchment, 10%);
+  box-sizing: border-box;
+  // border-radius: 10px 10px 0 0;
+
   width: 400px;
   height: 300px;
-  margin: 0 auto;
   position: fixed;
   top: calc(50vh - 150px);
   bottom: calc(50vh - 150px);
   left: calc(50vw - 200px);
   right: calc(50vw - 200px);
   z-index: 21;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 10px transparentize($nightsky, 0.5);
+
+  & > div > .icon.small {
+    border: 2px solid $starlight;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    color: $starlight;
+    background: lighten($nightsky, 10%);
+  }
+
+  .user-signup-header {
+    box-sizing: inherit;
+    padding: 10px;
+    background-color: $nightsky;
+    color: $starlight;
+    text-size: 20px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 1px transparentize($nightsky, 0.9),
+                0 2px transparentize($nightsky, 0.9),
+                0 3px transparentize($nightsky, 0.9),
+                0 4px transparentize($nightsky, 0.9);
+  }
+
+  .user-signup-body {
+    border-bottom: 1px solid $nightsky;
+    border-left: 1px solid $nightsky;
+    border-right: 1px solid $nightsky;
+    background: lighten($parchment, 10%);
+    padding: 10px;
+    font-size: 16px;
+
+    input {
+      box-sizing: border-box;
+      width: calc(100% - 20px);
+      margin: 10px;
+      padding: 5px;
+    }
+
+    ul {
+      height: 250px;
+      padding: 0 5px;
+      border-top: 2px solid transparentize($sepia, 0.5);
+      overflow: scroll;
+
+      li {
+        display: flex;
+        box-sizing: content-box;
+        border-bottom: 1px solid transparentize($oak, 0.7);
+        padding: 5px 10px;
+        // margin: 10px;
+
+
+        .icon.small {
+          margin: 0 10px;
+          position: inherit;
+          top: auto;
+          left: auto;
+          right: auto;
+          bottom: auto;
+        }
+
+        div {
+          height: auto;
+          div {
+            display: inline-block;
+          }
+        }
+
+        &:hover, &.selected {
+          background: transparentize($oak, 0.7);
+        }
+      }
+    }
+
+  }
+
 }

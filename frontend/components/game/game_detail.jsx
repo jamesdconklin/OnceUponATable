@@ -23,6 +23,8 @@ class GameDetail extends React.Component {
     this.setState({modalOpen: true});
   }
 
+  _onModalOpen() {
+  }
 
   _userLinks(game, user) {
     let edit, play;
@@ -33,7 +35,7 @@ class GameDetail extends React.Component {
 
     if (user.id === game.gm.id) {
       edit = (
-        <Link to={`/games/${game.id}/edit`}>
+        <Link className="button" to={`/games/${game.id}/edit`}>
           Edit Game
         </Link>
       );
@@ -45,7 +47,7 @@ class GameDetail extends React.Component {
       .concat(game.gm.id).
         indexOf(user.id) >= 0) {
       play = (
-        <Link to={`/canvas/${game.id}`}>
+        <Link className="button" to={`/canvas/${game.id}`}>
           Join Game
         </Link>
       );
@@ -54,7 +56,7 @@ class GameDetail extends React.Component {
     }
 
     return (
-      <div>
+      <div className="flex-around">
         {edit}
         <br/>
         {play}
@@ -65,74 +67,80 @@ class GameDetail extends React.Component {
   render() {
     let { gameDetail, currentUser, enlist, deEnlist } = this.props;
     return (
-      <section className="content-center">
-        <section className="game-detail-main">
-          <Modal isOpen={this.state.modalOpen} onRequestClose={this._onModalClose}
-                 className="user-signup">
-            <UserSignupContainer onModalClose={this._onModalClose}/>
-          </Modal>
-          <section className="flex-between">
-            <div className="game-detail-img">
-              <img src={gameDetail.image_url}/>
-              {this._userLinks(gameDetail, currentUser)}
-            </div>
-            <div className="game-detail-body">
-              <h1>{gameDetail.title}</h1>
-              <div className="table-wrap">
-                <table>
-                  <tbody>
-                    <tr><th>GM: </th><td><Link to={`/users/${gameDetail.gm.id}`}>
-                      {gameDetail.gm.username}
-                    </Link></td></tr>
-                    <tr><th>System: </th><td>{gameDetail.system}</td></tr>
-                    <tr><th>Active: </th><td>{gameDetail.active ? "Yes" : "No"}</td></tr>
-                    <tr><th>Description: </th><td>
-                      {gameDetail.description.split(/\n|\r|\r\n/).map(
-                        (p,i) => <p key={i}>{p}</p>
-                      )}
-                    </td></tr>
-                    <tr>
-                      <th>Players: </th>
-                      <td>
-                        {Object.keys(gameDetail.players).length}/{gameDetail.max_players || "--"}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+      <section className="content center-horiz">
+        <section className="content-center">
+          <section className="game-detail-main">
+            <Modal isOpen={this.state.modalOpen}
+                   onRequestClose={this._onModalClose}
+                   onAfterOpen={this._onModalOpen}
+                   className="user-signup">
+              <UserSignupContainer onModalClose={this._onModalClose}/>
+            </Modal>
+            <section className="flex-between">
+              <div className="game-detail-img">
+                <img src={gameDetail.image_url}/>
+                {this._userLinks(gameDetail, currentUser)}
               </div>
-              <div className="game-detail-players">
-                <ul>
-                  {Object.values(gameDetail.players).map(
-                    (player) => <PlayerLink key={player.id} player={player}
-                                            deEnlist={deEnlist(gameDetail.id, player.id)}/>
-                  )}
-                  {(currentUser && (currentUser.id === gameDetail.gm.id ||
-                    gameDetail.players.map(p=>p.id).
-                      indexOf(currentUser.id) < 0
-                    )) ? (
-                    <li key="plus">
-                      <a onClick={ (e) => {
-                          e.preventDefault();
-                          if (gameDetail.gm.id === currentUser.id) {
-                            this._openModal();
-                          } else {
-                            console.log("SIGNUP");
-                            enlist(gameDetail.id, currentUser.id)(e);
+              <div className="game-detail-body">
+                <h1>{gameDetail.title}</h1>
+                <div className="table-wrap">
+                  <table>
+                    <tbody>
+                      <tr><th>GM: </th><td><Link to={`/users/${gameDetail.gm.id}`}>
+                        {gameDetail.gm.username}
+                      </Link></td></tr>
+                      <tr><th>System: </th><td>{gameDetail.system}</td></tr>
+                      <tr><th>Active: </th><td>{gameDetail.active ? "Yes" : "No"}</td></tr>
+                      <tr><th>Description: </th><td>
+                        {gameDetail.description.split(/\n|\r|\r\n/).map(
+                          (p,i) => <p key={i}>{p}</p>
+                        )}
+                      </td></tr>
+                      <tr>
+                        <th>Players: </th>
+                        <td>
+                          {Object.keys(gameDetail.players).length}/{gameDetail.max_players || "--"}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="game-detail-players">
+                  <ul>
+                    {Object.values(gameDetail.players).map(
+                      (player) => <PlayerLink key={player.id} player={player}
+                                              gmId={gameDetail.gm.id} userId={currentUser.id}
+                                              deEnlist={deEnlist(gameDetail.id, player.id)}/>
+                    )}
+                    {(currentUser && (currentUser.id === gameDetail.gm.id ||
+                      gameDetail.players.map(p=>p.id).
+                        indexOf(currentUser.id) < 0
+                      )) ? (
+                      <li key="plus">
+                        <div className="player-link">
+                          <a onClick={ (e) => {
+                              e.preventDefault();
+                              if (gameDetail.gm.id === currentUser.id) {
+                                this._openModal();
+                              } else {
+                                enlist(gameDetail.id, currentUser.id)(e);
+                              }
+                            }
                           }
-                        }
-                      }
-                         href="javascript.void()">
-                        <div className="icon">
-                          <div>
-                            <span>+</span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  ) : ""}
-                </ul>
+                             href="javascript.void()">
+                            <div className="icon">
+                              <div>
+                                <span>+</span>
+                              </div>
+                            </div>
+                          </a>
+                      </div>
+                      </li>
+                    ) : ""}
+                  </ul>
+                </div>
               </div>
-            </div>
+            </section>
           </section>
         </section>
       </section>

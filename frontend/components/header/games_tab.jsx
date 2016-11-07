@@ -12,7 +12,7 @@ class GamesTab extends React.Component {
   componentDidMount() {
     $(window).click((e) => {
       let t = e.target;
-      while (t !== document && t.id !== "game-header" && t.id !== "root") {
+      while (t != document && t.id !== "game-header" && t.id !== "root") {
         t = t.parentNode;
       }
       if (t.id !== "game-header") {
@@ -49,7 +49,7 @@ class GamesTab extends React.Component {
         <div className="center-vert user-tab">
           <Link className="header-link"
                 to="/signup">Sign Up</Link>
-              <div className="nav-dropDown hidden"/>
+              <div className="nav-dropdown hidden"/>
         </div>
       );
     }

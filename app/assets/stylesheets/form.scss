@@ -2,51 +2,99 @@
 
 form {
   color: $sepia;
-  padding: 10px;
+  // padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: lighten($parchment, 10%);
-  border: 2px solid $oak;
-  border-radius: 2px;
+  // border: 2px solid $oak;
   margin: 0 auto;
   box-shadow: 5px 5px transparentize($sepia, 0.9);
 
-  h1 {
-    font-size: 16px;
-    text-decoration: underline;
+  * {
+    outline: none;
   }
 
-  input[type=text],
-  input[type=password],
-  textarea {
-    border-bottom: 1px solid $sepia;
-  }
-
-  .button{
-    text-align: center;
-    cursor: pointer;
-    background-color: $parchment;
-    box-shadow: 2px 2px transparentize($sepia, 0.6);
-  }
-
-  input, select, textarea, ul, button {
-    margin: 5px;
-    padding: 5px;
-  }
-
-  textarea {
-    height:150px;
-    width: 300px;
+  .form-header {
+    border-radius: 10px 10px 0 0;
+    // border-top: 10px solid $nightsky;
+    background: $nightsky;
     padding: 10px;
-    border-left: 1px solid transparentize($sepia, .7);
-    border-right: 1px solid transparentize($sepia, .7);
-    border-top: 1px solid transparentize($sepia, .7);
+    h1 {
+      color: $starlight;
+      text-shadow: 0 1px $oak;
+      font-size: 24px;
+      text-decoration: underline;
+    }
+
+  }
+
+  .form-body {
+    background-color: lighten($parchment, 10%);
+    padding: 10px;
+    width: 350px;
+    input[type=text],
+    input[type=password],
+    textarea {
+      box-sizing: border-box;
+      width: 300px;
+      border-bottom: 1px solid $sepia;
+    }
+
+    & > input, & > .button, & > select, & > textarea {
+      margin: 5px 10px;
+      padding: 10px;
+    }
+    //
+    // .button{
+    //   font-size: 18px;
+    //   color: $starlight;
+    //   border-radius: 5px;
+    //   font-weight: bold;
+    //   text-align: center;
+    //   cursor: pointer;
+    //   background: $nightsky;
+    //   box-shadow: 2px 2px transparentize($sepia, 0.7);
+    //   &:hover {
+    //     color: white;
+    //     background: lighten($nightsky, 10%);
+    //     text-shadow: 0px 0px 5px $starglow;
+    //   }
+    // }
+
+
+    textarea {
+      height:150px;
+      width: 300px;
+      padding: 10px;
+      border-left: 1px solid transparentize($sepia, .7);
+      border-right: 1px solid transparentize($sepia, .7);
+      border-top: 1px solid transparentize($sepia, .7);
+    }
   }
 
 }
 
 ::-webkit-input-placeholder {
   color: transparentize(#777, 0.5);
+}
+
+.button{
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+
+  font-size: 18px;
+  color: $starlight;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  background: $nightsky;
+  box-shadow: 2px 2px transparentize($sepia, 0.7);
+  &:hover {
+    color: white;
+    background: lighten($nightsky, 10%);
+    text-shadow: 0px 0px 5px $starglow;
+  }
 }

@@ -33,12 +33,12 @@ class Api::GamesController < ApplicationController
     if @game.save
       render :show
     else
-      render status: :unprocessable_entity,
+      render status: 418, #  :unprocessable_entity,
              json: @game.errors.full_messages
     end
-  rescue ActionController::ParameterMissing
+  rescue ActionController::ParameterMissing => pm
     render status: :unprocessable_entity,
-           json: {}
+           json: [pm.message]
   end
 
   def update

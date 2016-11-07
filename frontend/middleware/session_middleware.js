@@ -11,7 +11,10 @@ import { hashHistory } from 'react-router';
 
 
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
-  const errorHandler = error => dispatch(receiveErrors(error));
+  const errorHandler = error => {
+    dispatch(receiveErrors(error));
+  };
+
   const sessionSuccess = user => dispatch(receiveCurrentUser(user));
   // console.log("SessionMiddleware caught", action);
   switch (action.type) {

@@ -8,6 +8,7 @@ import { fetchGame, signUp, signOff, createGame, updateGame }
 import { hashHistory } from 'react-router';
 
 export default ({dispatch}) => next => action => {
+  console.log("GDM caught", action);
   switch (action.type) {
     case CREATE_GAME:
       createGame(action.game)(

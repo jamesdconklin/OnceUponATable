@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
       if name.length == 0
         @users = []
       else
-        @users = @users.where("lower(username) LIKE ?", "%#{name}%")
+        @users = @users.where("lower(username) LIKE ?", "%#{name.downcase}%")
       end
     end
   end

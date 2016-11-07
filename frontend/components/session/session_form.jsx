@@ -60,26 +60,32 @@ class SessionForm extends React.Component {
     let altRoute = `/${altType.toLowerCase().split(' ').join('')}`;
 
     return (
-      <section className="content-center">
-        <section className="center-vert">
-          <section className="center-horiz">
-            <form id="user-session-form"
-                  onSubmit={this.handleSubmit}
-                  onChange={this.handleChange}>
-              <h1>{this.props.formType}</h1>
-              <input type="text" id="username" placeholder="Username: " />
-              <br/>
-              <input type="password" id="password" placeholder="Password: " />
-              <br/>
-              { this.renderErrors() }
-              <button type="submit" className="button">
-                {this.props.formType}
-              </button>
-              <button className="button"
-                     onClick={this.demoLogin}>
-                Demo Login
-              </button>
-            </form>
+      <section className="content center-horiz">
+        <section className="content-center">
+          <section className="center-vert">
+            <section className="center-horiz">
+              <form id="user-session-form"
+                    onSubmit={this.handleSubmit}
+                    onChange={this.handleChange}>
+                <div className="form-header">
+                  <h1>{this.props.formType}</h1>
+                </div>
+                <div className='form-body'>
+                  <input type="text" id="username" autoFocus placeholder="Username: " />
+                  <br/>
+                  <input type="password" id="password" placeholder="Password: " />
+                  <br/>
+                  { this.renderErrors() }
+                  <button type="submit" className="button">
+                    {this.props.formType}
+                  </button>
+                  <button className="button"
+                         onClick={this.demoLogin}>
+                    Demo Login
+                  </button>
+                </div>
+              </form>
+            </section>
           </section>
         </section>
       </section>

@@ -68,14 +68,7 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
     display: none;
 }
 
-.splash-desc-container, .splash-image-container{
-  width: 50%;
-  padding: 15px;
-}
 
-.splash-desc {
-  padding: 10px;
-}
 
 .content-center {
   width: $content_width;
@@ -100,7 +93,7 @@ $clear_vertical_space: calc(100vh - #{$fixed_vertical_space});
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%
+  height: 100%;
 }
 
 .header-nav > * {

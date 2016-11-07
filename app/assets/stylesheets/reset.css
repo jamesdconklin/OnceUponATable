@@ -19,10 +19,10 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 14px;
+	font-size: inherit;
 	font: inherit;
 	vertical-align: baseline;
-	background: inherit;
+	/*background: inherit;*/
   color: inherit;
 	text-align: inherit;
 	outline: none;

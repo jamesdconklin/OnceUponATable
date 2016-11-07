@@ -6,9 +6,7 @@ import HeaderContainer from './header/header_container';
 const App = ({ children }) => (
   <div className="App">
     <HeaderContainer />
-    <section className="content center-horiz">
-        {children}
-    </section>
+    {children}
     <Footer />
   </div>
 );

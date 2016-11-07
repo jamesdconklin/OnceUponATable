@@ -21,10 +21,13 @@ export const updateGame = (game) => ({
   game
 });
 
-export const createGame = (game) => ({
-  type: CREATE_GAME,
-  game
-});
+export const createGame = (game) => {
+  return ({
+    type: CREATE_GAME,
+    game
+  });
+};
+
 
 export const receiveGameDetail = (game) => ({
   type: RECEIVE_GAME_DETAIL,
