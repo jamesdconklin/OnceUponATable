@@ -8,8 +8,6 @@ import { login,logout, signup, receiveErrors, receiveCurrentUser }
 import * as api from '../util/session_api_util';
 import { hashHistory } from 'react-router';
 
-
-
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
   const errorHandler = error => {
     dispatch(receiveErrors(error));
@@ -20,7 +18,9 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   switch (action.type) {
     case LOGOUT:
       api.logout(
-        () => next(action)
+        () => {
+          next(action);
+        }
       );
       dispatch(receiveCurrentUser(null));
       break;

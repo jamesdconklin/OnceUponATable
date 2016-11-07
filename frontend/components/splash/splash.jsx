@@ -8,8 +8,8 @@ class Splash extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.router.push("/");
+    if (nextProps.user) {
+      this.props.router.push(`/users/${nextProps.user.id}`);
     }
   }
 

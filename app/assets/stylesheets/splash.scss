@@ -3,14 +3,8 @@ $sepia-shadow : transparentize($sepia, 0.7);
 
 .splash-bg {
   box-sizing: border-box;
-  // background-image: url("http://www.diyit.co.nz/wp-content/uploads/2012/11/wooden-table.jpg");
-  // background-position: center;
-  // background-size: cover;
-
 
   .content-center {
-    // border-top: 25px solid transparentize($parchment, 0.15);
-    // border-bottom: 25px solid transparentize($parchment, 0.15);
     background-color: transparentize($parchment, 0.25);
 
     .splash-desc-container {
@@ -47,29 +41,8 @@ $sepia-shadow : transparentize($sepia, 0.7);
           p {
             margin: 10px 5px;;
           }
-
-          // a {
-          //   color: $starlight;
-          //   display: inline-block;
-          //   margin: 5px;
-          //   background: $nightsky;
-          //   padding: 10px;
-          //   border-radius: 4px;
-          //   font-weight: bold;
-          //   cursor: pointer;
-          //   box-shadow: 2px 2px transparentize($sepia, 0.7);
-          //
-          //   &:hover {
-          //     color: white;
-          //     background: lighten($nightsky, 10%);
-          //     text-shadow: 0px 0px 5px $starglow;
-          //   }
-          // }
-
         }
-
       }
-
     }
 
     .splash-image-container {
@@ -80,7 +53,6 @@ $sepia-shadow : transparentize($sepia, 0.7);
         top: 20px;
         left: 20px;
         border: 1px solid $oak;
-        // width: 500px;
         height: auto;
         box-shadow: 1px 1px $sepia-shadow, 2px 2px $sepia-shadow,
                     3px 3px $sepia-shadow, 4px 4px $sepia-shadow,
@@ -88,6 +60,4 @@ $sepia-shadow : transparentize($sepia, 0.7);
       }
     }
   }
-
-
 }

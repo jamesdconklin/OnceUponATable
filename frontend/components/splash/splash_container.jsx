@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Splash from './splash';
 
 const mapStateToProps = (state) => ({
-  session: state.session.currentUser
+  user: state.session.currentUser
 });
 
 
