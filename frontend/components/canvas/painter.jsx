@@ -9,10 +9,20 @@ class Painter extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.canvas_view && this.canvas_view.send(
-      nextProps.canvas,
-      nextProps.update(nextProps.routeParams.game_id)
-    );
+    this.canvas_view && this._setupCanvas(nextProps);
+  }
+
+  _setupCanvas(props) {
+    let canvas = document.getElementById("game-canvas");
+    let context = canvas.getContext("2d");
+    let idUpdate = this.props.update(props.routeParams.game_id);
+    this.canvas_view.send({
+      state: props.canvas,
+      update: idUpdate,
+      el: canvas,
+      ctx: context
+    });
+
   }
 
   componentDidMount() {
@@ -23,12 +33,17 @@ class Painter extends React.Component {
       context, canvas,
       idUpdate
     );
-    this.canvas_view.send(this.props.canvas, idUpdate);
+    // let boundSetup = this._setupCanvas.bind(this);
+    // window.addEventListener("resize", (e) => {
+    //   console.log("RESIZE");
+    //   boundSetup(this.props);
+    // });
+    this._setupCanvas(this.props);
     this.canvas_view.start();
   }
 
   render() {
-    return <div>TEST</div>;
+    return <div></div>;
   }
 }
 

@@ -14,3 +14,9 @@ node_modules
 /log/*
 !/log/.keep
 /tmp
+
+notes_to_self.txt
+*api_key*
+
+# Ignore application configuration
+/config/application.yml

@@ -13,6 +13,7 @@ class CanvasState {
     this.height = ctx.canvas.clientHeight;
     this.ctx = ctx;
     this.update = update;
+    this.moved = false;
 
     this.ephemeral = null;
     this.movedObject = null;
@@ -20,15 +21,33 @@ class CanvasState {
     this.clickDiff = [0,0];
   }
 
-  send(state, update) {
-    this.update = update;
-    this.reduxState = state;
+  send(opts) {
+    this.update = opts.update;
+    this.reduxState = opts.state;
+    this.ctx = opts.ctx;
     this._populateShapes();
     this.ephemeral = null;
     this.movedObject = null;
-    this.focusObject = null;
+    if (this.focusObject && this._flatten(
+          this.reduxState, ['token', 'map', 'id']
+        ).indexOf(this.focusObject.id) < 0) {
+
+      this.focusObject = null;
+    }
+
     this.draw();
   }
+
+  _flatten(obj, keys, param) {
+    var ret = [];
+    keys.forEach(
+      key => obj[key].forEach(
+        el => ret.push(el[param])
+      )
+    );
+    return ret;
+  }
+
 
   _populateShapes() {
     this.token = this.reduxState.token.map(this._createObject);
@@ -36,13 +55,37 @@ class CanvasState {
   }
 
   _createObject(el) {
-    switch (el.class) {
+    switch (el.asset_class) {
       case "square":
         return new Square(el);
       case "circle":
       return new Square(el);
       default:
       return new Square(el);
+    }
+  }
+
+  _deleteFocusObject(e) {
+    e.stopPropagation();
+    this.focusObject.asset_class="delete";
+    this.token.splice(this.token.indexOf(this.focusObject),1);
+    this.update('token', this.focusObject);
+    this.focusObject = null;
+    this.movedObject = null;
+  }
+
+  handleKeypress(e) {
+    if (this.focusObject) {
+      switch (e.key) {
+        case "Delete":
+          this._deleteFocusObject(e);
+          break;
+        case "Backspace":
+          this._deleteFocusObject(e);
+          break;
+        default:
+          console.log(e);
+      }
     }
   }
 
@@ -56,8 +99,11 @@ class CanvasState {
       this.ephemeral = null;
     }
     if (this.movedObject) {
-      this.update('token', this.movedObject);
+      if (this.moved) {
+        this.update('token', this.movedObject);
+      }
       this.movedObject = null;
+      this.moved = false;
     }
     this.movedObject = null;
     this.ephemeral = null;
@@ -81,10 +127,11 @@ class CanvasState {
       }
     }
 
-    this.focusObject = null;
     this.movedObject = null;
 
     this.ephemeral = this.ephemeral || new Square({pos: [layerX, layerY], height: 1, width: 1});
+    this.focusObject = this.ephemeral;
+
     this.draw();
   }
 
@@ -95,11 +142,12 @@ class CanvasState {
       this.ephemeral.width = layerX-eX;
       this.ephemeral.height = layerY-eY;
     } else if (this.movedObject) {
+      this.moved = true;
       let newX = layerX - this.clickDiff[0];
       let newY = layerY - this.clickDiff[1];
       this.movedObject.pos = [newX, newY];
     }
-    this.draw();
+    (this.ephemeral || this.moved) && this.draw();
   }
 
   draw() {

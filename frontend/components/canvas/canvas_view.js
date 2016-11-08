@@ -7,15 +7,23 @@ class CanvasView {
     this.canvas = new CanvasState(this.ctx, update);
   }
 
-  send(...args) {
-    this.canvas.send(...args);
+  send(opts) {
+    this.canvas.send(opts);
   }
-
 
   bindMouseDownHandler() {
     this.el.addEventListener("mousedown",
       (e) => {
         this.canvas.handleMouseDown(e);
+      }
+    );
+  }
+
+  bindKeyHandler() {
+    console.log("BKH");
+    this.el.addEventListener("keydown",
+      (e) => {
+        this.canvas.handleKeypress(e);
       }
     );
   }
@@ -40,12 +48,8 @@ class CanvasView {
       this.bindMouseDownHandler();
       this.bindMouseUpHandler();
       this.bindMouseMoveHandler();
-    // window.setInterval(
-    //   () => {
-    //     this.canvas.draw();
-    //   },
-    //   40
-    // );
+      this.bindKeyHandler();
+
     this.canvas.draw();
   }
 }

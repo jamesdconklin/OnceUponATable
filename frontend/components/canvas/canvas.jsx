@@ -1,8 +1,10 @@
 import React from 'react';
 
 export default ({children}) =>  (
-  <div>
-    <canvas id="game-canvas" width="962" height="642"></canvas>
+  <div overflow="scroll">
+    <canvas id="game-canvas" width="1920" height="1080" tabIndex='1'>
+      Game Map
+    </canvas>
     {children}
   </div>
 );

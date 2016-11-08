@@ -4,12 +4,12 @@ import CanvasObject from './canvas_object';
 class Square extends CanvasObject {
   constructor(options) {
     super(options);
+    this.asset_class = "square";
     this.width = options.width || 80;
     this.height = options.height || 80;
   }
 
   draw(ctx) {
-    // // console.log(this.pos);
     let saveStrokeStyle = ctx.strokeStyle;
     let saveLineWidth = ctx.lineWidth;
     let saveFillStyle = ctx.fillStyle;

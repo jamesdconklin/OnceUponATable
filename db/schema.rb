@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105054107) do
+ActiveRecord::Schema.define(version: 20161108192640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "title",                           null: false
+    t.string   "asset_class", default: "square",  null: false
+    t.integer  "width",       default: 80,        null: false
+    t.integer  "height",      default: 80,        null: false
+    t.string   "lineColor",   default: "#000000", null: false
+    t.string   "fillColor",   default: "#777777", null: false
+    t.integer  "lineWidth",   default: 3,         null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "image_url"
+  end
+
+  add_index "assets", ["title"], name: "index_assets_on_title", using: :btree
 
   create_table "game_signups", force: :cascade do |t|
     t.integer  "user_id",                        null: false

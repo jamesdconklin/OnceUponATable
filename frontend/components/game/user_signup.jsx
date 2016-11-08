@@ -24,7 +24,7 @@ class UserSignup extends React.Component {
   componentDidMount() {
     $(".user-signup").keydown(
       (e) => {
-        let qSize = this.state.queryResults.length;
+        let qSize = this._ignorePresentPlayers().length;
         let index = Math.max(0, Math.min(this.state.index, 6, qSize-1));
 
         switch (e.keyCode) {

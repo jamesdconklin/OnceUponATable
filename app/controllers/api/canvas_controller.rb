@@ -25,7 +25,11 @@ class Api::CanvasController < ApplicationController
           delta = obj.merge(delta)
         end
       end
-      layer_state.push(delta)
+      if delta["asset_class"] == "delete"
+        print "DELETING OBJECT"
+      else
+        layer_state.push(delta)
+      end
       state[layer] = layer_state
       if game.update(canvas_state: JSON.dump(state))
         render json: state
@@ -65,7 +69,7 @@ class Api::CanvasController < ApplicationController
 
   def canvas_params
     params.require(:delta).permit(
-      :id, :class, :width, :height, :lineColor,
+      :id, :asset_class, :width, :height, :lineColor,
       :lineWidth, :fillColor, pos: []
     )
   end

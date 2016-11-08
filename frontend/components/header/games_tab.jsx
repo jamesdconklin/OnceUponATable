@@ -19,7 +19,7 @@ class GamesTab extends React.Component {
       while (t && t != document && t.id !== "game-header" && t.id !== "root") {
         t = t.parentNode;
       }
-      if (t.id !== "game-header") {
+      if (t && t.id !== "game-header") {
         this.setState({dropDown: false});
       }
     });
