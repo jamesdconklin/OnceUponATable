@@ -154,12 +154,13 @@
   .table-wrap {
     padding: 0 5px;
     table {
+      width: 100%;
       tr {
         border-top: 1px solid transparentize($oak, 0.7);
 
         // border: 1px solid yellow;
         td {
-          min-width: 300px;
+          // min-width: 300px;
           padding: 5px 10px 10px 10px;
           a {
             text-decoration: underline;

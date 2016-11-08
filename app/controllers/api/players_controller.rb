@@ -17,7 +17,6 @@ class Api::PlayersController < ApplicationController
   end
 
   def destroy
-    p "params", game_signup_params
     @signup = GameSignup.find_by(game_signup_params)
     if @signup
       if @signup.game.gm == current_user || @signup.user == current_user

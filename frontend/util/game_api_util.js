@@ -82,6 +82,8 @@ export const signUp = (game_id, user_id) => (success, error) => {
 export const signOff = (game_id, user_id) => (success, error) => {
   success = success || console.log;
   error = error || console.log;
+  console.log("DE ENLIST");
+
 
   $.ajax({
     url: `/api/games/${game_id}/players/${user_id}`,

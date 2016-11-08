@@ -45,7 +45,7 @@ class Api::GamesController < ApplicationController
     # debugger
     @game = Game.find_by(id: params[:id])
     if @game
-      return unless require_login(@game.user_id)
+      return unless require_login([@game.user_id])
       if @game.update(game_params)
         render :show
       else
@@ -61,7 +61,7 @@ class Api::GamesController < ApplicationController
   def destroy
     @game = Game.find_by(id: params[:id])
     if @game
-      return unless require_login(@game.user_id)
+      return unless require_login([@game.user_id])
       @game.destroy
       render :show
     else

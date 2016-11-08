@@ -107,10 +107,15 @@ class GameDetail extends React.Component {
                 </div>
                 <div className="game-detail-players">
                   <ul>
-                    {Object.values(gameDetail.players).map(
-                      (player) => <PlayerLink key={player.id} player={player}
-                                              gmId={gameDetail.gm.id} userId={currentUser.id}
-                                              deEnlist={deEnlist(gameDetail.id, player.id)}/>
+                    {Object.keys(gameDetail.players).map(
+                      (key) => {
+                        let player = gameDetail.players[key];
+                        return (
+                          <PlayerLink key={player.id} player={player}
+                            gmId={gameDetail.gm.id} userId={currentUser && currentUser.id}
+                            deEnlist={deEnlist(gameDetail.id, player.id)}/>
+                        );
+                      }
                     )}
                     {(currentUser && (currentUser.id === gameDetail.gm.id ||
                       gameDetail.players.map(p=>p.id).

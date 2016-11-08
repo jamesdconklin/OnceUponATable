@@ -9,12 +9,18 @@ import GameDetailContainer from './game/game_detail_container';
 import { requestGameDetail } from '../actions/game_detail_actions';
 import GameFormContainer from './game/game_form_container';
 import Canvas from './canvas/canvas';
+import PainterContainer from './canvas/painter_container';
+import { requestCanvas } from '../actions/canvas_actions';
 
 import { requestListedGames, requestListedUser }
   from '../actions/game_list_actions';
 
 
 const Root = ({store}) => {
+  const _loadCanvas = ({params}) => {
+    store.dispatch(requestCanvas(params.game_id));
+  };
+
   const _loadGameDetail = ({params}) => {
     store.dispatch(requestGameDetail(params.game_id));
   };
@@ -47,7 +53,10 @@ const Root = ({store}) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/canvas/:game_id" component={Canvas}/>
+        <Route path="/canvas" component={Canvas}>
+          <Route path="/canvas/:game_id" component={PainterContainer}
+                 onEnter={_loadCanvas}/>
+        </Route>
         <Route path="/" component={App} >
           <IndexRoute component={SplashContainer}
                       onEnter={_redirectIfLoggedIn}/>

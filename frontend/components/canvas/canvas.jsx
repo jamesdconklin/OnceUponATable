@@ -1,5 +1,8 @@
 import React from 'react';
 
-export default (props) =>  (
-  <h1>CANVAS GOES HERE</h1>
+export default ({children}) =>  (
+  <div>
+    <canvas id="game-canvas" width="962" height="642"></canvas>
+    {children}
+  </div>
 );

@@ -2,16 +2,16 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # TODO enable the below in production.
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
 
-  def require_login(user_id = nil)
+  def require_login(user_ids = nil)
     if !current_user
       render status: :unauthorized,
              json: ["You must log in to use this method."]
       return false
-    elsif user_id && current_user.id != user_id
+    elsif user_ids && !user_ids.include?(current_user.id)
       render status: :forbidden,
-             json: ["You must be the requested asset's owner to use this method"]
+             json: ["You do not have permission to use this method."]
       return false
     end
     true

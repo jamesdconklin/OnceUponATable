@@ -14,15 +14,16 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   };
 
   const sessionSuccess = user => dispatch(receiveCurrentUser(user));
-  // console.log("SessionMiddleware caught", action);
+  console.log("SessionMiddleware caught", action);
   switch (action.type) {
     case LOGOUT:
       api.logout(
         () => {
+          dispatch(receiveCurrentUser(null));
+          hashHistory.push("/");
           next(action);
         }
       );
-      dispatch(receiveCurrentUser(null));
       break;
 
     case LOGIN:

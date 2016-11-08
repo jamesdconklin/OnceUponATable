@@ -9,10 +9,14 @@ class GamesTab extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    $(window).off("click");
+  }
+
   componentDidMount() {
     $(window).click((e) => {
       let t = e.target;
-      while (t != document && t.id !== "game-header" && t.id !== "root") {
+      while (t && t != document && t.id !== "game-header" && t.id !== "root") {
         t = t.parentNode;
       }
       if (t.id !== "game-header") {
