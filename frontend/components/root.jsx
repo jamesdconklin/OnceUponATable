@@ -55,7 +55,7 @@ const Root = ({store}) => {
       <Router history={hashHistory}>
         <Route path="/canvas" component={Canvas}>
           <Route path="/canvas/:game_id" component={PainterContainer}
-                 onEnter={_loadCanvas}/>
+                 onEnter={_redirectIfLoggedOut && _loadCanvas}/>
         </Route>
         <Route path="/" component={App} >
           <IndexRoute component={SplashContainer}

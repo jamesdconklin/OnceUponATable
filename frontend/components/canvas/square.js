@@ -1,5 +1,6 @@
 import CanvasObject from './canvas_object';
 
+
 class Square extends CanvasObject {
   constructor(options) {
     super(options);

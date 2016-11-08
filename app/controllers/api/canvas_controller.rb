@@ -15,6 +15,7 @@ class Api::CanvasController < ApplicationController
     if game
       delta = canvas_params
       layer = params[:layer]
+      # debugger
       state = JSON.parse(game.canvas_state)
       layer_state = state[layer]
       layer_state.each.with_index do |obj, idx|

@@ -4,7 +4,7 @@ import CanvasObject from './canvas_object';
 import { merge } from 'lodash';
 
 class CanvasState {
-  constructor(ctx) {
+  constructor(ctx, update) {
     this.reduxState = {map: [], token: []};
     this.token = [];
     this.map = [];
@@ -12,6 +12,8 @@ class CanvasState {
     this.width = ctx.canvas.clientWidth;
     this.height = ctx.canvas.clientHeight;
     this.ctx = ctx;
+    this.populated = false;
+    this.update = update;
 
     this.ephemeral = null;
     this.movedObject = null;
@@ -19,14 +21,24 @@ class CanvasState {
     this.clickDiff = [0,0];
   }
 
-  send(state) {
+  send(state, update) {
     console.log("SEND: ", state);
+    this.update = update;
     this.reduxState = state;
+    this.populated = false;
+    this._populateShapes();
+    this.ephemeral = null;
+    this.movedObject = null;
+    this.focusObject = null;
   }
 
   _populateShapes() {
+    if (this.populated) {
+      return;
+    }
     this.token = this.reduxState.token.map(this._createObject);
     this.map = this.reduxState.map.map(this._createObject);
+    this.populated = true;
   }
 
   _createObject(el) {
@@ -41,15 +53,24 @@ class CanvasState {
   }
 
   handleMouseUp(e) {
+    console.log("Mouse Up");
     let {layerX, layerY } = e;
+    console.log(this.ephemeral);
     if (this.ephemeral && Math.min(
       this.ephemeral.width, this.ephemeral.height
     ) > 5) {
       console.log("PUSH");
       this.token.push(this.ephemeral);
+      this.update('token', this.ephemeral);
       this.ephemeral = null;
     }
+    if (this.movedObject) {
+      console.log("MOVED");
+      this.update('token', this.movedObject);
+      this.movedObject = null;
+    }
     this.movedObject = null;
+    this.ephemeral = null;
   }
 
   handleMouseDown(e) {
@@ -63,6 +84,7 @@ class CanvasState {
     let objects = this.token;
     for (var i = objects.length-1; i >= 0; i--) {
       if ((this.clickDiff = objects[i].isClicked(pos))) {
+        console.log('CLICK!');
         this.focusObject = objects[i];
         this.movedObject = objects[i];
         return;

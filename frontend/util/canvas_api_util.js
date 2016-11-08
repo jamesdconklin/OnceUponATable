@@ -23,7 +23,7 @@ export const fetchCanvas = (id) => (success, error) => {
 
 };
 
-export const updateCanvas = (id, layer, delta) => (success, error) => {
+export const patchCanvas = (id, layer, delta) => (success, error) => {
   success = success || console.log;
   error = error || console.log;
   $.ajax({

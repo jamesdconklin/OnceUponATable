@@ -1,14 +1,14 @@
 import CanvasState from './canvas_state';
 
 class CanvasView {
-  constructor(ctx, el) {
+  constructor(ctx, el, update) {
     this.ctx = ctx;
     this.el = el;
-    this.canvas = new CanvasState(this.ctx);
+    this.canvas = new CanvasState(this.ctx, update);
   }
 
-  send(state) {
-    this.canvas.send(state);
+  send(...args) {
+    this.canvas.send(...args);
   }
 
 
