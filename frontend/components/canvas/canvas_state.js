@@ -61,15 +61,13 @@ class CanvasState {
     ) > 5) {
       console.log("PUSH");
       this.token.push(this.ephemeral);
-      let sendEph = this.ephemeral;
+      this.update('token', this.ephemeral);
       this.ephemeral = null;
-      this.update('token', sendEph);
     }
     if (this.movedObject) {
       console.log("MOVED");
-      let sendMove = this.movedObject;
+      this.update('token', this.movedObject);
       this.movedObject = null;
-      this.update('token', sendMove);
     }
     // this.movedObject = null;
     // this.ephemeral = null;

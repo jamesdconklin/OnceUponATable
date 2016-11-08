@@ -15,7 +15,7 @@ class Game < ActiveRecord::Base
   end
 
   def setup_canvas
-    self.canvas_state = JSON.dump(token: [], map: []);
+    self.canvas_state ||= JSON.dump(token: [], map: []);
   end
 
   def gm_starts

@@ -7,7 +7,7 @@ class CanvasObject {
     this.fillColor = options.fillColor || "#777777";
     this.lineColor = options.lineColor || "#000000";
     this.clickOffset = [0,0];
-    this.id = options.id || this._randomId;
+    this.id = options.id || this._randomId();
   }
 
   _randomId() {

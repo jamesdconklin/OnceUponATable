@@ -19,11 +19,12 @@ class Painter extends React.Component {
   componentDidMount() {
     let canvas = document.getElementById("game-canvas");
     let context = canvas.getContext("2d");
+    let idUpdate = this.props.update(this.props.routeParams.game_id);
     this.canvas_view = new CanvasView(
       context, canvas,
-      this.props.update(this.props.routeParams.game_id)
+      idUpdate
     );
-    this.canvas_view.send(this.props.canvas);
+    this.canvas_view.send(this.props.canvas, idUpdate);
     this.canvas_view.start();
   }
 
