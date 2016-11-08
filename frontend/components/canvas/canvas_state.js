@@ -22,6 +22,7 @@ class CanvasState {
   }
 
   send(opts) {
+    this.asset = opts.asset;
     this.update = opts.update;
     this.reduxState = opts.state;
     this.ctx = opts.ctx;
@@ -29,7 +30,9 @@ class CanvasState {
     this.ephemeral = null;
     this.movedObject = null;
     if (this.focusObject && this._flatten(
-          this.reduxState, ['token', 'map', 'id']
+          this.reduxState,
+          ['token', 'map'],
+          'id'
         ).indexOf(this.focusObject.id) < 0) {
 
       this.focusObject = null;
@@ -90,6 +93,7 @@ class CanvasState {
   }
 
   handleMouseUp(e) {
+    // debugger;
     let {layerX, layerY } = e;
     if (this.ephemeral && Math.min(
       Math.abs(this.ephemeral.width), Math.abs(this.ephemeral.height)
@@ -97,13 +101,23 @@ class CanvasState {
       this.token.push(this.ephemeral);
       this.update('token', this.ephemeral);
       this.ephemeral = null;
-    }
-    if (this.movedObject) {
+    } else if (this.movedObject) {
       if (this.moved) {
         this.update('token', this.movedObject);
       }
       this.movedObject = null;
       this.moved = false;
+    } else if (this.asset) {
+
+      let assetDefinition = merge({
+        pos: [layerX - this.asset.width/2, layerY - this.asset.height/2]
+      }, this.asset);
+
+      let assetObject = this._createObject(assetDefinition);
+      this.token.push(assetObject);
+      this.focusObject = assetObject;
+
+      this.update('token', assetObject);
     }
     this.movedObject = null;
     this.ephemeral = null;

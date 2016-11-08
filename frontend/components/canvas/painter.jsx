@@ -1,5 +1,6 @@
 import React from 'react';
 import CanvasView from './canvas_view';
+import AssetContainer from '../assets/assets_container';
 import { merge } from 'lodash';
 
 class Painter extends React.Component {
@@ -17,6 +18,7 @@ class Painter extends React.Component {
     let context = canvas.getContext("2d");
     let idUpdate = this.props.update(props.routeParams.game_id);
     this.canvas_view.send({
+      asset: props.asset,
       state: props.canvas,
       update: idUpdate,
       el: canvas,

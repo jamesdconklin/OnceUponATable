@@ -55,7 +55,7 @@ const Root = ({store}) => {
       <Router history={hashHistory}>
         <Route path="/canvas" component={Canvas}>
           <Route path="/canvas/:game_id" component={PainterContainer}
-                 onEnter={_redirectIfLoggedOut && _loadCanvas}/>
+                 onEnter={(params) =>(_redirectIfLoggedOut() && _loadCanvas(params))}/>
         </Route>
         <Route path="/" component={App} >
           <IndexRoute component={SplashContainer}
@@ -75,7 +75,7 @@ const Root = ({store}) => {
                         onEnter={_loadGameDetail}/>
             <Route path="/games/:game_id/edit"
                    component={GameFormContainer}
-                   onEnter={(params) => _redirectIfLoggedOut && _loadGameDetail(params)}/>
+                   onEnter={(params) => (_redirectIfLoggedOut() && _loadGameDetail(params))}/>
           </Route>
         </Route>
       </Router>
