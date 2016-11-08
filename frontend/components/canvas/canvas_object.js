@@ -68,7 +68,7 @@ export default CanvasObject;
 //
 
 // MovingObject.prototype.isClicked = function(pos) {
-//   console.log(this.pos, pos);
+//   // console.log(this.pos, pos);
 //   let dxp = this.pos[0] - pos[0];
 //   let dyp = this.pos[1] - pos[1];
 //   return dxp*dxp + dyp*dyp < this.radius * this.radius;

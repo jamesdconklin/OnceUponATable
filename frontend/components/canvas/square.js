@@ -9,6 +9,7 @@ class Square extends CanvasObject {
   }
 
   draw(ctx) {
+    // // console.log(this.pos);
     let saveStrokeStyle = ctx.strokeStyle;
     let saveLineWidth = ctx.lineWidth;
     let saveFillStyle = ctx.fillStyle;

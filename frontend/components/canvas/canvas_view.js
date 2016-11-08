@@ -40,13 +40,13 @@ class CanvasView {
       this.bindMouseDownHandler();
       this.bindMouseUpHandler();
       this.bindMouseMoveHandler();
-    window.setInterval(
-      () => {
-        this.canvas.draw();
-      },
-      40
-    );
-    // this.canvas.draw();
+    // window.setInterval(
+    //   () => {
+    //     this.canvas.draw();
+    //   },
+    //   40
+    // );
+    this.canvas.draw();
   }
 }
 

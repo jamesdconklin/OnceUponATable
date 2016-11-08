@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     type: edit ? "Edit Game" : "Create Game",
     setInitialState: function () {
       fetchGame(ownProps.routeParams.game_id)(
-        (data) => {console.log(data); this.setState(data);}
+        (data) => {this.setState(data);}
       );
     }
   });

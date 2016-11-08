@@ -13,7 +13,7 @@ class Api::CanvasController < ApplicationController
   def update
     game = Game.find_by(id: params[:game_id])
     if game
-      delta = canvas_params
+      delta = normalize(canvas_params)
       layer = params[:layer]
       # debugger
       state = JSON.parse(game.canvas_state)
@@ -40,8 +40,30 @@ class Api::CanvasController < ApplicationController
 
   private
 
+  def normalize(delta)
+    width = delta[:width].to_i
+    height = delta[:height].to_i
+    x, y = delta[:pos].map(&:to_i)
+
+    if width < 0
+      x += width
+      width = -width
+    end
+
+    if height < 0
+      y += height
+      height = -height
+    end
+
+    delta[:height] = height
+    delta[:width] = width
+    delta[:pos] = [x, y]
+
+    delta
+
+  end
+
   def canvas_params
-    # debugger
     params.require(:delta).permit(
       :id, :class, :width, :height, :lineColor,
       :lineWidth, :fillColor, pos: []

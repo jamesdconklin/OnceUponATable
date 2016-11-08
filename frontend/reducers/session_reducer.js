@@ -15,7 +15,7 @@ const _defaultState = {
 export const SessionReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   var newState = merge({}, state);
-  console.log("SessionReducer caught", action);
+  // console.log("SessionReducer caught", action);
   switch (action.type) {
     case LOGOUT:
       hashHistory.push("/");

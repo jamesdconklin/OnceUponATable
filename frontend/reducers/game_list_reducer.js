@@ -12,7 +12,7 @@ export default (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
-  console.log("GamesListL reducer caught", action);
+  // console.log("GamesListL reducer caught", action);
   switch (action.type) {
     case RECEIVE_LISTED_GAMES:
       newState[action.category] = action.games;

@@ -3,7 +3,7 @@ import { REQUEST_CANVAS, receiveCanvas, receiveObject, UPDATE_CANVAS }
   from '../actions/canvas_actions';
 
 const CanvasMiddleware = ({dispatch}) => next => action => {
-  console.log("CanvasMiddleware caught", action);
+  // console.log("CanvasMiddleware caught", action);
   switch (action.type) {
     case REQUEST_CANVAS:
       fetchCanvas(action.id)(

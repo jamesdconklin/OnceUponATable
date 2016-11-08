@@ -11,7 +11,7 @@ const CanvasReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
-  console.log("CanvasReducer caught", action);
+  // console.log("CanvasReducer caught", action);
 
   switch (action.type) {
     case RECEIVE_CANVAS:
@@ -29,12 +29,12 @@ const CanvasReducer = (state = _defaultState, action) => {
         }
       }
       newState[action.layer] = newState[action.layer].concat(obj);
-      return newState;
+      return state;
     }
     default:
-      console.log("CR Default");
+      // console.log("CR Default");
 
-      return newState;
+      return state;
   }
 
 };

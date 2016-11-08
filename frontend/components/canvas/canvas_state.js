@@ -12,7 +12,6 @@ class CanvasState {
     this.width = ctx.canvas.clientWidth;
     this.height = ctx.canvas.clientHeight;
     this.ctx = ctx;
-    this.populated = false;
     this.update = update;
 
     this.ephemeral = null;
@@ -22,23 +21,18 @@ class CanvasState {
   }
 
   send(state, update) {
-    console.log("SEND: ", state);
     this.update = update;
     this.reduxState = state;
-    this.populated = false;
     this._populateShapes();
     this.ephemeral = null;
     this.movedObject = null;
     this.focusObject = null;
+    this.draw();
   }
 
   _populateShapes() {
-    if (this.populated) {
-      return;
-    }
     this.token = this.reduxState.token.map(this._createObject);
     this.map = this.reduxState.map.map(this._createObject);
-    this.populated = true;
   }
 
   _createObject(el) {
@@ -53,24 +47,21 @@ class CanvasState {
   }
 
   handleMouseUp(e) {
-    console.log("Mouse Up");
     let {layerX, layerY } = e;
-    console.log(this.ephemeral);
     if (this.ephemeral && Math.min(
-      this.ephemeral.width, this.ephemeral.height
+      Math.abs(this.ephemeral.width), Math.abs(this.ephemeral.height)
     ) > 5) {
-      console.log("PUSH");
       this.token.push(this.ephemeral);
       this.update('token', this.ephemeral);
       this.ephemeral = null;
     }
     if (this.movedObject) {
-      console.log("MOVED");
       this.update('token', this.movedObject);
       this.movedObject = null;
     }
-    // this.movedObject = null;
-    // this.ephemeral = null;
+    this.movedObject = null;
+    this.ephemeral = null;
+    this.draw();
   }
 
   handleMouseDown(e) {
@@ -84,7 +75,6 @@ class CanvasState {
     let objects = this.token;
     for (var i = objects.length-1; i >= 0; i--) {
       if ((this.clickDiff = objects[i].isClicked(pos))) {
-        console.log('CLICK!');
         this.focusObject = objects[i];
         this.movedObject = objects[i];
         return;
@@ -95,6 +85,7 @@ class CanvasState {
     this.movedObject = null;
 
     this.ephemeral = this.ephemeral || new Square({pos: [layerX, layerY], height: 1, width: 1});
+    this.draw();
   }
 
   handleMouseMove(e) {
@@ -108,10 +99,10 @@ class CanvasState {
       let newY = layerY - this.clickDiff[1];
       this.movedObject.pos = [newX, newY];
     }
+    this.draw();
   }
 
   draw() {
-    this._populateShapes();
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.token.forEach(
       (token => token.draw(this.ctx))
@@ -120,7 +111,6 @@ class CanvasState {
       this.ephemeral.draw(this.ctx);
     }
     this.drawGrid();
-
   }
 
   drawGrid() {
@@ -140,131 +130,3 @@ class CanvasState {
 }
 
 export default CanvasState;
-
-// const Asteroid = require('./asteroid.js');
-// const Ship = require('./ship.js');
-// const NUM_ASTEROIDS = 2;
-// const DIM_X = 801;
-// const DIM_Y = 641;
-//
-// function Game() {
-//   this.asteroids = [];
-//   this.ship = new Ship({
-//     pos: [DIM_X / 2, DIM_Y / 2],
-//     game: this
-//   });
-//   this.focusObject = null;
-//   this.corner1 = null;
-//   this.corner2 = null;
-//   this.mouseDown = false;
-//   this.addAsteroids();
-// }
-//
-// Game.prototype.handleMouseUp = function(e) {
-//   this.mouseDown = false;
-//   this.focusObject = null;
-// };
-//
-//
-
-//
-// Game.prototype.handleMouseDown = function(e) {
-//   let x = e.layerX,
-//   y = e.layerY;
-//   if (this.mouseDown) {
-//     return;
-//   }
-//
-//   this.mouseDown = true;
-//
-//   let pos = [x,y];
-//   let objects = this.allObjects();
-//   for (var i = 0; i < objects.length; i++) {
-//     if (objects[i].isClicked(pos)) {
-//       this.focusObject = objects[i];
-//       this.corner1 = null;
-//       this.corner2 = null;
-//       return;
-//     }
-//   }
-//
-//   this.focusObject = null;
-//   this.corner1 = [e.layerX, e.layerY];
-//   this.corner2 = this.corner1;
-//
-// };
-//
-// Game.prototype.allObjects = function() {
-//   return this.asteroids.concat(this.ship);
-// };
-//
-// Game.prototype.addAsteroids = function() {
-//   for (var i = 0; i < NUM_ASTEROIDS; i++) {
-//     let opts = {
-//       pos: this.randomPosition(),
-//       game: this
-//     };
-//     this.asteroids.push(new Asteroid(opts));
-//   }
-// };
-//
-// Game.prototype.placeShip = function() {
-//   this.ship.relocate(this.randomPosition());
-//   this.ship.vel = [0,0];
-// };
-//
-// Game.prototype.randomPosition = function() {
-//   let x = Math.random() * DIM_X;
-//   let y = Math.random() * DIM_Y;
-//
-//   return [x, y];
-// };
-//
-// Game.prototype.draw = function(ctx) {
-//   ctx.clearRect(0, 0, DIM_X, DIM_Y);
-//   this.allObjects().forEach(
-//     (object) => {
-//       object.draw(ctx);
-//     }
-//   );
-//   if (this.corner1 && this.corner2) {
-//     let deltaX = this.corner2[0] - this.corner1[0];
-//     let deltaY = this.corner2[1] - this.corner1[1];
-//     let saveStyle = ctx.strokeStyle;
-//     let saveWidth = ctx.lineWidth;
-//     ctx.beginPath();
-//     ctx.strokeStyle = "#3333AA";
-//     ctx.lineWidth = 5;
-//     ctx.rect(...this.corner1, deltaX, deltaY);
-//     ctx.stroke();
-//     ctx.strokeStyle = saveStyle;
-//     ctx.lineWidth = saveWidth;
-//   }
-//   this.drawGrid(ctx);
-//
-// };
-//
-// Game.prototype.moveObjects = function() {
-//   this.allObjects().forEach(
-//     (obj) => { obj.move(); }
-//   );
-// };
-//
-
-//
-// Game.prototype.remove = function(asteroid) {
-//   this.asteroids.splice(this.asteroids.indexOf(asteroid), 1);
-// };
-//
-// Game.prototype.step = function() {
-//   this.moveObjects();
-//   this.checkCollisions();
-// };
-//
-// Game.prototype.wrap = function(pos) {
-//   let x = (pos[0] + DIM_X) % DIM_X;
-//   let y = (pos[1] + DIM_Y) % DIM_Y;
-//   return [x, y];
-// };
-//
-// module.exports = Game;

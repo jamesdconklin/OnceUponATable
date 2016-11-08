@@ -14,7 +14,7 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   };
 
   const sessionSuccess = user => dispatch(receiveCurrentUser(user));
-  console.log("SessionMiddleware caught", action);
+  // console.log("SessionMiddleware caught", action);
   switch (action.type) {
     case LOGOUT:
       api.logout(

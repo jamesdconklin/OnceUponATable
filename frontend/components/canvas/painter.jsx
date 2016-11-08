@@ -9,7 +9,6 @@ class Painter extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Painter sends", nextProps.canvas);
     this.canvas_view && this.canvas_view.send(
       nextProps.canvas,
       nextProps.update(nextProps.routeParams.game_id)
