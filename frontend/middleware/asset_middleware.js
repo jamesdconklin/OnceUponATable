@@ -5,7 +5,7 @@ export default ({dispatch}) => next => action => {
   // console.log("Asset Middleware caught", action);
   switch (action.type) {
     case REQUEST_ASSETS:
-      fetchAssets(
+      fetchAssets(action.title)(
         (assets) => dispatch(receiveAssets(assets))
       );
       break;

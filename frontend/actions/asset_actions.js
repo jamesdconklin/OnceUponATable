@@ -18,6 +18,7 @@ export const receiveSelectedAsset = (asset) => ({
   asset
 });
 
-export const requestAssets = () => ({
-  type: REQUEST_ASSETS
+export const requestAssets = (title) => ({
+  type: REQUEST_ASSETS,
+  title
 });

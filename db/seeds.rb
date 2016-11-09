@@ -197,10 +197,56 @@ Asset.create!(
   height: 682
 )
 
+Asset.create!(
+  title: "Morningstar Fighter",
+  asset_class: "image",
+  image_url: "zocCBaq_nn112f",
+)
 
-# Asset.create!(lineColor: red, title: "Red Square")
-# Asset.create!(lineColor: red, fillColor: red, title: "Red Box")
-# Asset.create!(lineColor: blue, title: "Blue Square")
-# Asset.create!(lineColor: blue, fillColor: blue, title: "Blue Box")
-# Asset.create!(lineColor: green, title: "Green Square")
-# Asset.create!(lineColor: green, fillColor: green, title: "Green Box")
+Asset.create!(
+  title: "White Mage",
+  asset_class: "image",
+  image_url: "Zangold-1_yuvyuu"
+)
+
+Asset.create!(
+  title: "Jaunty Wizard",
+  asset_class: "image",
+  image_url: "Zangold-2_wrby9r"
+)
+
+Asset.create!(
+  title: "Mace Fighter",
+  asset_class: "image",
+  image_url: "Kellen-2_fj3h5f"
+)
+
+Asset.create!(
+  title: "Stalking Archer",
+  asset_class: "image",
+  image_url: "Iris-1_fzosuv"
+)
+
+Asset.create!(
+  title: "Swaggering Bard",
+  asset_class: "image",
+  image_url: "Hazel-1_a6azwz"
+)
+
+Asset.create!(
+  title: "Red Crusader",
+  asset_class: "image",
+  image_url: "Gwendal-1_rdwd8w"
+)
+
+Asset.create!(
+  title: "Demonic Mage",
+  asset_class: "image",
+  image_url: "Enmerkar-1_wlpjal"
+)
+
+Asset.create!(
+  title: "Dark Archer",
+  asset_class: "image",
+  image_url: "Enmerkar-1_wlpjal"
+)

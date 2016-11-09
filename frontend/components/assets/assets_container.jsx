@@ -10,7 +10,7 @@ const mapStateToProps = ({assetLibrary}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAssets: () => dispatch(requestAssets()),
+  fetchAssets: (title) => dispatch(requestAssets(title)),
   setSelected: (asset) => dispatch(receiveSelectedAsset(asset))
 });
 

@@ -13,7 +13,7 @@ const _defaultState = {
 };
 
 export default (state = _defaultState, action) => {
-  console.log("Asset Reducer caught ", action);
+  // console.log("Asset Reducer caught ", action);
   Object.freeze(state);
   let { assets, selected, params } = state;
   switch (action.type) {

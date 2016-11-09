@@ -4,6 +4,7 @@ import * as session_api from './util/session_api_util';
 import * as game_api from './util/game_api_util';
 import * as user_api from './util/user_api_util';
 import * as canvas_api from './util/canvas_api_util';
+import * as asset_api from './util/asset_api_util';
 import configureStore from './store/store';
 import Root from './components/root';
 import Modal from 'react-modal';
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded",
     window.game_api = game_api;
     window.user_api = user_api;
     window.canvas_api = canvas_api;
+    window.asset_api = asset_api;
     $.cloudinary.config({
       cloud_name: window.cloudName,
       api_key: window.cloudinaryKey
