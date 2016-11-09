@@ -248,5 +248,5 @@ Asset.create!(
 Asset.create!(
   title: "Dark Archer",
   asset_class: "image",
-  image_url: "Enmerkar-1_wlpjal"
+  image_url: "Arvan-1_jsu3mv"
 )
