@@ -151,6 +151,8 @@ class CanvasState {
       if ((this.clickDiff = objects[i].isClicked(pos))) {
         this.focusObject = objects[i];
         this.movedObject = objects[i];
+        this.token.splice(i,1);
+        this.token.push(this.movedObject);
         return;
       }
     }
@@ -185,6 +187,10 @@ class CanvasState {
     );
     if (this.ephemeral) {
       this.ephemeral.draw(this.ctx);
+    }
+    if (this.movedObject) {
+      console.log("DRAWMOVED");
+      this.movedObject.draw();
     }
     this.drawGrid();
   }
