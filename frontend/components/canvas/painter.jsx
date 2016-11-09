@@ -35,11 +35,7 @@ class Painter extends React.Component {
       context, canvas,
       idUpdate
     );
-    // let boundSetup = this._setupCanvas.bind(this);
-    // window.addEventListener("resize", (e) => {
-    //   console.log("RESIZE");
-    //   boundSetup(this.props);
-    // });
+
     this._setupCanvas(this.props);
     this.canvas_view.start();
   }

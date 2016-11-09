@@ -8,6 +8,8 @@
         <% user_dict = user_dict.html_safe %>
         window.currentUser = <%= user_dict %>;
       <% end %>
+      window.cloudName = '<%= ENV["CLOUDINARY_CLOUD_NAME"] %>';
+      window.cloudinaryKey = '<%= ENV["CLOUDINARY_API_KEY"] %>';
     </script>
     <title>Once Upon a Table</title>
   </head>

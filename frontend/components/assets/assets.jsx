@@ -1,4 +1,5 @@
 import React from 'react';
+import {cloudinaryConfig, CloudinaryImage } from 'react-cloudinary';
 
 class Assets extends React.Component {
   constructor(props) {
@@ -8,9 +9,7 @@ class Assets extends React.Component {
   }
 
   _clearSelected(e) {
-    console.log("PREV SELECTED: ",this.props.selected);
     if (this.props.selected) {
-      console.log("CLEAR SELECTED");
       this.props.setSelected(null);
     }
   }
@@ -22,25 +21,39 @@ class Assets extends React.Component {
     window.addEventListener("click", this._clearSelected);
   }
 
+  _triggerMouseUp(e) {
+    let event = new MouseEvent("mouseup", e);
+    //   view: window,
+    //   bubbles: true,
+    //   cancelable: true
+    // });
+    document.getElementById("game-canvas").dispatchEvent(event);
+  }
   _renderAsset(asset) {
     return (
-      <li key={asset.title}
-          onMouseDown={(e) => {
-            e.stopPropagation();
-            console.log("Clicked asset is ", asset);
-            this.props.setSelected(asset);
-            console.log("Resulting selected is", this.props.selected);
-          }
-        }>
-        <a>{asset.title}</a>
+      <li key={asset.title}>
+        <div>
+
+          <CloudinaryImage title={asset.title}
+                           draggable="true"
+                           onDragEnd={this._triggerMouseUp}
+                           className="asset-entry"
+                           publicId={asset.image_url}
+                           options={{width: 150, crop: "scale"}}
+                           onMouseDown={(e) => {
+                             e.stopPropagation();
+                             this.props.setSelected(asset);
+                           }}/>
+        </div>
       </li>
     );
   }
 
   render() {
+    cloudinaryConfig({cloud_name: window.cloudName});
     return (
       <div className="canvas-toolbar">
-        <ul>
+        <ul className="asset-library">
           {this.props.assets.map(this._renderAsset)}
         </ul>
       </div>

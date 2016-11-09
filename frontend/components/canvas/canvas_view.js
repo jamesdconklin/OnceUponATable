@@ -20,7 +20,6 @@ class CanvasView {
   }
 
   bindKeyHandler() {
-    console.log("BKH");
     this.el.addEventListener("keydown",
       (e) => {
         this.canvas.handleKeypress(e);

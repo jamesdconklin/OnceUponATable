@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded",
     window.game_api = game_api;
     window.user_api = user_api;
     window.canvas_api = canvas_api;
+    $.cloudinary.config({
+      cloud_name: window.cloudName,
+      api_key: window.cloudinaryKey
+    });
     Modal.setAppElement(document.body);
     ReactDom.render(<Root store={store}/>, root);
   }

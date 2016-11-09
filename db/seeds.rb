@@ -169,3 +169,38 @@ GameSignup.create!(game_id: 5, user_id: 8)
 GameSignup.create!(game_id: 5, user_id: 9)
 GameSignup.create!(game_id: 5, user_id: 11)
 GameSignup.create!(game_id: 5, user_id: 13)
+
+# red = '#FF0000'
+# blue = '#0000FF'
+# green = '#00FF00'
+
+Asset.create!(
+  title: "Arid Cliff",
+  asset_class: "image",
+  image_url: 'AridCliff80Grid_ahpupc',
+  width: 1920,
+  height: 961
+)
+Asset.create!(
+  title: "Main Hall",
+  asset_class: "image",
+  image_url: 'Main_HallNoRoof80Grid_vcoaq3',
+  width: 960,
+  height: 960
+)
+
+Asset.create!(
+  title: "Chess Board",
+  asset_class: "image",
+  image_url: 'chessboard_zb9xzl',
+  width: 682,
+  height: 682
+)
+
+
+# Asset.create!(lineColor: red, title: "Red Square")
+# Asset.create!(lineColor: red, fillColor: red, title: "Red Box")
+# Asset.create!(lineColor: blue, title: "Blue Square")
+# Asset.create!(lineColor: blue, fillColor: blue, title: "Blue Box")
+# Asset.create!(lineColor: green, title: "Green Square")
+# Asset.create!(lineColor: green, fillColor: green, title: "Green Box")

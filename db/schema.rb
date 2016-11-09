@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161108192640) do
     t.integer  "width",       default: 80,        null: false
     t.integer  "height",      default: 80,        null: false
     t.string   "lineColor",   default: "#000000", null: false
-    t.string   "fillColor",   default: "#777777", null: false
+    t.string   "fillColor"
     t.integer  "lineWidth",   default: 3,         null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

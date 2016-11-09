@@ -19,14 +19,14 @@ class Asset < ActiveRecord::Base
     self.height ||= 80
     self.lineWidth ||= 3
     self.lineColor ||= '#000000'
-    self.fillColor ||= '#777777'
   end
 
   def valid_colors
     pattern = /^#[0-9a-fA-F]{6}$/
     message = "must be formatted as \"#RRGGBB\""
     errors.add(:lineColor, message) unless self.lineColor.match(pattern)
-    errors.add(:fillColor, message) unless self.fillColor.match(pattern)
+    errors.add(:fillColor, message) unless self.fillColor.nil? ||
+                                           self.fillColor.match(pattern)
   end
 
 end

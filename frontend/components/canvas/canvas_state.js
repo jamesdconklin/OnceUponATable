@@ -1,4 +1,5 @@
 import Square from './square';
+import ImageAsset from './image_asset';
 // import Circle from './circle';
 import CanvasObject from './canvas_object';
 import { merge } from 'lodash';
@@ -14,11 +15,14 @@ class CanvasState {
     this.ctx = ctx;
     this.update = update;
     this.moved = false;
+    this.object_store = {};
 
     this.ephemeral = null;
     this.movedObject = null;
     this.focusObject = null;
     this.clickDiff = [0,0];
+
+    this._createObject = this._createObject.bind(this);
   }
 
   send(opts) {
@@ -51,21 +55,31 @@ class CanvasState {
     return ret;
   }
 
-
   _populateShapes() {
     this.token = this.reduxState.token.map(this._createObject);
     this.map = this.reduxState.map.map(this._createObject);
   }
 
   _createObject(el) {
+    let obj;
+    if ((obj = this.object_store[el.id])) {
+      return obj;
+    }
     switch (el.asset_class) {
       case "square":
-        return new Square(el);
+         obj = new Square(el);
+         break;
       case "circle":
-      return new Square(el);
+        obj = new Square(el);
+        break;
+      case "image":
+        obj = new ImageAsset(el);
+        break;
       default:
-      return new Square(el);
+        obj = new Square(el);
     }
+    this.object_store[obj.id] = obj;
+    return obj;
   }
 
   _deleteFocusObject(e) {
@@ -93,7 +107,6 @@ class CanvasState {
   }
 
   handleMouseUp(e) {
-    // debugger;
     let {layerX, layerY } = e;
     if (this.ephemeral && Math.min(
       Math.abs(this.ephemeral.width), Math.abs(this.ephemeral.height)
@@ -102,11 +115,12 @@ class CanvasState {
       this.update('token', this.ephemeral);
       this.ephemeral = null;
     } else if (this.movedObject) {
-      if (this.moved) {
-        this.update('token', this.movedObject);
-      }
+      let tempMove = this.movedObject;
       this.movedObject = null;
-      this.moved = false;
+      if (this.moved) {
+        this.moved = false;
+        this.update('token', tempMove);
+      }
     } else if (this.asset) {
 
       let assetDefinition = merge({

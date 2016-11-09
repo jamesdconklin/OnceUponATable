@@ -70,7 +70,7 @@ class Api::CanvasController < ApplicationController
   def canvas_params
     params.require(:delta).permit(
       :id, :asset_class, :width, :height, :lineColor,
-      :lineWidth, :fillColor, pos: []
+      :lineWidth, :fillColor, :image_url, pos: []
     )
   end
 

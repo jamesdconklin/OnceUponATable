@@ -26,11 +26,15 @@ export const fetchCanvas = (id) => (success, error) => {
 export const patchCanvas = (id, layer, delta) => (success, error) => {
   success = success || console.log;
   error = error || console.log;
+
+  let sendDelta = merge({}, delta);
+  delete(sendDelta.img);
+
   $.ajax({
     url: `/api/games/${id}/canvas`,
     method: 'PATCH',
     data: {
-      delta,
+      delta: sendDelta,
       layer
     },
     success,
