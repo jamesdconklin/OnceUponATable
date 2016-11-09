@@ -1,5 +1,6 @@
 Idea for bug log -> Canvas state. sending copy of stat forces prop reload forces drawing of old state before new one. 
 
+new idea => new object from server loses "token == this.focusObject" -> check by id instead. 
 
 new idea - piggybacking mosueup on dragend
 

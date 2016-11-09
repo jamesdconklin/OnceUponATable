@@ -9,7 +9,28 @@ class Square extends CanvasObject {
     this.height = options.height || 80;
   }
 
-  draw(ctx) {
+  drawFocus(ctx, focus) {
+    if (!focus) {
+      return;
+    }
+    let { strokeStyle, lineWidth, fillStyle, globalAlpha } = ctx;
+    ctx.globalAlpha = 0.1;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#66FF66";
+    let [x,y] = this.pos;
+    for (var i = 0; i < 5; i++) {
+      ctx.lineWidth += 2;
+      ctx.beginPath();
+      ctx.rect(x-i, y-i, this.width + 2*i, this.height + 2*i);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = globalAlpha;
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = strokeStyle;
+  }
+
+  draw(ctx, focus) {
+    this.drawFocus(ctx, focus);
     let saveStrokeStyle = ctx.strokeStyle;
     let saveLineWidth = ctx.lineWidth;
     let saveFillStyle = ctx.fillStyle;

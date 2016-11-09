@@ -1,10 +1,11 @@
-import { RECEIVE_CANVAS, RECEIVE_OBJECT }
+import { RECEIVE_CANVAS, RECEIVE_OBJECT, RECEIVE_LAYER }
   from '../actions/canvas_actions';
 import { merge } from 'lodash';
 
 const _defaultState = {
   map: [],
-  token: []
+  token: [],
+  layer: 'token'
 };
 
 const CanvasReducer = (state = _defaultState, action) => {
@@ -14,8 +15,13 @@ const CanvasReducer = (state = _defaultState, action) => {
   // console.log("CanvasReducer caught", action);
 
   switch (action.type) {
+
     case RECEIVE_CANVAS:
-      return action.canvas;
+      return merge(action.canvas, {layer: state.layer});
+
+    case RECEIVE_LAYER:
+      newState.layer = action.layer;
+      return newState;
 
     case RECEIVE_OBJECT: {
       let obj = action.obj;

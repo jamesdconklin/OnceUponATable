@@ -1,3 +1,5 @@
+/*globals Pusher*/
+
 import React from 'react';
 import CanvasView from './canvas_view';
 import AssetContainer from '../assets/assets_container';
@@ -22,7 +24,8 @@ class Painter extends React.Component {
       state: props.canvas,
       update: idUpdate,
       el: canvas,
-      ctx: context
+      ctx: context,
+      layer: props.canvas.layer
     });
 
   }
@@ -35,8 +38,17 @@ class Painter extends React.Component {
       context, canvas,
       idUpdate
     );
+    var pusher = new Pusher(window.pusherApiKey);
+    var channel = pusher.subscribe(`canvas_${this.props.routeParams.game_id}`);
+    channel.bind(
+      'canvas_update',
+      (data) => {
+        this.props.sendCanvas(data);
+      }
+    );
 
     this._setupCanvas(this.props);
+
     this.canvas_view.start();
   }
 

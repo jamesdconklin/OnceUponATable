@@ -13,25 +13,31 @@ class Api::CanvasController < ApplicationController
   def update
     game = Game.find_by(id: params[:game_id])
     if game
+
+      # Delete element from canvas state
+
       delta = normalize(canvas_params)
       layer = params[:layer]
-      # debugger
       state = JSON.parse(game.canvas_state)
-      layer_state = state[layer]
-      layer_state.each.with_index do |obj, idx|
-        # debugger
-        if obj["id"] == delta[:id]
-          layer_state.delete(obj)
-          delta = obj.merge(delta)
+
+      state.each do |_, el_list|
+        el_list.each do |el|
+          if el["id"] == delta[:id]
+            el_list.delete(el)
+            delta = el.merge(delta)
+            break
+          end
         end
       end
-      if delta["asset_class"] == "delete"
-        print "DELETING OBJECT"
-      else
-        layer_state.push(delta)
-      end
-      state[layer] = layer_state
+
+      state[layer].push(delta) unless delta["asset_class"] == "delete"
+
       if game.update(canvas_state: JSON.dump(state))
+        Pusher.trigger(
+          "canvas_#{params[:game_id]}",
+          "canvas_update",
+          state
+        )
         render json: state
       else
         render status: 422, json: game.errors.full_messages
