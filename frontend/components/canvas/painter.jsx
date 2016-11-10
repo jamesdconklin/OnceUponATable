@@ -25,9 +25,10 @@ class Painter extends React.Component {
       update: idUpdate,
       el: canvas,
       ctx: context,
-      layer: props.canvas.layer
+      layer: props.canvas.layer,
+      assetParams: props.assetParams,
+      sendParams: props.sendParams
     });
-
   }
 
   componentDidMount() {

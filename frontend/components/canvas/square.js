@@ -18,7 +18,7 @@ class Square extends CanvasObject {
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#66FF66";
     let [x,y] = this.pos;
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 10; i++) {
       ctx.lineWidth += 2;
       ctx.beginPath();
       ctx.rect(x-i, y-i, this.width + 2*i, this.height + 2*i);
@@ -40,7 +40,7 @@ class Square extends CanvasObject {
     ctx.fillStyle = this.fillColor;
     ctx.rect(...this.pos, this.width, this.height);
     ctx.stroke();
-    if (this.fillColor) {
+    if (this.fillColor && this.fillColor !== "0") {
       ctx.fill();
     }
     ctx.fillStyle = saveFillStyle;

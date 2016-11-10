@@ -5,12 +5,11 @@ import CanvasObject from './canvas_object';
 import { merge } from 'lodash';
 
 class CanvasState {
-  constructor(ctx, update) {
+  constructor(ctx, opts) {
     this.canvas = {map: [], token: []};
     this.width = ctx.canvas.clientWidth;
     this.height = ctx.canvas.clientHeight;
-    this.ctx = ctx;
-    this.update = update;
+    this.props = opts;
     this.moved = false;
     this.object_store = {};
     this.layer = 'token';
@@ -30,13 +29,12 @@ class CanvasState {
           this.canvas[this.layer].indexOf(this.focusObject), 1
         );
         this.canvas[opts.layer].push(this.focusObject);
-        this.update(opts.layer, this.focusObject);
+        opts.update(opts.layer, this.focusObject);
       }
       this.layer = opts.layer;
     } else
-    this.asset = opts.asset;
-    this.update = opts.update;
-    this.ctx = opts.ctx;
+
+    this.props = opts;
     this._populateShapes(opts.state);
     this.ephemeral = null;
     this.movedObject = null;
@@ -92,7 +90,7 @@ class CanvasState {
     e.stopPropagation();
     this.focusObject.asset_class="delete";
     this.canvas[this.layer].splice(this.canvas[this.layer].indexOf(this.focusObject),1);
-    this.update(this.layer, this.focusObject);
+    this.props.update(this.layer, this.focusObject);
     this.focusObject = null;
     this.movedObject = null;
   }
@@ -107,6 +105,7 @@ class CanvasState {
           this._deleteFocusObject(e);
           break;
         case "Escape":
+          this.props.asset = null;
           this.ephemeral = null;
           this.focusObject = null;
           this.draw();
@@ -123,9 +122,8 @@ class CanvasState {
     if (this.ephemeral && Math.min(
       Math.abs(this.ephemeral.width), Math.abs(this.ephemeral.height)
     ) > 5) {
-
       this.canvas[this.layer].push(this.ephemeral);
-      this.update(this.layer, this.ephemeral);
+      this.props.update(this.layer, this.ephemeral);
       this.ephemeral = null;
     } else if (this.movedObject) {
 
@@ -134,18 +132,21 @@ class CanvasState {
 
       if (this.moved) {
         this.moved = false;
-        this.update(this.layer, tempMove);
+        this.props.update(this.layer, tempMove);
       }
-    } else if (this.asset) {
+    } else if (this.props.asset) {
       let assetDefinition = merge({
-        pos: [x - this.asset.width/2, y - this.asset.height/2]
-      }, this.asset);
+        pos: [x - this.props.asset.width/2, y - this.props.asset.height/2]
+      }, this.props.asset);
 
-      let assetObject = this._createObject(assetDefinition);
-      this.canvas[this.layer].push(assetObject);
-      this.focusObject = assetObject;
+      let [sanityX, sanityY] = assetDefinition.pos;
+      if (sanityX < 1920 && sanityY < 1080) {
 
-      this.update(this.layer, assetObject);
+        let assetObject = this._createObject(assetDefinition);
+        this.canvas[this.layer].push(assetObject);
+        this.focusObject = assetObject;
+        this.props.update(this.layer, assetObject);
+      }
     }
     this.movedObject = null;
     this.ephemeral = null;
@@ -160,24 +161,35 @@ class CanvasState {
   }
 
   handleMouseDown(e) {
+    console.log("CANVCLICKDOWN");
     if (this.ephemeral || this.movedObject) {
       return;
     }
 
     let pos = this.getCursorPosition(e.target, e);
     let objects = this.canvas[this.layer];
-    for (var i = objects.length-1; i >= 0; i--) {
-      if ((this.clickDiff = objects[i].isClicked(pos))) {
-        this.focusObject = objects[i];
-        this.movedObject = objects[i];
-        return;
+    if (!this.props.assetParams.draw) {
+      for (var i = objects.length-1; i >= 0; i--) {
+        if ((this.clickDiff = objects[i].isClicked(pos))) {
+          this.focusObject = objects[i];
+          this.movedObject = objects[i];
+          return;
+        }
       }
+      this.focusObject = null;
     }
 
     this.movedObject = null;
-
-    this.ephemeral = this.ephemeral || new Square({pos, height: 1, width: 1});
-    this.focusObject = this.ephemeral;
+    if (this.props.assetParams.draw) {
+      this.ephemeral = this.ephemeral || new Square({
+        pos, height: 1,
+        width: 1,
+        lineColor: this.props.assetParams.lineColor,
+        fillColor: this.props.assetParams.fill && this.props.assetParams.fillColor,
+        lineWidth: this.props.assetParams.lineWidth
+      });
+      this.focusObject = this.ephemeral;
+    }
 
     this.draw();
   }
@@ -204,53 +216,53 @@ class CanvasState {
 
   draw() {
     let lightParchment = "#f8ebe4";
-    let { fillStyle, strokeStyle } = this.ctx;
-    this.ctx.fillStyle = lightParchment;
-    this.ctx.strokeStyle = lightParchment;
-    this.ctx.beginPath();
-    this.ctx.rect(0, 0, this.width, this.height);
-    this.ctx.fill();
-    this.ctx.fillStyle = fillStyle;
-    this.ctx.strokeStyle = strokeStyle;
+    let { fillStyle, strokeStyle } = this.props.ctx;
+    this.props.ctx.fillStyle = lightParchment;
+    this.props.ctx.strokeStyle = lightParchment;
+    this.props.ctx.beginPath();
+    this.props.ctx.rect(0, 0, this.width, this.height);
+    this.props.ctx.fill();
+    this.props.ctx.fillStyle = fillStyle;
+    this.props.ctx.strokeStyle = strokeStyle;
     this.canvas.map.forEach(
       (token => token.draw(
-        this.ctx,
+        this.props.ctx,
         this.focusObject && token.id == this.focusObject.id)
       )
     );
     this.canvas.token.forEach(
       (token => token.draw(
-        this.ctx,
+        this.props.ctx,
         this.focusObject && token.id == this.focusObject.id)
       )
     );
     if (this.ephemeral) {
-      this.ephemeral.draw(this.ctx, false);
+      this.ephemeral.draw(this.props.ctx, false);
     }
 
     this.drawGrid();
   }
 
   drawGrid() {
-    let { lineWidth, globalAlpha, strokeStyle } = this.ctx;
-    this.ctx.globalAlpha = 0.2;
-    this.ctx.lineWidth = 3;
-    this.ctx.strokeStyle = "#634515";
+    let { lineWidth, globalAlpha, strokeStyle } = this.props.ctx;
+    this.props.ctx.globalAlpha = 0.2;
+    this.props.ctx.lineWidth = 3;
+    this.props.ctx.strokeStyle = "#634515";
     for (var i = 1; i <= this.width; i += 80) {
-      this.ctx.beginPath();
-      this.ctx.moveTo(i, 0);
-      this.ctx.lineTo(i, this.height);
-      this.ctx.stroke();
+      this.props.ctx.beginPath();
+      this.props.ctx.moveTo(i, 0);
+      this.props.ctx.lineTo(i, this.height);
+      this.props.ctx.stroke();
     }
     for (i = 1; i <= this.height; i += 80) {
-      this.ctx.beginPath();
-      this.ctx.moveTo(0,i);
-      this.ctx.lineTo(this.width, i);
-      this.ctx.stroke();
+      this.props.ctx.beginPath();
+      this.props.ctx.moveTo(0,i);
+      this.props.ctx.lineTo(this.width, i);
+      this.props.ctx.stroke();
     }
-    this.ctx.globalAlpha = globalAlpha;
-    this.ctx.lineWidth = lineWidth;
-    this.ctx.strokeStyle = strokeStyle;
+    this.props.ctx.globalAlpha = globalAlpha;
+    this.props.ctx.lineWidth = lineWidth;
+    this.props.ctx.strokeStyle = strokeStyle;
   }
 }
 

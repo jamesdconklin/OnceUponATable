@@ -3,7 +3,7 @@ class CanvasObject {
     this.pos = options.pos || [0,0];
     this.context = options.context;
     this.lineWidth = options.lineWidth || 3;
-    this.fillColor = options.fillColor; // || "#777777";
+    this.fillColor = options.fillColor || "";
     this.lineColor = options.lineColor || "#000000";
     this.id = options.id || this._randomId();
   }
