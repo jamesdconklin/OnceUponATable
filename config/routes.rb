@@ -5,7 +5,8 @@ Rails.application.routes.draw do
                       defaults: { format: :json }
     resource :session, only: [:create, :destroy]
     resources :games, except: [:new, :edit], defaults: { format: :json } do
-      resource :canvas, only: [:show, :update]
+      resource :canvas, only: [:show, :update], defaults: { format: :json }
+      resources :messages, only: [:index, :create], defaults: { format: :json }
       resources :players,
                 only: [:create, :destroy], defaults: { format: :json }
     end

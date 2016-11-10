@@ -4,7 +4,7 @@ import { RECEIVE_SELECTED_ASSET, RECEIVE_ASSETS, RECEIVE_ASSET_PARAMS }
 const _defaultState = {
   assets: [],
   selected: null,
-  params: {
+  asset_params: {
     lineColor: '#000000',
     fillColor: '#777777',
     lineWIdth: 7,
@@ -15,27 +15,27 @@ const _defaultState = {
 export default (state = _defaultState, action) => {
   // console.log("Asset Reducer caught ", action);
   Object.freeze(state);
-  let { assets, selected, params } = state;
+  let { assets, selected, asset_params } = state;
   switch (action.type) {
     case RECEIVE_ASSET_PARAMS:
       return ({
         selected,
         assets,
-        params: action.params
+        asset_params: action.params
       });
     case RECEIVE_ASSETS:
       return ({
         selected,
         assets: action.assets,
-        params
+        asset_params
       });
     case RECEIVE_SELECTED_ASSET:
       return ({
         selected: action.asset,
         assets,
-        params
+        asset_params
       });
     default:
-      return {assets, selected};
+      return {assets, selected, asset_params};
   }
 };

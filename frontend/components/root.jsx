@@ -49,7 +49,6 @@ const Root = ({store}) => {
     return true;
   };
 
-
   return (
     <Provider store={store}>
       <Router history={hashHistory}>

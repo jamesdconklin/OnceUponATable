@@ -5,6 +5,7 @@ import * as game_api from './util/game_api_util';
 import * as user_api from './util/user_api_util';
 import * as canvas_api from './util/canvas_api_util';
 import * as asset_api from './util/asset_api_util';
+import * as message_api from './util/message_api_util';
 import configureStore from './store/store';
 import Root from './components/root';
 import Modal from 'react-modal';
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded",
     let store = configureStore(preloadedState);
     const root = document.getElementById("root");
     window.store = store;
+    window.message_api = message_api;
     window.session_api = session_api;
     window.game_api = game_api;
     window.user_api = user_api;

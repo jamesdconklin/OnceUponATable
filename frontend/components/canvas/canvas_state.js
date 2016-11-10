@@ -197,7 +197,15 @@ class CanvasState {
   }
 
   draw() {
-    this.ctx.clearRect(0, 0, this.width, this.height);
+    let lightParchment = "#f8ebe4";
+    let { fillStyle, strokeStyle } = this.ctx;
+    this.ctx.fillStyle = lightParchment;
+    this.ctx.strokeStyle = lightParchment;
+    this.ctx.beginPath();
+    this.ctx.rect(0, 0, this.width, this.height);
+    this.ctx.fill();
+    this.ctx.fillStyle = fillStyle;
+    this.ctx.strokeStyle = strokeStyle;
     this.canvas.map.forEach(
       (token => token.draw(
         this.ctx,
@@ -218,6 +226,10 @@ class CanvasState {
   }
 
   drawGrid() {
+    let { lineWidth, globalAlpha, strokeStyle } = this.ctx;
+    this.ctx.globalAlpha = 0.2;
+    this.ctx.lineWidth = 3;
+    this.ctx.strokeStyle = "#634515";
     for (var i = 1; i <= this.width; i += 80) {
       this.ctx.beginPath();
       this.ctx.moveTo(i, 0);
@@ -230,6 +242,9 @@ class CanvasState {
       this.ctx.lineTo(this.width, i);
       this.ctx.stroke();
     }
+    this.ctx.globalAlpha = globalAlpha;
+    this.ctx.lineWidth = lineWidth;
+    this.ctx.strokeStyle = strokeStyle;
   }
 }
 

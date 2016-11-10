@@ -15,27 +15,39 @@ User.create!(username: "Dungeon Master", password: 'password', image_url: defaul
 # 2
 User.create!(username: "Demo", password: 'password', image_url: default_user_image)
 # 3
-User.create!(username: "Fighter", password: 'password', image_url: default_user_image)
+User.create!(username: "Marasella", password: 'password', image_url: default_user_image)
 # 4
-User.create!(username: "Wizard", password: 'password', image_url: default_user_image)
+User.create!(username: "Soren", password: 'password', image_url: default_user_image)
 # 5
-User.create!(username: "Cleric", password: 'password', image_url: default_user_image)
+User.create!(username: "Tivego", password: 'password', image_url: default_user_image)
 # 6
-User.create!(username: "Bard", password: 'password', image_url: default_user_image)
+User.create!(username: "Brand", password: 'password', image_url: default_user_image)
 # 7
-User.create!(username: "Barbarian", password: 'password', image_url: default_user_image)
+User.create!(username: "Delia", password: 'password', image_url: default_user_image)
 # 8
-User.create!(username: "Druid", password: 'password', image_url: default_user_image)
+User.create!(username: "Baraka", password: 'password', image_url: default_user_image)
 # 9
-User.create!(username: "Sorcerer", password: 'password', image_url: default_user_image)
+User.create!(username: "Campa One-Eye", password: 'password', image_url: default_user_image)
 # 10
-User.create!(username: "Paladin", password: 'password', image_url: default_user_image)
+User.create!(username: "Samoen Vanari", password: 'password', image_url: default_user_image)
 # 11
-User.create!(username: "Monk", password: 'password', image_url: default_user_image)
+User.create!(username: "Ardella Graves", password: 'password', image_url: default_user_image)
 # 12
-User.create!(username: "Ranger", password: 'password', image_url: default_user_image)
-# 13
-User.create!(username: "Rogue", password: 'password', image_url: default_user_image)
+User.create!(username: "Elim Graves", password: 'password', image_url: default_user_image)
+# 14
+User.create!(username: "Seanza Vanari", password: 'password', image_url: default_user_image)
+# 15
+User.create!(username: "Saome Mas'harad", password: 'password', image_url: default_user_image)
+# 16
+User.create!(username: "Goto Asai", password: 'password', image_url: default_user_image)
+# 17
+User.create!(username: "Tessandalara", password: 'password', image_url: default_user_image)
+# 18
+User.create!(username: "Karovna Sorex", password: 'password', image_url: default_user_image)
+# 19
+User.create!(username: "Cuthbert", password: 'password', image_url: default_user_image)
+# 20
+User.create!(username: "Mr. Picksy", password: 'password', image_url: default_user_image)
 
 gloat = "Ladies and gentlemen, I have invited you all to my final \
 resting place because I desire to be buried with my enemies. Enjoy \
@@ -175,14 +187,14 @@ GameSignup.create!(game_id: 5, user_id: 13)
 # green = '#00FF00'
 
 Asset.create!(
-  title: "Arid Cliff",
+  title: "Map: Desert Cliff",
   asset_class: "image",
   image_url: 'AridCliff80Grid_ahpupc',
   width: 1920,
   height: 961
 )
 Asset.create!(
-  title: "Main Hall",
+  title: "Map: Dining Hall",
   asset_class: "image",
   image_url: 'Main_HallNoRoof80Grid_vcoaq3',
   width: 960,
@@ -190,7 +202,7 @@ Asset.create!(
 )
 
 Asset.create!(
-  title: "Chess Board",
+  title: "Board: Chess Board",
   asset_class: "image",
   image_url: 'chessboard_zb9xzl',
   width: 682,
@@ -198,55 +210,55 @@ Asset.create!(
 )
 
 Asset.create!(
-  title: "Morningstar Fighter",
+  title: "Token: Male Fighter",
   asset_class: "image",
   image_url: "zocCBaq_nn112f",
 )
 
 Asset.create!(
-  title: "White Mage",
+  title: "Token: Male Mage",
   asset_class: "image",
   image_url: "Zangold-1_yuvyuu"
 )
 
 Asset.create!(
-  title: "Jaunty Wizard",
+  title: "Token: Male Bard",
   asset_class: "image",
   image_url: "Zangold-2_wrby9r"
 )
 
 Asset.create!(
-  title: "Mace Fighter",
+  title: "Token: Male Cleric",
   asset_class: "image",
   image_url: "Kellen-2_fj3h5f"
 )
 
 Asset.create!(
-  title: "Stalking Archer",
+  title: "Token: Female Archer",
   asset_class: "image",
   image_url: "Iris-1_fzosuv"
 )
 
 Asset.create!(
-  title: "Swaggering Bard",
+  title: "Token: Female Swashbuckler",
   asset_class: "image",
   image_url: "Hazel-1_a6azwz"
 )
 
 Asset.create!(
-  title: "Red Crusader",
+  title: "Token: Male Knight",
   asset_class: "image",
   image_url: "Gwendal-1_rdwd8w"
 )
 
 Asset.create!(
-  title: "Demonic Mage",
+  title: "Token: Hellborn Mage",
   asset_class: "image",
   image_url: "Enmerkar-1_wlpjal"
 )
 
 Asset.create!(
-  title: "Dark Archer",
+  title: "Token; Dark Elf Archer",
   asset_class: "image",
   image_url: "Arvan-1_jsu3mv"
 )

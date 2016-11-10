@@ -4,13 +4,15 @@ import GameListReducer from './game_list_reducer';
 import GameDetailReducer from './game_detail_reducer';
 import CanvasReducer from './canvas_reducer';
 import AssetReducer from './asset_reducer';
+import MessageReducer from './message_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
   gamesList: GameListReducer,
   gameDetail: GameDetailReducer,
   canvas: CanvasReducer,
-  assetLibrary: AssetReducer
+  assetLibrary: AssetReducer,
+  messages: MessageReducer
 });
 
 export default RootReducer;

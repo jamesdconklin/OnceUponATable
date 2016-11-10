@@ -4,16 +4,69 @@
   max-height: 1080px;
   height: 100vh;
   width: 100vw;
+  background: lighten($parchment, 10%);
+
+  .scroller {
+    overflow: scroll;
+    width: calc(100vw - 200px);
+    height: calc(100vh - 200px);
+  }
+}
+
+.messages-bar {
+  box-sizing: border-box;
+  position: relative;
+  padding: 20px 20px 0 0;
+  background-color: $nightsky;
+  width: calc(100vw - 200px);
+  height: 200px;
+
+  .message-input {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0px;
+    margin: 10px 0;
+    background: lighten($parchment, 10%);
+    width: calc(100% - 0px);
+    height: 40px;
+    padding: 5px 5px 5px 20px;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .messages {
+    position: absolute;
+    box-sizing: border-box;
+    top: 20px;
+    background-color: $parchment;
+    border-radius: 0 20px 5px 0 ;
+    overflow-y: scroll;
+    height: 120px;
+    width: 100%;
+    padding: 10px 10px 0px 10px;
+
+
+    .message {
+      padding: 5px;
+      margin: 5px;
+      width: calc(100% - 20px);
+      border-radius: 10px;
+      box-shadow: 2px 2px transparentize($sepia, 0.7);
+      background-color: lighten($parchment, 10%);
+      color: $sepia;
+
+    }
+  }
 }
 
 .asset-toolbar {
   padding-left: 20px;
   background-color: $nightsky;
 
+  height: calc(100vh); // - 200px);
   width: 180px;
   position: fixed;
   top: 0px;
-  bottom: 0px;
+  bottom: 200px;
   right: 0px;
 
   .asset-toolbar-header {
@@ -23,6 +76,7 @@
     background-color: $nightsky;
 
     input {
+      background-color: lighten($parchment, 10%);
       color: $sepia;
       font-size: 20px;
       position: absolute;
@@ -31,31 +85,38 @@
       text-align: center;
       top: 0px;
       width: 180px;
-      background: lighten($parchment, 10%);
     }
   }
 
   .asset-library {
+    text-align: center;
     overflow-y: scroll;
     overflow-x: hidden;
     background: $parchment;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px); // - 260px);
     padding: 10px;
-    border-radius: 20px 0 0 0;
+    border-radius: 20px 0 0 20px;
+
+    li {
+      display: inline-block;
+    }
 
     .asset-entry {
+      // box-sizing: border-box;
       background: lighten($parchment, 10%);
       width: 150px;
       margin: 5px 0;
       border: 2px solid $sepia;
-      border-radius: 5px 5px 0 0;
-      overflow: hidden;
+      border-radius: 10px 10px 0 0;
+      // overflow: hidden;
       box-shadow: 2px 2px transparentize($oak, 0.7);
 
       .asset-header {
+        border-radius: 5px 5px 0 0;
+        box-sizing: border-box;
         width: 150px;
         padding: 5px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         background: $sepia;
         color: $starlight;
