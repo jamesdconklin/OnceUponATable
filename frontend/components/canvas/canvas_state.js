@@ -6,11 +6,7 @@ import { merge } from 'lodash';
 
 class CanvasState {
   constructor(ctx, update) {
-    this.reduxState = {map: [], token: []};
-    // this.token = [];
-    // this.map = [];
     this.canvas = {map: [], token: []};
-    this._populateShapes();
     this.width = ctx.canvas.clientWidth;
     this.height = ctx.canvas.clientHeight;
     this.ctx = ctx;
@@ -38,23 +34,19 @@ class CanvasState {
       }
       this.layer = opts.layer;
     } else
-
     this.asset = opts.asset;
     this.update = opts.update;
-    this.reduxState = opts.state;
     this.ctx = opts.ctx;
-    this._populateShapes();
+    this._populateShapes(opts.state);
     this.ephemeral = null;
     this.movedObject = null;
     if (this.focusObject && this._flatten(
-          this.reduxState,
+          opts.state,
           ['token', 'map'],
           'id'
         ).indexOf(this.focusObject.id) < 0) {
-
       this.focusObject = null;
     }
-
     this.draw();
   }
 
@@ -68,9 +60,9 @@ class CanvasState {
     return ret;
   }
 
-  _populateShapes() {
-    this.canvas.token = this.reduxState.token.map(this._createObject);
-    this.canvas.map = this.reduxState.map.map(this._createObject);
+  _populateShapes(state) {
+    this.canvas.token = state.token.map(this._createObject);
+    this.canvas.map = state.map.map(this._createObject);
   }
 
   _createObject(el) {
@@ -114,31 +106,39 @@ class CanvasState {
         case "Backspace":
           this._deleteFocusObject(e);
           break;
+        case "Escape":
+          this.ephemeral = null;
+          this.focusObject = null;
+          this.draw();
+          break;
         default:
-          // console.log(e);
+          console.log(e);
       }
     }
   }
 
   handleMouseUp(e) {
-    let {layerX, layerY } = e;
+    let pos = this.getCursorPosition(e.target, e);
+    let [x,y] = pos;
     if (this.ephemeral && Math.min(
       Math.abs(this.ephemeral.width), Math.abs(this.ephemeral.height)
     ) > 5) {
+
       this.canvas[this.layer].push(this.ephemeral);
       this.update(this.layer, this.ephemeral);
       this.ephemeral = null;
     } else if (this.movedObject) {
+
       let tempMove = this.movedObject;
       this.movedObject = null;
+
       if (this.moved) {
         this.moved = false;
         this.update(this.layer, tempMove);
       }
     } else if (this.asset) {
-
       let assetDefinition = merge({
-        pos: [layerX - this.asset.width/2, layerY - this.asset.height/2]
+        pos: [x - this.asset.width/2, y - this.asset.height/2]
       }, this.asset);
 
       let assetObject = this._createObject(assetDefinition);
@@ -152,13 +152,19 @@ class CanvasState {
     this.draw();
   }
 
+  getCursorPosition(canvas, event) {
+      var rect = canvas.getBoundingClientRect();
+      var x = event.clientX - rect.left;
+      var y = event.clientY - rect.top;
+      return [x,y];
+  }
+
   handleMouseDown(e) {
     if (this.ephemeral || this.movedObject) {
       return;
     }
 
-    let {layerX, layerY } = e;
-    let pos = [layerX, layerY];
+    let pos = this.getCursorPosition(e.target, e);
     let objects = this.canvas[this.layer];
     for (var i = objects.length-1; i >= 0; i--) {
       if ((this.clickDiff = objects[i].isClicked(pos))) {
@@ -170,18 +176,18 @@ class CanvasState {
 
     this.movedObject = null;
 
-    this.ephemeral = this.ephemeral || new Square({pos: [layerX, layerY], height: 1, width: 1});
+    this.ephemeral = this.ephemeral || new Square({pos, height: 1, width: 1});
     this.focusObject = this.ephemeral;
 
     this.draw();
   }
 
   handleMouseMove(e) {
-    let {layerX, layerY} = e;
+    let [x, y] = this.getCursorPosition(e.target, e);
     if (this.ephemeral) {
       let [eX, eY] = this.ephemeral.pos;
-      this.ephemeral.width = layerX-eX;
-      this.ephemeral.height = layerY-eY;
+      this.ephemeral.width = x-eX;
+      this.ephemeral.height = y-eY;
     } else if (this.movedObject) {
       if (!this.moved) {
 
@@ -189,8 +195,8 @@ class CanvasState {
         this.canvas[this.layer].push(this.movedObject);
       }
       this.moved = true;
-      let newX = layerX - this.clickDiff[0];
-      let newY = layerY - this.clickDiff[1];
+      let newX = x - this.clickDiff[0];
+      let newY = y - this.clickDiff[1];
       this.movedObject.pos = [newX, newY];
     }
     (this.ephemeral || this.moved) && this.draw();
