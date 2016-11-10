@@ -1,4 +1,4 @@
 export default {
-  username: "Fighter",
+  username: "Demo",
   password: "password"
 };

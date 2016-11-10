@@ -6,7 +6,15 @@ class ImageAsset extends Square {
     this.asset_class = "image";
     this.fillColor = "#777777";
     this.image_url = options.image_url;
-    this.img = $.cloudinary.image(this.image_url, {width: this.width, height: this.height, crop: "scale"})[0];
+    this.img = $.cloudinary.image(
+      this.image_url,
+      {
+        quality: 60,
+        width: this.width,
+        height: this.height,
+        crop: "scale",
+      }
+    )[0];
     this.img.onload = () => {
       options.state.draw();
     };

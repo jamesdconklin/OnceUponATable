@@ -4,6 +4,7 @@ import PlayerLink from './player_link';
 import { Link } from 'react-router';
 import UserSignupContainer from './user_signup_container';
 import UserSignupStyle from './user_signup_style';
+import { cloudinaryConfig, CloudinaryImage } from 'react-cloudinary';
 
 class GameDetail extends React.Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class GameDetail extends React.Component {
   }
 
   render() {
+    cloudinaryConfig({ cloud_name: window.cloudName });
     let { gameDetail, currentUser, enlist, deEnlist } = this.props;
     return (
       <section className="content center-horiz">
@@ -78,7 +80,8 @@ class GameDetail extends React.Component {
             </Modal>
             <section className="flex-between">
               <div className="game-detail-img">
-                <img src={gameDetail.image_url}/>
+                <CloudinaryImage publicId={gameDetail.image_url}
+                                 options={{quality: 50, width: 480, crop: "scale"}}/>
                 {this._userLinks(gameDetail, currentUser)}
               </div>
               <div className="game-detail-body">

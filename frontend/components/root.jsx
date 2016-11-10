@@ -52,7 +52,7 @@ const Root = ({store}) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/canvas" component={Canvas}>
+        <Route path="/canvas/" component={Canvas}>
           <Route path="/canvas/:game_id" component={PainterContainer}
                  onEnter={(params) =>(_redirectIfLoggedOut() && _loadCanvas(params))}/>
         </Route>
