@@ -7,7 +7,7 @@ const _defaultState = {
   assets: [],
   selected: null,
   asset_params: {
-    draw: true,
+    draw: false,
     lineColor: '#000000',
     fillColor: '#777777',
     fill: false,

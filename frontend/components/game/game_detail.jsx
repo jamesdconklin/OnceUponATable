@@ -81,7 +81,7 @@ class GameDetail extends React.Component {
             <section className="flex-between">
               <div className="game-detail-img">
                 <CloudinaryImage publicId={gameDetail.image_url}
-                                 options={{quality: 50, width: 480, crop: "scale"}}/>
+                                 options={{quality: 30, width: 480, crop: "scale"}}/>
                 {this._userLinks(gameDetail, currentUser)}
               </div>
               <div className="game-detail-body">
