@@ -1,3 +1,25 @@
+User.create!([
+  {username: "Jamesui", password_digest: "$2a$10$ro5E75acGdQImjO1638wcOf/LFj6BseEpwqvik6g00xpW/YhwL6Ia", session_token: "HBh5NA7eHlgexJvt5-C-o78maF6zlEjjpAlpIRu7nlo", image_url: "Conklin_vemfty"},
+  {username: "Demo", password_digest: "$2a$10$JdZ8FkvIctdtROpG64aCkev1sPrjH5Jdv6mb2dNuM.23oxQsJw0XW", session_token: "vzci0p3Eey83uBtDr9LGRiRCgdxlPegmKiaK0R2c3pw", image_url: "PZO9443-Inevitable_500_jubolw"},
+  {username: "Marasella", password_digest: "$2a$10$INVt5liMdhh42k5SvaJkBO7TFkz1WTJK1aryU/HUfX5fYGM0ZAoO.", session_token: "N4xQHSsEi5qcx4ZrQs9GjzYX_UgMrDyweDi6yzC-0Oc", image_url: "PZO1129-Jirelle_500_rgfura"},
+  {username: "Soren", password_digest: "$2a$10$tF4UJ5WHEYFcJ9yz/f2qTOwlpqZ2bmInB4qXDEu4iIhWZFkf5h0Y6", session_token: "5KIdrRwt3T1f8EexqXc8aapjlMnvE7vp8m8SzHzi91Q", image_url: "PZO9265-Osirionologist_r7gbz6"},
+  {username: "Tivego", password_digest: "$2a$10$jU69MQpmQA1kkT0Ag.FWlubhCWwyU.kyRdxY9RdPxKwpktqivpNuO", session_token: "LEjPu__F9v-Ut-BOxe_ldcluR0K-eBk6hy2FZweFpWY", image_url: "PZO1117-Oracle_90_lswj8o"},
+  {username: "Brand", password_digest: "$2a$10$z83H0hvzIGs.zQ4DsColt.D4mdihry7F2mVH6RVJFHKWeW0VTZd/G", session_token: "6sIJbDS4FG5kpG2UDBPW214MkZWCOs0O1nNIQasUx-4", image_url: "A16_Verik-Vankaskerkin_pklyvo"},
+  {username: "Delia", password_digest: "$2a$10$GQXb75leXfMTgEdo5Wqheuv9IoWPU64GFenmhZqG97TDjhjS.LxRu", session_token: "1K8eWFUDklHxrPKXthR9-vn0L61gU5ONo9_GAQbhUQE", image_url: "PZO9077-Iomedae_500_ijtebt"},
+  {username: "Baraka", password_digest: "$2a$10$/wyApjPIxY4RWuP5OXhoc.vNkfHhFCnBiygm1ZSgk1yvrlhf6qe6W", session_token: "14a8sHGL1K3BlWXsoAhnDl1NmIdTPhZBZZf4VxtVtKo", image_url: "11JarloftheNorthWind_f36lia"},
+  {username: "Campa One-Eye", password_digest: "$2a$10$POLuw56UxyR8Vu4/zWQKN.MWO8MLOI/YJINOF5ZK3ueG17wtcHEp6", session_token: "Pr4EirCB-1xYMpQd445aRepEChJUH6fRDGYQzMo8hzU", image_url: "PZO9072-RiderImrijka_500_tivs5c"},
+  {username: "Samoen Vanari", password_digest: "$2a$10$aUuof/qqFKcbyaMAU2btFOTWiwILY3xUPvkGy/evmHDBeI89GcgUC", session_token: "C-4cGwNnBhtgYl3BExosFx0ZEB8WeifyXYDvtAEXU5E", image_url: "carlisle_drg_359_New_Myth5_xmk8j0"},
+  {username: "Ardella Graves", password_digest: "$2a$10$wfgiAtqQl7PDYvvpUmCjv.Ix2QeLwi4aU2Mh3BWSYG86fkRjyGaWy", session_token: "lIiyXQ1np7TWelfRW-W_ZiFGlTEnkJQfsmjU9yA78t4", image_url: "PZO1129-Enora_ntvoqf"},
+  {username: "Elim Graves", password_digest: "$2a$10$7chgeL7qa.L511SzC6kPP.WchXxV1mxzqeWYIPdRXZTW7GWrKW92e", session_token: "cSuDE3JU2ptoGOTsjPz9ySyy5fg1VU70n9UbYtxRqa4", image_url: "PZO1126-Lem_500_ivt3tw"},
+  {username: "Thirteen", password_digest: "$2a$10$46InNc67yuuOjff/wwojROPNKYeu981u0keSYHkDYgD/xRIMWWG5O", session_token: "5GMa7TeoNvw1RX1_OCN1idvTzb7P0FVNPklcfAxUly8", image_url: "PZO9080-Fez_90_zol940"},
+  {username: "Seanza Vanari", password_digest: "$2a$10$b3sCJr8EgR4cE8gzyDQXHOjcgxeRnqWdtA0NeR9Raqm8dlfelRXqC", session_token: "RHoXh-1CQdb32IzyrabTvvJgCqLHveCbnoFPS0w8jp8", image_url: "PZO1124-Lawyer_90_rtsvu3"},
+  {username: "Goto Asai", password_digest: "$2a$10$pq1cGrRe0gJOBTAqjuGXxewwmeY4f4NeNM5747fYZW20QrV6Y5Z.G", session_token: "pW6CHnhMsa5MX8-SOK3G1yD46GG7W7AZj6H9k1myiQY", image_url: "PZO9519-Olvan_kjx0e0"},
+  {username: "Tessandalara", password_digest: "$2a$10$cE4X2otXkslaWxau4.RXeOQHLce9JNgPoT1MXjx4LUrgqqehafHZ2", session_token: "ErLpO5F7LS4vWICcolV23GeKG4a9a3CIUMfwmNI2T_A", image_url: "A16_hs_merisiel_final_h32mha"},
+  {username: "Saome Mas'harad", password_digest: "$2a$10$WsOsAgjcKpTnpuSG81apVu4TdihyxMl4UXh65Cxv8B6TTDY4aXcni", session_token: "-RxMh7_oBp19NcX2333k33gntCg-QzCBkC4O_wp8jaM", image_url: "PZO1125-Kyra_90_e0a6cv"},
+  {username: "Karovna Sorex", password_digest: "$2a$10$19pGqN0ACAWj6gy/Yrvhoe.pO/zS0XIYb1RUEb3F/ytC3yy2YM8QK", session_token: "yE0Wk2JjF7cmztJPyMTDQUh384iwQNBd4ZyV73mNfGY", image_url: "PZO9069-Mother_90_ksudqe"},
+  {username: "Narrrr", password_digest: "$2a$10$NFPgIDiRoLEiFxXYGjzn/uH0INBeZPwQpUbJ9feNHopxDF6ECSoC.", session_token: "vFPIc5Qo84r8W86RGXv8eEfDyNPRy7FKLxGUtGpd8S8", image_url: "PZO9059-Gorebeard_90_dpf7mh"},
+  {username: "Mr. Picksy", password_digest: "$2a$10$zEmgIH2qyS1rJknkLhO7H.PqDYW22XiFFOuKufy.ugE2yEX.0NXFq", session_token: "ox_sNDjvrlpgJymqnam4PHUicO8BB2T4NKL9C7KimU0", image_url: "PZO9060-Pirate_90_nlyxh0"}
+  ])
 Asset.create!([
   {title: "Token: Dragon", asset_class: "image", width: 320, height: 240, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "hammer_tail_dragon_by_digger2000-d4h1hch_zwiehu"},
   {title: "Token: Male Spellsword", asset_class: "image", width: 100, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "jericho-model_hq7rwl"},
@@ -154,26 +176,4 @@ Message.create!([
   {user_id: 5, game_id: 6, body: "Better?", result: nil},
   {user_id: 16, game_id: 6, body: "Yep.", result: nil},
   {user_id: 9, game_id: 6, body: "Thanks, boss.", result: nil}
-])
-User.create!([
-  {username: "Jamesui", password_digest: "$2a$10$ro5E75acGdQImjO1638wcOf/LFj6BseEpwqvik6g00xpW/YhwL6Ia", session_token: "HBh5NA7eHlgexJvt5-C-o78maF6zlEjjpAlpIRu7nlo", image_url: "Conklin_vemfty"},
-  {username: "Demo", password_digest: "$2a$10$JdZ8FkvIctdtROpG64aCkev1sPrjH5Jdv6mb2dNuM.23oxQsJw0XW", session_token: "vzci0p3Eey83uBtDr9LGRiRCgdxlPegmKiaK0R2c3pw", image_url: "PZO9443-Inevitable_500_jubolw"},
-  {username: "Marasella", password_digest: "$2a$10$INVt5liMdhh42k5SvaJkBO7TFkz1WTJK1aryU/HUfX5fYGM0ZAoO.", session_token: "N4xQHSsEi5qcx4ZrQs9GjzYX_UgMrDyweDi6yzC-0Oc", image_url: "PZO1129-Jirelle_500_rgfura"},
-  {username: "Soren", password_digest: "$2a$10$tF4UJ5WHEYFcJ9yz/f2qTOwlpqZ2bmInB4qXDEu4iIhWZFkf5h0Y6", session_token: "5KIdrRwt3T1f8EexqXc8aapjlMnvE7vp8m8SzHzi91Q", image_url: "PZO9265-Osirionologist_r7gbz6"},
-  {username: "Tivego", password_digest: "$2a$10$jU69MQpmQA1kkT0Ag.FWlubhCWwyU.kyRdxY9RdPxKwpktqivpNuO", session_token: "LEjPu__F9v-Ut-BOxe_ldcluR0K-eBk6hy2FZweFpWY", image_url: "PZO1117-Oracle_90_lswj8o"},
-  {username: "Brand", password_digest: "$2a$10$z83H0hvzIGs.zQ4DsColt.D4mdihry7F2mVH6RVJFHKWeW0VTZd/G", session_token: "6sIJbDS4FG5kpG2UDBPW214MkZWCOs0O1nNIQasUx-4", image_url: "A16_Verik-Vankaskerkin_pklyvo"},
-  {username: "Delia", password_digest: "$2a$10$GQXb75leXfMTgEdo5Wqheuv9IoWPU64GFenmhZqG97TDjhjS.LxRu", session_token: "1K8eWFUDklHxrPKXthR9-vn0L61gU5ONo9_GAQbhUQE", image_url: "PZO9077-Iomedae_500_ijtebt"},
-  {username: "Baraka", password_digest: "$2a$10$/wyApjPIxY4RWuP5OXhoc.vNkfHhFCnBiygm1ZSgk1yvrlhf6qe6W", session_token: "14a8sHGL1K3BlWXsoAhnDl1NmIdTPhZBZZf4VxtVtKo", image_url: "11JarloftheNorthWind_f36lia"},
-  {username: "Campa One-Eye", password_digest: "$2a$10$POLuw56UxyR8Vu4/zWQKN.MWO8MLOI/YJINOF5ZK3ueG17wtcHEp6", session_token: "Pr4EirCB-1xYMpQd445aRepEChJUH6fRDGYQzMo8hzU", image_url: "PZO9072-RiderImrijka_500_tivs5c"},
-  {username: "Samoen Vanari", password_digest: "$2a$10$aUuof/qqFKcbyaMAU2btFOTWiwILY3xUPvkGy/evmHDBeI89GcgUC", session_token: "C-4cGwNnBhtgYl3BExosFx0ZEB8WeifyXYDvtAEXU5E", image_url: "carlisle_drg_359_New_Myth5_xmk8j0"},
-  {username: "Ardella Graves", password_digest: "$2a$10$wfgiAtqQl7PDYvvpUmCjv.Ix2QeLwi4aU2Mh3BWSYG86fkRjyGaWy", session_token: "lIiyXQ1np7TWelfRW-W_ZiFGlTEnkJQfsmjU9yA78t4", image_url: "PZO1129-Enora_ntvoqf"},
-  {username: "Elim Graves", password_digest: "$2a$10$7chgeL7qa.L511SzC6kPP.WchXxV1mxzqeWYIPdRXZTW7GWrKW92e", session_token: "cSuDE3JU2ptoGOTsjPz9ySyy5fg1VU70n9UbYtxRqa4", image_url: "PZO1126-Lem_500_ivt3tw"},
-  {username: "Thirteen", password_digest: "$2a$10$46InNc67yuuOjff/wwojROPNKYeu981u0keSYHkDYgD/xRIMWWG5O", session_token: "5GMa7TeoNvw1RX1_OCN1idvTzb7P0FVNPklcfAxUly8", image_url: "PZO9080-Fez_90_zol940"},
-  {username: "Seanza Vanari", password_digest: "$2a$10$b3sCJr8EgR4cE8gzyDQXHOjcgxeRnqWdtA0NeR9Raqm8dlfelRXqC", session_token: "RHoXh-1CQdb32IzyrabTvvJgCqLHveCbnoFPS0w8jp8", image_url: "PZO1124-Lawyer_90_rtsvu3"},
-  {username: "Goto Asai", password_digest: "$2a$10$pq1cGrRe0gJOBTAqjuGXxewwmeY4f4NeNM5747fYZW20QrV6Y5Z.G", session_token: "pW6CHnhMsa5MX8-SOK3G1yD46GG7W7AZj6H9k1myiQY", image_url: "PZO9519-Olvan_kjx0e0"},
-  {username: "Tessandalara", password_digest: "$2a$10$cE4X2otXkslaWxau4.RXeOQHLce9JNgPoT1MXjx4LUrgqqehafHZ2", session_token: "ErLpO5F7LS4vWICcolV23GeKG4a9a3CIUMfwmNI2T_A", image_url: "A16_hs_merisiel_final_h32mha"},
-  {username: "Saome Mas'harad", password_digest: "$2a$10$WsOsAgjcKpTnpuSG81apVu4TdihyxMl4UXh65Cxv8B6TTDY4aXcni", session_token: "-RxMh7_oBp19NcX2333k33gntCg-QzCBkC4O_wp8jaM", image_url: "PZO1125-Kyra_90_e0a6cv"},
-  {username: "Karovna Sorex", password_digest: "$2a$10$19pGqN0ACAWj6gy/Yrvhoe.pO/zS0XIYb1RUEb3F/ytC3yy2YM8QK", session_token: "yE0Wk2JjF7cmztJPyMTDQUh384iwQNBd4ZyV73mNfGY", image_url: "PZO9069-Mother_90_ksudqe"},
-  {username: "Narrrr", password_digest: "$2a$10$NFPgIDiRoLEiFxXYGjzn/uH0INBeZPwQpUbJ9feNHopxDF6ECSoC.", session_token: "vFPIc5Qo84r8W86RGXv8eEfDyNPRy7FKLxGUtGpd8S8", image_url: "PZO9059-Gorebeard_90_dpf7mh"},
-  {username: "Mr. Picksy", password_digest: "$2a$10$zEmgIH2qyS1rJknkLhO7H.PqDYW22XiFFOuKufy.ugE2yEX.0NXFq", session_token: "ox_sNDjvrlpgJymqnam4PHUicO8BB2T4NKL9C7KimU0", image_url: "PZO9060-Pirate_90_nlyxh0"}
 ])
