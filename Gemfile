@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'pusher';
-gem 'figaro';
-gem 'rename';
+gem 'seed_dump'
+gem 'pusher'
+gem 'figaro'
+gem 'rename'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use postgresql as the database for Active Record

@@ -6,7 +6,7 @@ class Message < ActiveRecord::Base
   belongs_to :user
 
   def set_roll_result
-    if self.body =~ /\/roll\s+\S+/
+    if self.body =~ /^\/roll\s+\S+/ && !self.result
       rolls = self.body.split(/\s+/).drop(1)
       self.result = (rolls.map {|roll| self.class.eval_roll(roll)}) # .join(', ')
     end

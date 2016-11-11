@@ -11,17 +11,18 @@ const _defaultState = {
 const CanvasReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-
-  // console.log("CanvasReducer caught", action);
-
+  let { token, map, layer } = state;
   switch (action.type) {
 
     case RECEIVE_CANVAS:
       return merge(action.canvas, {layer: state.layer});
 
     case RECEIVE_LAYER:
-      newState.layer = action.layer;
-      return newState;
+      return ({
+        layer: action.layer,
+        token,
+        map
+      });
 
     case RECEIVE_OBJECT: {
       let obj = action.obj;

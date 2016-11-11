@@ -16,11 +16,11 @@ class GameIndexItem extends React.Component {
         <div className="game-index-item">
           <div className="game-index-item-header flex-between">
             <Link to={`/games/${game.id}`}>{game.title}</Link>
-            <div></div> 
+            <div></div>
           </div>
           <div className="game-index-item-body">
             <div className={`game-index-item-description collapse-${this.state.collapse}`}>
-              "{game.description.length > 220 ? game.description.slice(0,217).concat("...") : game.description}"
+              "{game.description.length > 160 ? game.description.slice(0,157).concat("...") : game.description}"
             </div>
             <div className={`game-index-item-divider collapse-${this.state.collapse}`}
               onClick={(e) => {

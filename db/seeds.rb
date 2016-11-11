@@ -1,233 +1,128 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-default_user_image = "default-avatar_zei3at"
-default_game_image = "placeholder-images_yyg23w"
-
-# 1
-User.create!(username: "Jamesui", password: 'password', image_url: "Conklin_vemfty")
-# 2
-User.create!(username: "Demo", password: 'password', image_url: "PZO9443-Inevitable_500_jubolw")
-# 3
-User.create!(username: "Marasella", password: 'password', image_url: "PZO1129-Jirelle_500_rgfura")
-# 4
-User.create!(username: "Soren", password: 'password', image_url: "PZO9265-Osirionologist_r7gbz6")
-# 5
-User.create!(username: "Tivego", password: 'password', image_url: "PZO1117-Oracle_90_lswj8o")
-# 6
-User.create!(username: "Brand", password: 'password', image_url: "A16_Verik-Vankaskerkin_pklyvo")
-# 7
-User.create!(username: "Delia", password: 'password', image_url: "PZO9077-Iomedae_500_ijtebt")
-# 8
-User.create!(username: "Baraka", password: 'password', image_url: "11JarloftheNorthWind_f36lia")
-# 9
-User.create!(username: "Campa One-Eye", password: 'password', image_url: "PZO9072-RiderImrijka_500_tivs5c")
-# 10
-User.create!(username: "Samoen Vanari", password: 'password', image_url: "carlisle_drg_359_New_Myth5_xmk8j0")
-# 11
-User.create!(username: "Ardella Graves", password: 'password', image_url: "PZO1129-Enora_ntvoqf")
-# 12
-User.create!(username: "Elim Graves", password: 'password', image_url: "PZO1126-Lem_500_ivt3tw")
-# 13
-User.create!(username: "Thirteen", password: "password", image_url: "PZO9080-Fez_90_zol940")
-# 14
-User.create!(username: "Seanza Vanari", password: 'password', image_url: "PZO1124-Lawyer_90_rtsvu3")
-# 15
-User.create!(username: "Saome Mas'harad", password: 'password', image_url: "PZO1125-Kyra_90_e0a6cv")
-# 16
-User.create!(username: "Goto Asai", password: 'password', image_url: "PZO9519-Olvan_kjx0e0")
-# 17
-User.create!(username: "Tessandalara", password: 'password', image_url: "A16_hs_merisiel_final_h32mha")
-# 18
-User.create!(username: "Karovna Sorex", password: 'password', image_url: "PZO9069-Mother_90_ksudqe")
-# 19
-User.create!(username: "Narrrr", password: 'password', image_url: "PZO9059-Gorebeard_90_dpf7mh")
-# 20
-User.create!(username: "Mr. Picksy", password: 'password', image_url: "PZO9060-Pirate_90_nlyxh0")
-
-
-
-
-Asset.create!(
-  title: "Map: Desert Cliff",
-  asset_class: "image",
-  image_url: 'AridCliff80Grid_ahpupc',
-  width: 1920,
-  height: 961
-)
-Asset.create!(
-  title: "Map: Dining Hall",
-  asset_class: "image",
-  image_url: 'Main_HallNoRoof80Grid_vcoaq3',
-  width: 960,
-  height: 960
-)
-
-Asset.create!(
-  title: "Board: Chess Board",
-  asset_class: "image",
-  image_url: 'chessboard_zb9xzl',
-  width: 682,
-  height: 682
-)
-
-Asset.create!(
-  title: "Token: Male Fighter",
-  asset_class: "image",
-  image_url: "zocCBaq_nn112f",
-)
-
-Asset.create!(
-  title: "Token: Male Mage",
-  asset_class: "image",
-  image_url: "Zangold-1_yuvyuu"
-)
-
-Asset.create!(
-  title: "Token: Male Bard",
-  asset_class: "image",
-  image_url: "Zangold-2_wrby9r"
-)
-
-Asset.create!(
-  title: "Token: Male Cleric",
-  asset_class: "image",
-  image_url: "Kellen-2_fj3h5f"
-)
-
-Asset.create!(
-  title: "Token: Female Archer",
-  asset_class: "image",
-  image_url: "Iris-1_fzosuv"
-)
-
-Asset.create!(
-  title: "Token: Female Swashbuckler",
-  asset_class: "image",
-  image_url: "Hazel-1_a6azwz"
-)
-
-Asset.create!(
-  title: "Token: Male Knight",
-  asset_class: "image",
-  image_url: "Gwendal-1_rdwd8w"
-)
-
-Asset.create!(
-  title: "Token: Hellborn Mage",
-  asset_class: "image",
-  image_url: "Enmerkar-1_wlpjal"
-)
-
-Asset.create!(
-  title: "Token: Dark Elf Archer",
-  asset_class: "image",
-  image_url: "Arvan-1_jsu3mv"
-)
-
-Asset.create!(
-  title: "Chess: Black Queen",
-  asset_class: "image",
-  image_url: "ChessBlackQueen_wc6icq",
-  width: 96,
-  height: 90
-)
-
-Asset.create!(
-  title: "Chess: Black Bishop",
-  asset_class: "image",
-  image_url: "ChessBlackBishop_m1lndm",
-  width: 102,
-  height: 95
-)
-
-Asset.create!(
-  title: "Chess: Black King",
-  asset_class: "image",
-  image_url: "ChessBlackKing_gqvn96",
-  width: 88,
-  height: 87
-)
-
-Asset.create!(
-  title: "Chess: Black Knight",
-  asset_class: "image",
-  image_url: "ChessBlackKnight_gb59wq",
-  width: 92,
-  height: 89
-)
-
-Asset.create!(
-  title: "Chess: Black Pawn",
-  asset_class: "image",
-  image_url: "ChessBlackPawn_rbszny",
-  width: 55,
-  height: 86
-)
-
-Asset.create!(
-  title: "Chess: Black Rook",
-  asset_class: "image",
-  image_url: "ChessBlackRook_bqkndz",
-  width: 70,
-  height: 92
-)
-
-
-
-
-
-
-
-Asset.create!(
-  title: "Chess: White Queen",
-  asset_class: "image",
-  image_url: "ChessWhiteQueen_raaqme",
-  width: 101,
-  height: 89
-)
-
-Asset.create!(
-  title: "Chess: White Bishop",
-  asset_class: "image",
-  image_url: "ChessWhiteBishop_q6vccl",
-  width: 96,
-  height: 104
-)
-
-Asset.create!(
-  title: "Chess: White King",
-  asset_class: "image",
-  image_url: "ChessWhiteKing_ralsqh",
-  width: 93,
-  height: 90
-)
-
-Asset.create!(
-  title: "Chess: White Knight",
-  asset_class: "image",
-  image_url: "ChessWhiteKnight_warhxa",
-  width: 99,
-  height: 99
-)
-
-Asset.create!(
-  title: "Chess: White Pawn",
-  asset_class: "image",
-  image_url: "ChessWhitePawn_wczmr5",
-  width: 60,
-  height: 99
-)
-
-Asset.create!(
-  title: "Chess: White Rook",
-  asset_class: "image",
-  image_url: "ChessWhiteRook_ggrbir",
-  width: 68,
-  height: 93
-)
+Asset.create!([
+  {title: "Token: Dragon", asset_class: "image", width: 320, height: 240, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "hammer_tail_dragon_by_digger2000-d4h1hch_zwiehu"},
+  {title: "Token: Male Spellsword", asset_class: "image", width: 100, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "jericho-model_hq7rwl"},
+  {title: "Token: Lich", asset_class: "image", width: 117, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "9ZC_Aganaster_Battlemage_cis_dvxf2g"},
+  {title: "Token: Female Fighter", asset_class: "image", width: 100, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "female_ranger_-_2_swords_-_action_2_thesim_lnd13j"},
+  {title: "Token: Male Swashbuckler", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "9f26f2e7df1b468970373e66bb1ba3f5_yagsp2"},
+  {title: "Token: Male Monk", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "4227a8ac87cd63a6b0e1350cc5e222d0_ngpkri"},
+  {title: "Token: Cyclops", asset_class: "image", width: 160, height: 160, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "96086b1698b86365fac789a955a8719f_qlwvkr"},
+  {title: "Token: Minotaur", asset_class: "image", width: 160, height: 160, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "fa9a8a56a28f157a13589899eb088468_fapeij"},
+  {title: "Token: Female Mage", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "50d2d961e205b7605f40a5a005dc482d_lwcf8w"},
+  {title: "Token: Dwarven Mage", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "dwarf_male_spellcaster_a_01_gysvpp"},
+  {title: "Token: Skeletal Champion", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "monsters_skeleton_a_01_yotl5r"},
+  {title: "Token: Dwarven Warrior", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "CZ8_dwarf_2_wef_minjr2"},
+  {title: "Token: Female Spellsword", asset_class: "image", width: 115, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "9AZ_femmage_cast2_sword_thesim_uzr8oz"},
+  {title: "Token: Male Fighter", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "zocCBaq_nn112f"},
+  {title: "Token: Male Mage", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Zangold-1_yuvyuu"},
+  {title: "Token: Male Bard", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Zangold-2_wrby9r"},
+  {title: "Token: Male Cleric", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Kellen-2_fj3h5f"},
+  {title: "Token: Female Archer", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Iris-1_fzosuv"},
+  {title: "Token: Female Swashbuckler", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Hazel-1_a6azwz"},
+  {title: "Token: Male Knight", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Gwendal-1_rdwd8w"},
+  {title: "Token: Hellborn Mage", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Enmerkar-1_wlpjal"},
+  {title: "Token: Dark Elf Archer", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Arvan-1_jsu3mv"},
+  {title: "Map: Study", asset_class: "image", width: 1024, height: 598, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "the_haunting____the_morgue__by_cisticola-d8cy73m_o1atdb"},
+  {title: "Map: Ruined Fort", asset_class: "image", width: 1024, height: 1024, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "crumbling_fort_tilefmm23_by_madcowchef-d7gihml_tr9bft"},
+  {title: "Map: River Crossing", asset_class: "image", width: 1202, height: 1308, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "river_crossing_battlemap_by_evile_eagle-d4ea4q4_a3qzam"},
+  {title: "Map: Dark Alley", asset_class: "image", width: 1378, height: 579, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "the_haunting___boston_side_street_by_cisticola-d8a77nv_ge91ru"},
+  {title: "Map: Ruined Farmstead", asset_class: "image", width: 1250, height: 512, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "land_farmstead_with_graves__day__by_hero339-d8tsqzd_thrtjh"},
+  {title: "Map: Forest Road", asset_class: "image", width: 1000, height: 625, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "attachment_zf3jia_co9fs8"},
+  {title: "Map: Boat", asset_class: "image", width: 660, height: 1200, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "EclipseTop_dnlnp9"},
+  {title: "Map: Desert Cliff", asset_class: "image", width: 1920, height: 961, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "AridCliff80Grid_ahpupc"},
+  {title: "Map: Dining Hall", asset_class: "image", width: 960, height: 960, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "Main_HallNoRoof80Grid_vcoaq3"},
+  {title: "Chess: Board", asset_class: "image", width: 682, height: 682, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "chessboard_zb9xzl"},
+  {title: "Chess: Black Queen", asset_class: "image", width: 80, height: 75, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessBlackQueen_wc6icq"},
+  {title: "Chess: Black Bishop", asset_class: "image", width: 80, height: 72, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessBlackBishop_m1lndm"},
+  {title: "Chess: Black King", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessBlackKing_gqvn96"},
+  {title: "Chess: Black Knight", asset_class: "image", width: 80, height: 78, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessBlackKnight_gb59wq"},
+  {title: "Chess: Black Pawn", asset_class: "image", width: 51, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessBlackPawn_rbszny"},
+  {title: "Chess: Black Rook", asset_class: "image", width: 61, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessBlackRook_bqkndz"},
+  {title: "Chess: White Queen", asset_class: "image", width: 80, height: 71, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessWhiteQueen_raaqme"},
+  {title: "Chess: White Bishop", asset_class: "image", width: 74, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessWhiteBishop_q6vccl"},
+  {title: "Chess: White King", asset_class: "image", width: 80, height: 78, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessWhiteKing_ralsqh"},
+  {title: "Chess: White Knight", asset_class: "image", width: 80, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessWhiteKnight_warhxa"},
+  {title: "Chess: White Pawn", asset_class: "image", width: 50, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessWhitePawn_wczmr5"},
+  {title: "Chess: White Rook", asset_class: "image", width: 57, height: 80, lineColor: "#000000", fillColor: nil, lineWidth: 3, image_url: "ChessWhiteRook_ggrbir"}
+])
+Game.create!([
+  {title: "Scratch Space", system: "OUaT Tabletop", user_id: 2, description: "This is a free-form scratch space for you to much around with the tabletop's features and see what it can do. ", canvas_state: "{\"token\":[{\"id\":\"YPMv5r647LC9jool\",\"asset_class\":\"image\",\"width\":320,\"height\":240,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"hammer_tail_dragon_by_digger2000-d4h1hch_zwiehu\",\"pos\":[994,3]},{\"id\":\"BNPev4Kb29LZVlQZ\",\"asset_class\":\"image\",\"width\":100,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"jericho-model_hq7rwl\",\"pos\":[1017,293]},{\"id\":\"pjv2LaDyKUKKKTDm\",\"asset_class\":\"image\",\"width\":117,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"9ZC_Aganaster_Battlemage_cis_dvxf2g\",\"pos\":[792,186]},{\"id\":\"38ef9egznoXNlj0c\",\"asset_class\":\"image\",\"width\":100,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"female_ranger_-_2_swords_-_action_2_thesim_lnd13j\",\"pos\":[620,246]},{\"id\":\"5Wd41nII59EMAqHj\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"9f26f2e7df1b468970373e66bb1ba3f5_yagsp2\",\"pos\":[824,349]},{\"id\":\"OZGFE_PPeYewisrG\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"4227a8ac87cd63a6b0e1350cc5e222d0_ngpkri\",\"pos\":[236,71]},{\"id\":\"bBGyNXalNuoTFGpL\",\"asset_class\":\"image\",\"width\":160,\"height\":160,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"96086b1698b86365fac789a955a8719f_qlwvkr\",\"pos\":[235,251]},{\"id\":\"x26MKHINXHUYdd5w\",\"asset_class\":\"image\",\"width\":160,\"height\":160,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"fa9a8a56a28f157a13589899eb088468_fapeij\",\"pos\":[397,86]},{\"id\":\"wlyN8Ixr60pOmDYD\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"50d2d961e205b7605f40a5a005dc482d_lwcf8w\",\"pos\":[941,472]},{\"id\":\"pWCmmn-9F4LLqVmn\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"dwarf_male_spellcaster_a_01_gysvpp\",\"pos\":[640,77]},{\"id\":\"7F4psoOEwU2GJJPj\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"monsters_skeleton_a_01_yotl5r\",\"pos\":[548,389]},{\"id\":\"-1I9gsZmdlCmI8is\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"CZ8_dwarf_2_wef_minjr2\",\"pos\":[393,387]},{\"id\":\"C478igbz6UUTjkT1\",\"asset_class\":\"image\",\"width\":115,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"9AZ_femmage_cast2_sword_thesim_uzr8oz\",\"pos\":[669,400]},{\"id\":\"3SnUzyrR0qPKnA2G\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"zocCBaq_nn112f\",\"pos\":[1082,402]},{\"id\":\"ZNZSj-jXH_kxTeTo\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Zangold-1_yuvyuu\",\"pos\":[868,75]},{\"id\":\"11Icw7eC5V2yrW7C\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Zangold-2_wrby9r\",\"pos\":[949,187]},{\"id\":\"o2JsOtxAXzhY741d\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Kellen-2_fj3h5f\",\"pos\":[471,258]},{\"id\":\"jqMvXxHMjXRvgvoO\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Iris-1_fzosuv\",\"pos\":[243,483]},{\"id\":\"_vchMN6Ovrw4ZFyG\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Hazel-1_a6azwz\",\"pos\":[486,488]},{\"id\":\"nknKobBJ5xqYPJhl\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Gwendal-1_rdwd8w\",\"pos\":[736,474]},{\"id\":\"jzxrZzbNdgDrl637\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Enmerkar-1_wlpjal\",\"pos\":[927,333]},{\"id\":\"myoyhAta3n2TdXSY\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Arvan-1_jsu3mv\",\"pos\":[744,275]}],\"map\":[]}", active: true, max_players: 1, current_player: 2, delta_ord: 0, canvas_checksum: nil, image_url: "moda-background-paper-scratch-paper-charcoal-eggshell-6_wjeieq"},
+  {title: "Let's Play Chess!", system: "Chess", user_id: 2, description: "If you've got the image assets to model a game, you can play it on a VTT. For example, you can play chess!", canvas_state: "{\"token\":[{\"id\":\"qIjC8omQEykeV7xQ\",\"asset_class\":\"image\",\"width\":80,\"height\":75,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackQueen_wc6icq\",\"pos\":[563,89]},{\"id\":\"sBpPFte_G31ngl06\",\"asset_class\":\"image\",\"width\":80,\"height\":72,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackBishop_m1lndm\",\"pos\":[482,86]},{\"id\":\"iaPDHLyMoXEpMHWw\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackKing_gqvn96\",\"pos\":[641,81]},{\"id\":\"ApVwNIQyGprXitmN\",\"asset_class\":\"image\",\"width\":80,\"height\":72,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackBishop_m1lndm\",\"pos\":[720,85]},{\"id\":\"dovM0-dfbsYrjZmG\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[900,161]},{\"id\":\"DViPVneUa1vqqXi5\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[813,158]},{\"id\":\"2n_V5xFqmNQ1iF8j\",\"asset_class\":\"image\",\"width\":61,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackRook_bqkndz\",\"pos\":[898,82]},{\"id\":\"qmomuuneu-4b_fQG\",\"asset_class\":\"image\",\"width\":61,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackRook_bqkndz\",\"pos\":[332,78]},{\"id\":\"aXAf0x-t-5dsm9Pv\",\"asset_class\":\"image\",\"width\":80,\"height\":78,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackKnight_gb59wq\",\"pos\":[403,79]},{\"id\":\"o293SQTpz-9kOss4\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[734,159]},{\"id\":\"EUsKlcUebyjP_3vu\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[654,157]},{\"id\":\"9HOVgF_4lfTMTuK3\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[334,160]},{\"id\":\"QIAk8UHu-_tYyF74\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[418,159]},{\"id\":\"QQImSeZIxz2GkYQD\",\"asset_class\":\"image\",\"width\":80,\"height\":71,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteQueen_raaqme\",\"pos\":[559,646]},{\"id\":\"9Oj0TuhAf1w3V_a4\",\"asset_class\":\"image\",\"width\":74,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteBishop_q6vccl\",\"pos\":[484,642]},{\"id\":\"kRPiBsKER_L2P3Nl\",\"asset_class\":\"image\",\"width\":74,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteBishop_q6vccl\",\"pos\":[722,640]},{\"id\":\"Z0RL_gxtI7TaveAF\",\"asset_class\":\"image\",\"width\":80,\"height\":78,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteKing_ralsqh\",\"pos\":[643,640]},{\"id\":\"UgTzgRuSR-gu-85-\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[896,559]},{\"id\":\"8xOgWlUIHUgBm_WG\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[817,563]},{\"id\":\"6uQ81j8wOUIJ43ln\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[735,563]},{\"id\":\"YDuu-lb9HiHltoAk\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[493,558]},{\"id\":\"OckNtnCvvLQjRgQu\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[336,557]},{\"id\":\"F2DcqQqNO9xlU3h1\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[417,563]},{\"id\":\"kZ5ur7Cfjo_dKG_4\",\"asset_class\":\"image\",\"width\":57,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteRook_ggrbir\",\"pos\":[889,639]},{\"id\":\"3FKJoh9WeYdr92Ru\",\"asset_class\":\"image\",\"width\":57,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteRook_ggrbir\",\"pos\":[322,638]},{\"id\":\"6VrogdzaGRLZINbI\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[661,400]},{\"id\":\"BJEImFsjEhU5LHSW\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[579,245]},{\"id\":\"7T_spHB3h6SqraPg\",\"asset_class\":\"image\",\"width\":50,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhitePawn_wczmr5\",\"pos\":[210,154]},{\"id\":\"qSOuHGxXyT15a3Hf\",\"asset_class\":\"image\",\"width\":51,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackPawn_rbszny\",\"pos\":[187,618]},{\"id\":\"Hay3Yw0hC3AnV08q\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteKnight_warhxa\",\"pos\":[567,405]},{\"id\":\"K_H8hm7P8C035Qbd\",\"asset_class\":\"image\",\"width\":80,\"height\":78,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessBlackKnight_gb59wq\",\"pos\":[715,244]},{\"id\":\"bVhac5wzNTGQ3t6f\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"ChessWhiteKnight_warhxa\",\"pos\":[482,480]}],\"map\":[{\"id\":\"mYOoH0Q_S59Lk2GU\",\"asset_class\":\"image\",\"width\":682,\"height\":682,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"chessboard_zb9xzl\",\"pos\":[301,60]}]}", active: true, max_players: 1, current_player: 2, delta_ord: 0, canvas_checksum: nil, image_url: "chess-sets-padauk-molded-edge-chess-board-yugoslavia-ebony-padauk-padauk-zoom-1400x720__61962_x3pwct"},
+  {title: "Walkthrough", system: "OUaT Tabletop", user_id: 1, description: "If you care to learn more about how the tabletop on this site works, I first thank you for your interest and your time and then welcome you to step in here and follow the instructions in chat. ", canvas_state: "{\"token\":[],\"map\":[]}", active: true, max_players: 1, current_player: 1, delta_ord: 0, canvas_checksum: nil, image_url: "AAEAAQAAAAAAAAOCAAAAJGEzMTVhMGUyLTQxMjMtNDkxNi1iNDhiLTE3NWFjMTUxMDJiOA_uyt2cn"},
+  {title: "The Torn Tapestry", system: "E6 Gestalt PFRPG", user_id: 1, description: "The casual observer might proclaim the land of Rimme to be blessed by peace and prosperity. Its two great nations, the Vesteni Union to the east and the Ostian Federation to the west, have recently completed a century of frantic expansion inwards from their capitals on opposite coasts. When elven and human settlers gazed upon each other over the last stretch of wild land Rimme had to offer, they knew they had tamed the continent. Enterprise and exploration had brought the civilizations of Rimme wealth in the form of gold-laden coffers, sprawling, fertile lands; and technological advancement.\n\nIn that hectic century, Ostian entrepreneurs had developed new ways to raise crops and deliver them fresh to markets one hundred miles away. The elves had mobilized the most efficient manufacturing workforce the world had ever seen. The race of dwarves, once hidden by a self-imposed isolation within the Bazrun plateau, emerged as a juggernaut of technical and economic innovation, brokering power as a city state devoted to banking and the arms trade.\n\nDelve beyond this casual observation, and you’ll see a bleaker truth. The settlers knew they’d conquered the continent, yes, but they also knew it had become crowded with new competition. The expansion inwards had been a race to acquire as many resources as possible for kin and country before the others, held up as vague bogeymen in vaguer horror stories told by grizzled and greying grandparents back home, could acquire them first. Those counterparts, staring back at them across a soon-to-be no-man’s land, were thus the faces of a new nemesis. The settlers watched the strange people across the divide and knew them as enemies, but knew not why.\n\nThe Ostian High Councils and the Vesteni Conclave of Elders had a clearer understanding of the conflict. To the humans, the elves represented the worst of oppressive and suffocating government. They embraced all the trappings of Big Brotherhood with a smile and mass-marketed the idea as “citizenship is family.” To the Vesteni, the humans represented a selfish, vain and disorderly species whose elites stand upon the shoulders of their poorer countrymen. Indeed, their advances over the last century had been secondarily targeted towards an eventual conflict: Ostian roads and advanced agriculture to move and feed their army and Vesteni factories to arm their own. The respective leaderships know these are preliminary measures at best, and their citizenry suspects it, too. Talk of strange men clad in strange clothes and speaking in stranger accents abounds in frontier taverns, and the officials who sent them there busy themselves with intelligence reports and threat assessments. Security, sabotage are the vogue of the day, and agents capable of advancing those interests are in high demand and are paid small fortunes by Ostian officials or trained, selected, and conscripted by the Vesteni.\n\nToday two great nations silently prepare for war, and the sun rises a shade redder with each passing day.", canvas_state: "{\"token\":[{\"id\":\"7eBiA-p8VeywZWLQ\",\"asset_class\":\"image\",\"width\":100,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"jericho-model_hq7rwl\",\"pos\":[237,314]},{\"id\":\"Ks8Rw1XwZdqn3tVZ\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Zangold-2_wrby9r\",\"pos\":[315,324]},{\"id\":\"T3pxrZk5nMui78lq\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"9f26f2e7df1b468970373e66bb1ba3f5_yagsp2\",\"pos\":[396,328]},{\"id\":\"5VAp1EjTLrYHyazm\",\"asset_class\":\"image\",\"width\":100,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"female_ranger_-_2_swords_-_action_2_thesim_lnd13j\",\"pos\":[715,405]},{\"id\":\"l_Ek2zl6gdIXmOKU\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Arvan-1_jsu3mv\",\"pos\":[812,84]},{\"id\":\"mwprsCQk2GW3ufXN\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"4227a8ac87cd63a6b0e1350cc5e222d0_ngpkri\",\"pos\":[243,243]},{\"id\":\"TKujDRxgoPJ9FVO1\",\"asset_class\":\"image\",\"width\":80,\"height\":80,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"Hazel-1_a6azwz\",\"pos\":[242,400]}],\"map\":[{\"id\":\"ZFTzZGNnknOv8P75\",\"asset_class\":\"image\",\"width\":1378,\"height\":579,\"lineColor\":\"#000000\",\"lineWidth\":\"3\",\"fillColor\":\"#777777\",\"image_url\":\"the_haunting___boston_side_street_by_cisticola-d8a77nv_ge91ru\",\"pos\":[-5,-2]}]}", active: true, max_players: 4, current_player: 1, delta_ord: 0, canvas_checksum: nil, image_url: "WorldMap_m6zhzn"}
+])
+GameSignup.create!([
+  {user_id: 1, game_id: 2, status: "PENDING"},
+  {user_id: 2, game_id: 3, status: "PENDING"},
+  {user_id: 2, game_id: 4, status: "PENDING"},
+  {user_id: 4, game_id: 4, status: "PENDING"},
+  {user_id: 11, game_id: 4, status: "PENDING"},
+  {user_id: 12, game_id: 4, status: "PENDING"}
+])
+Message.create!([
+  {user_id: 2, game_id: 1, body: "You should feel free to play around on this tabletop. For example, this is where I verified each asset import and that each linked image had a transparent background.", result: nil},
+  {user_id: 2, game_id: 2, body: "Pawn to e4", result: nil},
+  {user_id: 1, game_id: 2, body: "Pawn to c5", result: nil},
+  {user_id: 2, game_id: 2, body: "Knight to f3", result: nil},
+  {user_id: 1, game_id: 2, body: "Pawn to d6", result: nil},
+  {user_id: 2, game_id: 2, body: "Pawn to d4", result: nil},
+  {user_id: 1, game_id: 2, body: "Pawn takes d4", result: nil},
+  {user_id: 2, game_id: 2, body: "Knight takes d4", result: nil},
+  {user_id: 1, game_id: 2, body: "Knight to f6", result: nil},
+  {user_id: 2, game_id: 2, body: "Knight to c3", result: nil},
+  {user_id: 1, game_id: 3, body: "To the right is the assets toolbar. You can scroll through it or search for a token by title by typing a query into the field at the top of the bar. Dragging and dropping an image to the tabletop will place it there on the currently selected layer. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Be aware that some images, particularly the maps, are rather large and may take some time to render. Their space will be occupied by a grey rectangle as a placeholder. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Try searching for the study map and dragging it to the board!", result: nil},
+  {user_id: 1, game_id: 3, body: "The tabletop's toolbox is to the left. Always visible are two toggles - Layer and Mode. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Mode determines whether you are drawing shapes (i.e. rectangles, for now) to the board or selecting, moving, and deleting elements. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Try setting the mode to select and clicking on the study map. It should be outlined in green when selected.", result: nil},
+  {user_id: 1, game_id: 3, body: "Try moving it around, then hit the delete button to remove it. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Change the mode to draw and drag your cursor around the map. You should be able to draw a black rectangle by placing two opposite corners. ", result: nil},
+  {user_id: 1, game_id: 3, body: "In draw mode, you will also see at least two other toolbox options appear. Clicking the color field under \"Line Color\" will open a menu to choose a color. This will set the outline color of any shapes you draw", result: nil},
+  {user_id: 1, game_id: 3, body: "Toggling the draw mode from outline to solid will reveal a second color option for setting the fill color of any shapes you draw. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Try setting the draw mode to solid, picking new colors for border and fill, and drawing another rectangle.", result: nil},
+  {user_id: 1, game_id: 3, body: "The layer toggle sets the layer you are working on. All map layer assets are rendered any token layer assets. Newly imported or drawn assets appear on the current layer. If you select an asset (remember to set the mode) and toggle the layer, the selected object will come along for the ride. ", result: nil},
+  {user_id: 1, game_id: 3, body: "Try selecting the last rectangle you drew, setting the layer to map, deselecting (shortcut: Escape), and toggling back to token. If you try to select and move the rectangle, you should be unable to across layers. ", result: nil},
+  {user_id: 1, game_id: 3, body: "As you might surmise, the chat will echo what you type into the field below when you hit enter. ", result: nil},
+  {user_id: 1, game_id: 3, body: "There is one exception.", result: nil},
+  {user_id: 1, game_id: 3, body: "If you start a message with \"/roll\", the server will try to evaluate what follows as if rolling dice", result: nil},
+  {user_id: 1, game_id: 3, body: "For example, /roll d20+11 becomes...", result: nil},
+  {user_id: 1, game_id: 3, body: "/roll d20+11", result: "[14]"},
+  {user_id: 1, game_id: 3, body: "Try typing a few messages, including a roll.", result: nil},
+  {user_id: 1, game_id: 3, body: "Note that if you want to roll many dice at once, you can provide a space-separated list of roll strings", result: nil},
+  {user_id: 1, game_id: 3, body: "For example, /roll d20+22 d20+22 d20+22 d20+17 becomes...", result: nil},
+  {user_id: 1, game_id: 3, body: "/roll d20+22 d20+22 d20+22 d20+17", result: "[40, 36, 34, 28]"},
+  {user_id: 1, game_id: 3, body: "(those are actually pretty good rolls)", result: nil},
+  {user_id: 1, game_id: 3, body: "Welcome to the walkthrough! If you've interest and time to spare, I graciously invite you to scroll this chat up to the beginning and follow along as I explain the current features of the Once Upon a Table tabletop.", result: nil},
+  {user_id: 1, game_id: 4, body: "Your informant told you to meet him in this alley at midnight, but when you arrive you find only a one-eyed stranger. \"Jago couldn't make it,\" he says, walking towards you. \"Wasn't satisfied with the security arrangements. Sent me in his stead.\"", result: nil},
+  {user_id: 4, game_id: 4, body: "\"I don't like this\"", result: nil},
+  {user_id: 4, game_id: 4, body: "Can I tell if he's even close to honest? I'd like to roll Sense Motive", result: nil},
+  {user_id: 4, game_id: 4, body: "/roll d20+12", result: "[30]"},
+  {user_id: 1, game_id: 4, body: "He's way too at-ease. A revolutionary in this land should be constantly scanning his surroundings for threats. The Union's inquisitors are frighteningly good at finding such people and making sure no one else ever finds them again, and yet this man stands relaxed and loose before you, fixing you with a inappropriately peaceful glare. He's definitely up to something. ", result: nil},
+  {user_id: 11, game_id: 4, body: "If he won't check his corners I'll do it on his behalf. I roll perception to look for threats. ", result: nil},
+  {user_id: 11, game_id: 4, body: "/roll d20+13", result: "[26]"},
+  {user_id: 1, game_id: 4, body: "Scanning the rooftops, you spot two hooded figures, both watching intently. One, a man, bears a bow. The other, a woman, two thin blades. The former catches your eye and hastily nocks an arrow. ", result: nil},
+  {user_id: 12, game_id: 4, body: "Isn't this just wonderful?", result: nil},
+  {user_id: 1, game_id: 4, body: "Roll initiative. ", result: nil}
+])
+User.create!([
+  {username: "Marasella", password_digest: "$2a$10$INVt5liMdhh42k5SvaJkBO7TFkz1WTJK1aryU/HUfX5fYGM0ZAoO.", session_token: "N4xQHSsEi5qcx4ZrQs9GjzYX_UgMrDyweDi6yzC-0Oc", image_url: "PZO1129-Jirelle_500_rgfura"},
+  {username: "Tivego", password_digest: "$2a$10$jU69MQpmQA1kkT0Ag.FWlubhCWwyU.kyRdxY9RdPxKwpktqivpNuO", session_token: "JRpoK6Ak5vWusT4RXneOk_nLtwbtdBM954ji2R78w3s", image_url: "PZO1117-Oracle_90_lswj8o"},
+  {username: "Brand", password_digest: "$2a$10$z83H0hvzIGs.zQ4DsColt.D4mdihry7F2mVH6RVJFHKWeW0VTZd/G", session_token: "6sIJbDS4FG5kpG2UDBPW214MkZWCOs0O1nNIQasUx-4", image_url: "A16_Verik-Vankaskerkin_pklyvo"},
+  {username: "Delia", password_digest: "$2a$10$GQXb75leXfMTgEdo5Wqheuv9IoWPU64GFenmhZqG97TDjhjS.LxRu", session_token: "1K8eWFUDklHxrPKXthR9-vn0L61gU5ONo9_GAQbhUQE", image_url: "PZO9077-Iomedae_500_ijtebt"},
+  {username: "Baraka", password_digest: "$2a$10$/wyApjPIxY4RWuP5OXhoc.vNkfHhFCnBiygm1ZSgk1yvrlhf6qe6W", session_token: "_wE35Udhp7C30WZudf5Mg6yVPzuYsfFmXKDc97hC3E8", image_url: "11JarloftheNorthWind_f36lia"},
+  {username: "Campa One-Eye", password_digest: "$2a$10$POLuw56UxyR8Vu4/zWQKN.MWO8MLOI/YJINOF5ZK3ueG17wtcHEp6", session_token: "PzdL9zv8O1RQ9mRqJcP_xnoxr_2pQJbooKHIxudWKzQ", image_url: "PZO9072-RiderImrijka_500_tivs5c"},
+  {username: "Samoen Vanari", password_digest: "$2a$10$aUuof/qqFKcbyaMAU2btFOTWiwILY3xUPvkGy/evmHDBeI89GcgUC", session_token: "C-4cGwNnBhtgYl3BExosFx0ZEB8WeifyXYDvtAEXU5E", image_url: "carlisle_drg_359_New_Myth5_xmk8j0"},
+  {username: "Thirteen", password_digest: "$2a$10$46InNc67yuuOjff/wwojROPNKYeu981u0keSYHkDYgD/xRIMWWG5O", session_token: "5GMa7TeoNvw1RX1_OCN1idvTzb7P0FVNPklcfAxUly8", image_url: "PZO9080-Fez_90_zol940"},
+  {username: "Seanza Vanari", password_digest: "$2a$10$b3sCJr8EgR4cE8gzyDQXHOjcgxeRnqWdtA0NeR9Raqm8dlfelRXqC", session_token: "RHoXh-1CQdb32IzyrabTvvJgCqLHveCbnoFPS0w8jp8", image_url: "PZO1124-Lawyer_90_rtsvu3"},
+  {username: "Saome Mas'harad", password_digest: "$2a$10$WsOsAgjcKpTnpuSG81apVu4TdihyxMl4UXh65Cxv8B6TTDY4aXcni", session_token: "ot90jUBXSaV73ZrnnXzfiWRS2zAliRB541Yvt8L5AXU", image_url: "PZO1125-Kyra_90_e0a6cv"},
+  {username: "Goto Asai", password_digest: "$2a$10$pq1cGrRe0gJOBTAqjuGXxewwmeY4f4NeNM5747fYZW20QrV6Y5Z.G", session_token: "pW6CHnhMsa5MX8-SOK3G1yD46GG7W7AZj6H9k1myiQY", image_url: "PZO9519-Olvan_kjx0e0"},
+  {username: "Tessandalara", password_digest: "$2a$10$cE4X2otXkslaWxau4.RXeOQHLce9JNgPoT1MXjx4LUrgqqehafHZ2", session_token: "ErLpO5F7LS4vWICcolV23GeKG4a9a3CIUMfwmNI2T_A", image_url: "A16_hs_merisiel_final_h32mha"},
+  {username: "Karovna Sorex", password_digest: "$2a$10$19pGqN0ACAWj6gy/Yrvhoe.pO/zS0XIYb1RUEb3F/ytC3yy2YM8QK", session_token: "yE0Wk2JjF7cmztJPyMTDQUh384iwQNBd4ZyV73mNfGY", image_url: "PZO9069-Mother_90_ksudqe"},
+  {username: "Narrrr", password_digest: "$2a$10$NFPgIDiRoLEiFxXYGjzn/uH0INBeZPwQpUbJ9feNHopxDF6ECSoC.", session_token: "vFPIc5Qo84r8W86RGXv8eEfDyNPRy7FKLxGUtGpd8S8", image_url: "PZO9059-Gorebeard_90_dpf7mh"},
+  {username: "Mr. Picksy", password_digest: "$2a$10$zEmgIH2qyS1rJknkLhO7H.PqDYW22XiFFOuKufy.ugE2yEX.0NXFq", session_token: "dC3ZMpe-Ors-5rsu1eTswNhmI0oY4jFNQZn9y6_Qb70", image_url: "PZO9060-Pirate_90_nlyxh0"},
+  {username: "Jamesui", password_digest: "$2a$10$ro5E75acGdQImjO1638wcOf/LFj6BseEpwqvik6g00xpW/YhwL6Ia", session_token: "HBh5NA7eHlgexJvt5-C-o78maF6zlEjjpAlpIRu7nlo", image_url: "Conklin_vemfty"},
+  {username: "Demo", password_digest: "$2a$10$JdZ8FkvIctdtROpG64aCkev1sPrjH5Jdv6mb2dNuM.23oxQsJw0XW", session_token: "XHuw1enYxGB_hTVMkTEzPsa6KaeqmhbzbmQ51bZtDFc", image_url: "PZO9443-Inevitable_500_jubolw"},
+  {username: "Soren", password_digest: "$2a$10$tF4UJ5WHEYFcJ9yz/f2qTOwlpqZ2bmInB4qXDEu4iIhWZFkf5h0Y6", session_token: "5KIdrRwt3T1f8EexqXc8aapjlMnvE7vp8m8SzHzi91Q", image_url: "PZO9265-Osirionologist_r7gbz6"},
+  {username: "Ardella Graves", password_digest: "$2a$10$wfgiAtqQl7PDYvvpUmCjv.Ix2QeLwi4aU2Mh3BWSYG86fkRjyGaWy", session_token: "lIiyXQ1np7TWelfRW-W_ZiFGlTEnkJQfsmjU9yA78t4", image_url: "PZO1129-Enora_ntvoqf"},
+  {username: "Elim Graves", password_digest: "$2a$10$7chgeL7qa.L511SzC6kPP.WchXxV1mxzqeWYIPdRXZTW7GWrKW92e", session_token: "cSuDE3JU2ptoGOTsjPz9ySyy5fg1VU70n9UbYtxRqa4", image_url: "PZO1126-Lem_500_ivt3tw"}
+])

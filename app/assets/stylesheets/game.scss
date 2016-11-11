@@ -35,9 +35,10 @@
 }
 
 .game-index-item-description {
-  box-sizing: inherit;
   height: inherit;
   position: absolute;
+  box-sizing: border-box;
+  height: calc(100% - 5px);
 
   padding: 5px 5px 5px 10px;
   margin: 5px 10px;
@@ -69,8 +70,9 @@
 }
 
 .game-index-item-details {
+  box-sizing: border-box;
+
   line-height: 1.5;
-  box-sizing: inherit;
   width: calc(100% - 25px);
   padding: 5px 10px 5px 5px;
   position: absolute;
@@ -92,6 +94,8 @@
 }
 
 .game-index-item-divider {
+  box-sizing: border-box;
+
   width: 10px;
   height:calc(100% + 5px);
   background-color: $oak;

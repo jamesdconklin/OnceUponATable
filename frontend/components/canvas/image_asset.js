@@ -9,7 +9,7 @@ class ImageAsset extends Square {
     this.img = $.cloudinary.image(
       this.image_url,
       {
-        quality: 30,
+        quality: 25,
         width: this.width,
         height: this.height,
         crop: "scale",
