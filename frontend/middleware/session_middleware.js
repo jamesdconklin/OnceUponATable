@@ -16,8 +16,7 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   const sessionSuccess = user => dispatch(receiveCurrentUser(user));
   const demoSuccess = user => {
     sessionSuccess(user);
-    console.log("FOOOOO");
-    hashHistory.push("/canvas/1");
+    hashHistory.push("/canvas/4");
   };
   // console.log("SessionMiddleware caught", action);
   switch (action.type) {
