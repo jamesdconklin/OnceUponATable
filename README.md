@@ -41,8 +41,7 @@ Once mounted, the canvas subscribes to pusher events to keep apprised of changes
 
 #### Canvas display
 
-[Screen](./docs/screens/Grid.png)
-
+![grid]
 
 The canvas state is stored in separate map and token layers so that all objects in the former render below any object in the token layer. This separation also prevents accidentally moving map elements when working on the token layer.
 
@@ -70,7 +69,7 @@ As we don't have animations without user input, I decided to manually call the `
 
 #### Canvas Toolbox
 
-[Screen](./docs/screens/toolbox.png)
+![toolbox]
 
 Controlling interaction with the canvas, i.e. whether the user is selecting or drawing and how or to which layer he or she is drawing, is governed by a toolbox, implemented as a React component connected to the state's `assetLibrary.assetParams`.
 
@@ -120,7 +119,7 @@ First, I wrap the `input` in a `label`, so that clicking the latter transfers th
 
 ### Asset library
 
-[Screen](./docs/screens/AssetDrag.png)
+![assets]
 
 The asset library contains a list of `Asset` objects that can each be used to create a `CanvasObject`. Essentially, they can be merged with an object defining a position and passed to the appropriate constructor as shown in `_createObject` above.
 
@@ -139,7 +138,7 @@ Once placed on the canvas, assets become proper `CanvasObjects` and can be seria
 
 ### Game Chat
 
-[Screen](./docs/screens/Chat.png)
+![chat]
 
 Game chat uses the same Push mechanic as the map updates. I do not render changes locally before POSTing to the server because some commands, i.e. rolls, require feedback before they can be rendered.
 
@@ -151,9 +150,9 @@ In the header, the [Username] tab drops down links on click to user home (for no
 
 The Game view page, reachable by clicking the relevant titles of the Game listing cards, will display all the relevant information for that page - its title, system, description, splash image, a join button (for players or the GM), an edit button (for the GM) and a list of user icons linking to the profile pages of the game's players. GM's can click the plus icon in this list to bring up a menu for adding players, and other users can click the same icon to sign themselves up. GMs can remove a player by clicking the  under his or her icon, and players can remove themselves similarly.
 
-[Game Show Screen](./docs/screens/Game.png)
-[Signup Modal](./docs/screens/UserSignup.png)
+![GameDisplayPage]
 
+![UserSignup]
 
 ## Future Improvements
 
@@ -179,3 +178,11 @@ My initial designs were grander but severely restricted by the constraints of a 
   - Circle ojects, maybe other shapes.
   - Object resizing and rotation
   - Asset decoration (status symbols, numeric labels)
+  
+  
+[grid]: ./docs/screens/Grid.png
+[toolbox]: ./docs/screens/toolbox.png
+[assets]: ./docs/screens/AssetDrag.png 
+[chat]: ./docs/screens/Chat.png
+[GameDisplayPage]: ./docs/screens/GameDetail.png
+[UserSignup]: ./docs/screens/UserSignup.png
