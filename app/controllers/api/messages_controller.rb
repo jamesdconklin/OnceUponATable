@@ -7,6 +7,8 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
+    # debugger
+    require_login
     @message = Message.new(message_params.merge(
       game_id: params[:game_id],
       user_id: current_user.id

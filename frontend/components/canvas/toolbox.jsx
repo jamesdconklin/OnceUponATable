@@ -108,11 +108,11 @@ class Toolbox extends React.Component {
             </div>
             <div className="toggle-buttons">
               <button className={`toggle-left ${layer == "map" ? "selected" : ""}`}
-                onClick={(e) => this.props.setLayer("map")}>
+                onClick={(e) => {e.preventDefault(); this.props.setLayer("map");}}>
                 Map
               </button>
               <button className={`toggle-right ${layer == "token" ? "selected" : ""}`}
-                onClick={(e) => this.props.setLayer("token")}>
+                onClick={(e) => {e.preventDefault(); this.props.setLayer("token");}}>
                 Token
               </button>
             </div>

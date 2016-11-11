@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
 gem 'seed_dump'
 gem 'pusher'
 gem 'figaro'
