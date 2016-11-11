@@ -31,7 +31,7 @@ class Assets extends React.Component {
   }
 
   _triggerMouseUp(e) {
-    // TODO: Sanity check that we're hovering over the canvas. 
+    // TODO: Sanity check that we're hovering over the canvas.
     let event = new MouseEvent("mouseup", e);
     document.getElementById("game-canvas").dispatchEvent(event);
   }

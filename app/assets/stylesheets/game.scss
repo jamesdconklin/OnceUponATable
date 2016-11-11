@@ -208,7 +208,6 @@
 .user-signup {
   box-sizing: border-box;
   // border-radius: 10px 10px 0 0;
-
   width: 400px;
   height: 300px;
   position: fixed;
@@ -265,6 +264,7 @@
       overflow: scroll;
 
       li {
+        cursor: pointer;
         display: flex;
         box-sizing: content-box;
         border-bottom: 1px solid transparentize($oak, 0.7);
