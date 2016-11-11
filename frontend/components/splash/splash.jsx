@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import demoLogin from '../../util/demo_login';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -14,13 +13,13 @@ class Splash extends React.Component {
   }
 
   render() {
-    let {login} = this.props;
+    let {login, demoLogin} = this.props;
     return (
       <section className="content center-horiz splash-bg">
         <section className="content-center flex-between">
           <section className="splash-desc-container">
             <section className="splash-desc">
-              <section className="splash-header">
+              <section className="splash-header serif drop-one">
                 <h1>You'll always have a seat at our table.</h1>
               </section>
               <section className="splash-body">
@@ -34,7 +33,7 @@ class Splash extends React.Component {
                   Join or create a game today!
                 </p>
               <Link to="/signup" className="button">Sign Up Now!</Link>
-              <a className="button" onClick={(e) => login(demoLogin)}>Try now!</a>
+              <a className="button" onClick={demoLogin}>Try now!</a>
             </section>
           </section>
           </section>

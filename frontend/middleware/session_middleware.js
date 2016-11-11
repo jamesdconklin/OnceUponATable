@@ -1,5 +1,5 @@
 //Actions
-import { LOGOUT, LOGIN, SIGNUP }
+import { LOGOUT, LOGIN, SIGNUP, DEMO_LOGIN }
   from '../actions/session_actions';
 //Action Creators
 import { login,logout, signup, receiveErrors, receiveCurrentUser }
@@ -14,6 +14,11 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   };
 
   const sessionSuccess = user => dispatch(receiveCurrentUser(user));
+  const demoSuccess = user => {
+    sessionSuccess(user);
+    console.log("FOOOOO");
+    hashHistory.push("/canvas/1");
+  };
   // console.log("SessionMiddleware caught", action);
   switch (action.type) {
     case LOGOUT:
@@ -25,6 +30,10 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
         }
       );
       break;
+
+    case DEMO_LOGIN:
+      api.login({user: action.user})(demoSuccess, errorHandler);
+      return next(action);
 
     case LOGIN:
       api.login({user: action.user})(sessionSuccess, errorHandler);

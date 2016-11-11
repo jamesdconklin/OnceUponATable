@@ -85,7 +85,7 @@ class GameDetail extends React.Component {
                 {this._userLinks(gameDetail, currentUser)}
               </div>
               <div className="game-detail-body">
-                <h1>{gameDetail.title}</h1>
+                <h1 className="serif drop-two">{gameDetail.title}</h1>
                 <div className="table-wrap">
                   <table>
                     <tbody>
@@ -136,7 +136,7 @@ class GameDetail extends React.Component {
                             }
                           }
                              href="javascript.void()">
-                            <div className="icon">
+                            <div className="icon" title="Add Players">
                               <div>
                                 <span>+</span>
                               </div>

@@ -138,8 +138,8 @@
 
 
   h1 {
+    text-align: center;
     padding: 5px 10px;
-    text-shadow: 0 1px $oak, 0 2px $oak;
     box-shadow: 0 1px transparentize($nightsky, 0.9),
                 0 2px transparentize($nightsky, 0.9),
                 0 3px transparentize($nightsky, 0.9),
@@ -218,7 +218,8 @@
   & > div > .icon.small {
     border: 2px solid $starlight;
     position: absolute;
-    top: 6px;
+    top: 8px;
+    text-align: center;
     right: 8px;
     color: $starlight;
     background: lighten($nightsky, 10%);

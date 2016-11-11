@@ -2,7 +2,8 @@
 $sepia-shadow : transparentize($sepia, 0.7);
 
 .splash-bg {
-  box-sizing: border-box;
+  // box-sizing: border-box;
+
 
   .content-center {
     background-color: transparentize($parchment, 0.25);
@@ -29,7 +30,8 @@ $sepia-shadow : transparentize($sepia, 0.7);
             padding: 10px;
             color: $starlight;
             text-shadow: 0 1px $oak, 0 2px $oak;
-            font-size: 28px;
+            font-size: 22px;
+            text-align: center;
           }
 
         }

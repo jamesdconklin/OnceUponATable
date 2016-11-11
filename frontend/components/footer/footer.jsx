@@ -11,7 +11,7 @@ export default () => (
             </p>
           </div>
           <div>
-            <a href="http://google.com">Contact the Developer</a>
+            <a href="https://github.com/jamesdconklin">Developer Page</a>
           </div>
         </section>
       </section>

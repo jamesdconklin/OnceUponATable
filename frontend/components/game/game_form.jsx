@@ -83,16 +83,20 @@ class GameForm extends React.Component {
                 </div>
                 <div className="form-body">
                   <input type="text" id="title" placeholder="Title: " autoFocus
+                         onChange={(e)=>{}}
                          value={this.state.title || (!this.state.changed.title && edit && gameDetail.title) || "" }/>
                   <br/>
                   <input type="text" id="system" placeholder="System: "
+                         onChange={(e)=>{}}
                          value={this.state.system || (!this.state.changed.system && edit && gameDetail.system) || "" }/>
                   <br/>
                   <input type="text" id="max_players" placeholder="Number of Players: "
-                    value={this.state.max_players ||
+                         onChange={(e)=>{}}
+                         value={this.state.max_players ||
                       (edit && !this.state.changed.max_players && gameDetail.max_players) || ""}/>
                     <br/>
                   <textarea id="description" placeholder="Description: "
+                            onChange={(e)=>{}}
                             value={this.state.description || (edit && !this.state.changed.description && gameDetail.description) || ""}/>
 
                   <br/>
@@ -111,11 +115,3 @@ class GameForm extends React.Component {
 }
 
 export default withRouter(GameForm);
-
-
-// <label>Active?
-//   <select id="active" placeholder="Active? ">
-//     <option value="true">True</option>
-//     <option value="false">False</option>
-//   </select>
-// </label>

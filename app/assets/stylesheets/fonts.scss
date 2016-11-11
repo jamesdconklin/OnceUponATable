@@ -1,0 +1,18 @@
+@import 'colors';
+
+.serif {
+  font-family: 'Cinzel', serif;
+
+}
+
+.drop-one {
+  text-shadow: 0 1px 0 $sepia;
+}
+
+.drop-two {
+  text-shadow: 0 2px 0 $sepia, 0 1px 0 $sepia;
+}
+
+.drop-three {
+  text-shadow: 0 3px 0 $sepia, 0 2px 0 $sepia, 0 1px 0 $sepia;
+}

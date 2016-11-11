@@ -1,0 +1,69 @@
+Demo needs:
+  Two GM'd Games
+    1) Blank, with instructions on adding/removing players and editing the game.
+    2) Sample - Chess.
+
+  Four Played Games
+    1) Walkthrough
+      Bottom Message: "Please scroll to top and follow along."
+      Other messages should explain features
+        1: Asset Toolbar:
+          The asset toolbar contains image assets that can be dragged onto
+          the game board, centered at the eventual cursor.
+
+          The field at the top allows you to filter assets.
+          Some assets are very large, and the initial load may take a while.
+
+          Instructions: Search for main hall, drag it to map.
+
+        2: Mode -> select
+          Select means drag-and-drop only. You can manipulate assets within
+          the current layer and pull an asset to a different layer.
+
+          Unfilled squares can be hard to select - click the edges.
+
+          Instructions: Move the main hall around.
+
+
+        3: Layers
+          Members of map layer render under member of token layer. Within
+          layers, the last one moved/placed is on top. Selecting an asset
+          and toggling layers brings it along for the ride. Hit escape to
+          deselect an asset.
+
+          Instructions: select main hall (green outline), toggle layer
+          to map. Deselect, toggle back. Try to move the hall.
+
+          Drag a few "token" assets onto the main hall.
+
+        4: Mode -> draw
+          Drag and drop creates rectangles. You can select the border
+          color by clicking the field under the "line color" heading.
+
+          Instructions: Draw a colored rectangle.
+
+        5: Draw Mode
+          Outline -> Boxes only
+          Solid -> you can select the fill color just like the border color.
+
+          Instructions: Draw a filled rectangle
+
+        6: Chat
+          Hitting enter with text in the chat field will upload a message.
+          You can roll dice with /roll.
+
+          Instructions: try a few /roll commands.
+
+    2) Torn Tapestry
+      It's got a decent writeup. If they care to read, it shows non-tech
+      writing.
+
+    3) PFS 7-00
+      Draw "city square" with rectangles. Populate with tokens.
+
+    4) PFS 7-03
+      Main Hall Map.
+
+
+
+  Created, but unpopulated games for connected players.

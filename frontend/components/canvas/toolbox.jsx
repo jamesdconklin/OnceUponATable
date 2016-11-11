@@ -101,7 +101,7 @@ class Toolbox extends React.Component {
     let { fill, draw, lineColor, fillColor } = this.state;
     return (
       <div className="toolbox">
-        <form className="toolbox-form">
+        <form onSubmit={()=>{}} className="toolbox-form">
           <div className="toggle-section">
             <div className="toggle-header">
               <div>Layer</div>

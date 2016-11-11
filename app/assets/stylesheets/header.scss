@@ -15,14 +15,8 @@ header {
 
 .header-logo {
   text-align: center;
-  text-shadow: 0 3px 0 $sepia, 0 2px 0 $sepia, 0 1px 0 $sepia;
   font-size: 36px;
   font-weight: bold;
-  //
-  // &:hover {
-  //   border-bottom: 4px solid $oak;
-  //   border-radius: 0 0 4px 4px;
-  // }
 }
 
 .header-nav, .header-logo {
@@ -50,8 +44,8 @@ header {
 
     cursor: pointer;
     .header-link {
+      font-weight: 700;
       font-size: 24px;
-      text-shadow: 0 2px 0 $sepia, 0 1px 0 $sepia;
     }
 
     .nav-dropdown {

@@ -37,7 +37,7 @@ class GamesTab extends React.Component {
         <div className={`center-vert user-tab ${dropDownHidden}`}
              id="game-header"
              onClick={toggleDropDown}>
-          <a className="header-link">Games</a>
+          <a className="header-link serif drop-two">Games</a>
           <ul className={`nav-dropdown ${dropDownHidden}`}>
             <li>
               <Link to={`/users/${userId}`}>My Games</Link>
@@ -51,7 +51,7 @@ class GamesTab extends React.Component {
     } else {
       ret = (
         <div className="center-vert user-tab">
-          <Link className="header-link"
+          <Link className="header-link serif drop-two"
                 to="/signup">Sign Up</Link>
               <div className="nav-dropdown hidden"/>
         </div>

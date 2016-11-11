@@ -13,10 +13,10 @@ class UserTab extends React.Component {
   componentDidMount() {
     $(window).click((e) => {
       let t = e.target;
-      while (t != document && t.id !== "user-header" && t.id !== "root") {
+      while (t && t != document && t.id !== "user-header" && t.id !== "root") {
         t = t.parentNode;
       }
-      if (t.id !== "user-header") {
+      if (t && t.id !== "user-header") {
         this.setState({dropDown: false});
       }
     });
@@ -35,7 +35,7 @@ class UserTab extends React.Component {
         <div className={`center-vert user-tab ${dropDownHidden}`}
              id="user-header"
              onClick={toggleDropDown}>
-          <a className="header-link">
+          <a className="header-link serif drop-two">
             {userName}
           </a>
           <ul className={`nav-dropdown ${dropDownHidden}`}>
@@ -51,7 +51,7 @@ class UserTab extends React.Component {
     } else {
       ret = (
         <div className="center-vert user-tab" onClick={()=>hashHistory.push("/login")} >
-          <a className="header-link">Log In</a>
+          <a className="header-link serif drop-two">Log In</a>
           <div className="nav-dropdown hidden">"HoverBar"</div>
         </div>
       );
