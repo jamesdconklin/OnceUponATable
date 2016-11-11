@@ -67,20 +67,21 @@ class CanvasState {
     let obj;
     if ((obj = this.object_store[el.id])) {
       obj.pos = el.pos;
-    }
-    el.state = this;
-    switch (el.asset_class) {
-      case "square":
-         obj = new Square(el);
-         break;
-      case "circle":
-        obj = new Square(el);
-        break;
-      case "image":
-        obj = new ImageAsset(el);
-        break;
-      default:
-        obj = new Square(el);
+    } else {
+      el.state = this;
+      switch (el.asset_class) {
+        case "square":
+           obj = new Square(el);
+           break;
+        case "circle":
+          obj = new Square(el);
+          break;
+        case "image":
+          obj = new ImageAsset(el);
+          break;
+        default:
+          obj = new Square(el);
+      }
     }
     this.object_store[obj.id] = obj;
     return obj;
