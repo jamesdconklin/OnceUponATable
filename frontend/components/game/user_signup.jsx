@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { fetchUsers } from '../../util/user_api_util';
+import { cloudinaryConfig, CloudinaryImage } from 'react-cloudinary';
+
 
 class UserSignup extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class UserSignup extends React.Component {
       queryResults: [],
       index: 0
     };
+    cloudinaryConfig({ cloud_name: window.cloudName });
     this._handleChange = this._handleChange.bind(this);
   }
 
@@ -58,6 +61,9 @@ class UserSignup extends React.Component {
     this.setState({query: t.value});
     fetchUsers(t.value)(users => this.setState({queryResults: users}));
   }
+  //
+  // <img className="icon small" src={player.image_url}
+  //   alt={`${player.username}'s icon'`}/>
 
   _userEntry(player, index) {
 
@@ -65,8 +71,8 @@ class UserSignup extends React.Component {
       <li key={player.id} className={(this.state.index == index) ? "selected": ""}
           onClick={this.props.signup(this.props.game_id, player.id)}>
         <div className="center-vert">
-          <img className="icon small" src={player.image_url}
-               alt={`${player.username}'s icon'`}/>
+          <CloudinaryImage className="icon small" title={`${player.name}'s icon`} publicId={player.image_url}
+                             options={{quality: 10, width: 25, crop: "scale"}}/>
         </div>
         <div className="center-vert">
           <div>{player.username}</div>

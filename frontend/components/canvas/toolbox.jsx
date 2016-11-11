@@ -23,8 +23,6 @@ class Toolbox extends React.Component {
   _setAttribute(attribute, val) {
     return (e) => {
       e.preventDefault();
-      console.log("SETATTR");
-      console.log({[attribute]: val});
       this.props.sendParams({[attribute]: val});
     };
   }

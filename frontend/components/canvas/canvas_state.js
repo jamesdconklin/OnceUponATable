@@ -111,7 +111,7 @@ class CanvasState {
           this.draw();
           break;
         default:
-          console.log(e);
+          // console.log(e);
       }
     }
   }
@@ -161,7 +161,6 @@ class CanvasState {
   }
 
   handleMouseDown(e) {
-    console.log("CANVCLICKDOWN");
     if (this.ephemeral || this.movedObject) {
       return;
     }
