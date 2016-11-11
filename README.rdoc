@@ -2,7 +2,7 @@
 
 [Live Site @ Heroku](https://onceuponatable.herokuapp.com)
 
-[Label](./screens/img)
+[Label](./docs/screens/img)
 
 Once Upon a Table is a full-stack web application inspired by Roll20. It provides a virtual tabletop on which players can construct and play a variety of tabletop games. It uses Ruby on Rails to serve API data and static pages,  PostgreSQL for data persistence, React/Redux to organize frontend elements, and a heavy canvas component as the tabletop interface.
 
@@ -43,7 +43,7 @@ Once mounted, the canvas subscribes to pusher events to keep apprised of changes
 
 #### Canvas display
 
-[Screen](./screens/Grid.png)
+[Screen](./docs/screens/Grid.png)
 
 
 The canvas state is stored in separate map and token layers so that all objects in the former render below any object in the token layer. This separation also prevents accidentally moving map elements when working on the token layer.
@@ -72,7 +72,7 @@ As we don't have animations without user input, I decided to manually call the `
 
 #### Canvas Toolbox
 
-[Screen](./screens/toolbox.png)
+[Screen](./docs/screens/toolbox.png)
 
 Controlling interaction with the canvas, i.e. whether the user is selecting or drawing and how or to which layer he or she is drawing, is governed by a toolbox, implemented as a React component connected to the state's `assetLibrary.assetParams`.
 
@@ -122,7 +122,7 @@ First, I wrap the `input` in a `label`, so that clicking the latter transfers th
 
 ### Asset library
 
-[Screen](./screens/AssetDrag.png)
+[Screen](./docs/screens/AssetDrag.png)
 
 The asset library contains a list of `Asset` objects that can each be used to create a `CanvasObject`. Essentially, they can be merged with an object defining a position and passed to the appropriate constructor as shown in `_createObject` above.
 
@@ -141,7 +141,7 @@ Once placed on the canvas, assets become proper `CanvasObjects` and can be seria
 
 ### Game Chat
 
-[Screen](./screens/Chat.png)
+[Screen](./docs/screens/Chat.png)
 
 Game chat uses the same Push mechanic as the map updates. I do not render changes locally before POSTing to the server because some commands, i.e. rolls, require feedback before they can be rendered.
 
@@ -153,8 +153,8 @@ In the header, the [Username] tab drops down links on click to user home (for no
 
 The Game view page, reachable by clicking the relevant titles of the Game listing cards, will display all the relevant information for that page - its title, system, description, splash image, a join button (for players or the GM), an edit button (for the GM) and a list of user icons linking to the profile pages of the game's players. GM's can click the plus icon in this list to bring up a menu for adding players, and other users can click the same icon to sign themselves up. GMs can remove a player by clicking the  under his or her icon, and players can remove themselves similarly.
 
-[Game Show Screen](./screens/Game.png)
-[Signup Modal](./screens/UserSignup.png)
+[Game Show Screen](./docs/screens/Game.png)
+[Signup Modal](./docs/screens/UserSignup.png)
 
 
 ## Future Improvements
