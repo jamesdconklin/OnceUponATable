@@ -1,6 +1,6 @@
 # Once Upon a Table
 
-[Live Site @ Heroku](https://onceuponatable.herokuapp.com)
+[Live Site](https://onceuponatable.herokuapp.com)
 
 Once Upon a Table is a full-stack web application inspired by Roll20. It provides a virtual tabletop on which players can construct and play a variety of tabletop games. It uses Ruby on Rails to serve API data and static pages,  PostgreSQL for data persistence, React/Redux to organize frontend elements, and a heavy canvas component as the tabletop interface.
 
