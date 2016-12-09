@@ -1,6 +1,6 @@
-import { fetchCanvas, patchCanvas } from '../util/canvas_api_util';
+import { fetchCanvas, patchCanvas } from 'CanvasUtil';
 import { REQUEST_CANVAS, receiveCanvas, receiveObject, UPDATE_CANVAS }
-  from '../actions/canvas_actions';
+  from 'CanvasActions';
 
 const CanvasMiddleware = ({dispatch}) => next => action => {
   // console.log("CanvasMiddleware caught", action);

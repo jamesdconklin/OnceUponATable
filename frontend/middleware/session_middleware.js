@@ -1,11 +1,10 @@
 //Actions
-import { LOGOUT, LOGIN, SIGNUP, DEMO_LOGIN }
-  from '../actions/session_actions';
+import { LOGOUT, LOGIN, SIGNUP, DEMO_LOGIN } from 'SessionActions';
 //Action Creators
 import { login,logout, signup, receiveErrors, receiveCurrentUser }
-  from '../actions/session_actions';
+  from 'SessionActions';
 //API Utils
-import * as api from '../util/session_api_util';
+import * as api from 'SessionUtil';
 import { hashHistory } from 'react-router';
 
 const SessionMiddleware = ({getState, dispatch}) => next => action => {

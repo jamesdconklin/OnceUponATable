@@ -1,5 +1,5 @@
-import { REQUEST_ASSETS, receiveAssets } from '../actions/asset_actions';
-import { fetchAssets } from '../util/asset_api_util';
+import { REQUEST_ASSETS, receiveAssets } from 'AssetActions';
+import { fetchAssets } from 'AssetUtil';
 
 export default ({dispatch}) => next => action => {
   // console.log("Asset Middleware caught", action);

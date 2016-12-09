@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
-import SessionReducer from './session_reducer.js';
-import GameListReducer from './game_list_reducer';
-import GameDetailReducer from './game_detail_reducer';
-import CanvasReducer from './canvas_reducer';
-import AssetReducer from './asset_reducer';
-import MessageReducer from './message_reducer';
+import SessionReducer from 'SessionReducer';
+import GameListingReducer from 'GameListingReducer';
+import GameIndexReducer from 'GameIndexReducer';
+import CanvasReducer from 'CanvasReducer';
+import AssetReducer from 'AssetReducer';
+import MessageReducer from 'MessageReducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
-  gamesList: GameListReducer,
-  gameDetail: GameDetailReducer,
+  gameIndex: GameIndexReducer,
+  gameListing: GameListingReducer,
   canvas: CanvasReducer,
   assetLibrary: AssetReducer,
   messages: MessageReducer

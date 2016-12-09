@@ -1,9 +1,7 @@
 //Actions
-import { LOGOUT, RECEIVE_ERRORS, RECEIVE_CURRENT_USER }
-  from '../actions/session_actions';
+import { LOGOUT, RECEIVE_ERRORS, RECEIVE_CURRENT_USER } from 'SessionActions';
 //Action Creators
-import { login, receiveErrors, receiveCurrentUser }
-  from '../actions/session_actions';
+import { login, receiveErrors, receiveCurrentUser }from 'SessionActions';
 import { merge } from 'lodash';
 import { hashHistory } from 'react-router';
 

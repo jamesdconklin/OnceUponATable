@@ -41,7 +41,7 @@
       }
     ]
   },
-  gameDetail: {
+  gameListing: {
     id: 3,
     title: "Torn Tapestry",
     system: "PFRPG",

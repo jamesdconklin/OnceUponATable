@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory, withRouter } from 'react-router';
-import GameIndex from '../game/game_index';
+import GameIndex from 'GameIndex';
 
 class User extends React.Component {
   constructor(props) {
