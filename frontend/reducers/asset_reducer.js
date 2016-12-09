@@ -1,5 +1,8 @@
-import { RECEIVE_SELECTED_ASSET, RECEIVE_ASSETS, RECEIVE_ASSET_PARAMS }
-  from '../actions/asset_actions';
+import {
+  RECEIVE_SELECTED_ASSET,
+  RECEIVE_ASSETS,
+  RECEIVE_ASSET_PARAMS
+} from 'AssetActions';
 
 import { merge } from 'lodash';
 

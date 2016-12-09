@@ -184,5 +184,5 @@ My initial designs were grander but severely restricted by the constraints of a 
 [toolbox]: ./docs/screens/toolbox.png
 [assets]: ./docs/screens/AssetDrag.png 
 [chat]: ./docs/screens/Chat.png
-[GameDisplayPage]: ./docs/screens/GameDetail.png
+[GameDisplayPage]: ./docs/screens/GameListing.png
 [UserSignup]: ./docs/screens/UserSignup.png

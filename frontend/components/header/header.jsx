@@ -1,7 +1,7 @@
 import React from 'react';
 
-import GamesTab from './games_tab';
-import UserTab from './user_tab';
+import GamesTab from 'GamesTab';
+import UserTab from 'UserTab';
 
 import { Link } from 'react-router';
 

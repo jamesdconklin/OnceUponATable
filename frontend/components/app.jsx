@@ -1,7 +1,6 @@
 import React from 'react';
-import GreetingContainer from './greeting/greeting_container';
-import Footer from './footer/footer.jsx';
-import HeaderContainer from './header/header_container';
+import Footer from 'Footer';
+import HeaderContainer from 'HeaderContainer';
 
 const App = ({ children }) => (
   <div className="App">

@@ -1,19 +1,18 @@
 import React from 'react';
-import App from './app';
+import App from 'App';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import SessionFormContainer from './session/session_form_container';
-import SplashContainer from './splash/splash_container';
-import UserContainer from './user/user_container';
-import GameDetailContainer from './game/game_detail_container';
-import { requestGameDetail } from '../actions/game_detail_actions';
-import GameFormContainer from './game/game_form_container';
-import Canvas from './canvas/canvas';
-import PainterContainer from './canvas/painter_container';
-import { requestCanvas } from '../actions/canvas_actions';
+import SessionFormContainer from 'SessionFormContainer';
+import SplashContainer from 'SplashContainer';
+import UserContainer from 'UserContainer';
+import GameListingContainer from 'GameListingContainer';
+import { requestGameListing } from 'GameListingActions';
+import GameFormContainer from 'GameFormContainer';
+import Canvas from 'Canvas';
+import PainterContainer from 'PainterContainer';
+import { requestCanvas } from 'CanvasActions';
 
-import { requestListedGames, requestListedUser }
-  from '../actions/game_list_actions';
+import { requestListedGames, requestListedUser } from 'GameIndexActions';
 
 
 const Root = ({store}) => {
@@ -21,8 +20,8 @@ const Root = ({store}) => {
     store.dispatch(requestCanvas(params.game_id));
   };
 
-  const _loadGameDetail = ({params}) => {
-    store.dispatch(requestGameDetail(params.game_id));
+  const _loadGameListing = ({params}) => {
+    store.dispatch(requestGameListing(params.game_id));
   };
 
   const _loadGameList = ({params}) => {
@@ -70,11 +69,11 @@ const Root = ({store}) => {
                  component={GameFormContainer}
                  onEnter={_redirectIfLoggedOut}/>
           <Route path="/games/:game_id">
-            <IndexRoute component={GameDetailContainer}
-                        onEnter={_loadGameDetail}/>
+            <IndexRoute component={GameListingContainer}
+                        onEnter={_loadGameListing}/>
             <Route path="/games/:game_id/edit"
                    component={GameFormContainer}
-                   onEnter={(params) => (_redirectIfLoggedOut() && _loadGameDetail(params))}/>
+                   onEnter={(params) => (_redirectIfLoggedOut() && _loadGameListing(params))}/>
           </Route>
         </Route>
       </Router>

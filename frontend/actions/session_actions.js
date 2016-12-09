@@ -1,4 +1,4 @@
-import demo from '../util/demo_login';
+import demo from 'DemoLogin';
 
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
