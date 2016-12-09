@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
-import SessionFormContainer from '../session/session_form_container';
+import SessionFormContainer from 'SessionFormContainer';
 
 class UserTab extends React.Component {
   constructor(props) {

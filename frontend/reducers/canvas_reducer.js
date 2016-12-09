@@ -1,5 +1,9 @@
-import { RECEIVE_CANVAS, RECEIVE_OBJECT, RECEIVE_LAYER }
-  from '../actions/canvas_actions';
+import {
+  RECEIVE_CANVAS,
+  RECEIVE_OBJECT,
+  RECEIVE_LAYER
+} from 'CanvasActions';
+
 import { merge } from 'lodash';
 
 const _defaultState = {

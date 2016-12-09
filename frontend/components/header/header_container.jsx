@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, signup, logout } from '../../actions/session_actions';
-import Header from './header';
+import { login, signup, logout } from 'SessionActions';
+import Header from 'Header';
 
 const mapStateToProps = ({session}) => ({
   userId: (session.currentUser ? session.currentUser.id : null),
