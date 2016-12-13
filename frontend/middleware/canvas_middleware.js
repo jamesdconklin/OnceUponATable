@@ -11,6 +11,8 @@ const CanvasMiddleware = ({dispatch}) => next => action => {
       );
       break;
     case UPDATE_CANVAS:
+      // Optimistically update locally.
+      dispatch(receiveObject(action.delta, action.layer));
       patchCanvas(action.id, action.layer, action.delta)(
         canvas => dispatch(receiveCanvas(canvas))
       );

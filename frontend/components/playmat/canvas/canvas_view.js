@@ -1,9 +1,6 @@
-import CanvasState from 'CanvasState';
-
 class CanvasView {
   constructor(ctx, opts ) {
     this.ctx = ctx;
-    this.canvas = new CanvasState(this.ctx);
     this.width = ctx.canvas.clientWidth;
     this.height = ctx.canvas.clientHeight;
   }
@@ -12,8 +9,7 @@ class CanvasView {
     let { map, token, layer, focus, ephemeral } = canvas;
 
     this.ctx.clearRect(0, 0, this.width, this.height);
-    // this.ctx.fillStyle = fillStyle;
-    // this.ctx.strokeStyle = strokeStyle;
+
     map.forEach(
       (obj => obj.draw(
         this.ctx,

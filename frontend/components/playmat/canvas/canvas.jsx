@@ -1,14 +1,16 @@
+/*globals Pusher*/
+
 import React from 'react';
+import { merge } from 'lodash';
+
+import { getCursorPosition, createObject } from 'CanvasElementUtil';
+
 import AssetsContainer from 'AssetsContainer';
-import MessagesContainer from 'MessagesContainer';
 import ToolboxContainer from 'ToolboxContainer';
+import MessagesContainer from 'MessagesContainer';
 
-import { getCursorPosition } from 'CanvasElementUtil';
-
-import ImageAsset from 'ImageAsset';
 import Square from 'Square';
 import CanvasView from 'CanvasView';
-import { merge } from 'lodash';
 
 const WIDTH = 1920;
 const HEIGHT = 1080;
@@ -31,17 +33,23 @@ class Canvas extends React.Component {
 
   componentDidMount () {
     // Setup Canvas. We are not using react component state - rerendering
-    // be triggred by calling draw() from componentWillReceiveProps
+    // will be triggred by calling draw() from componentWillReceiveProps
     let canvasElement = document.getElementById("game-canvas");
     let canvasContext = canvasElement.getContext("2d");
     let viewOptions = {};
     let controllerOptions = {};
 
-
     this.canvas_view = new CanvasView(canvasContext, viewOptions);
-
     this.props.setDrawFn(() => this.draw());
 
+    var pusher = new Pusher(window.pusherApiKey);
+    var channel = pusher.subscribe(`canvas_${this.props.routeParams.game_id}`);
+    channel.bind(
+      'canvas_update',
+      (data) => {
+        this.props.sendCanvas(data);
+      }
+    );
     this.draw();
   }
 
@@ -54,8 +62,7 @@ class Canvas extends React.Component {
   // Begin Event Handlers
 
   handleKeyUp(e) {
-    let { canvas, asset, update, sendEphemeral, sendFocus } = this.props;
-    let { ephemeral, focus, layer } = this.props.canvas;
+    let { sendEphemeral, sendFocus } = this.props;
     if (focus) {
       switch (e.key) {
         case "Delete":
@@ -68,7 +75,6 @@ class Canvas extends React.Component {
           this.props.asset = null;
           sendEphemeral(null);
           sendFocus(null);
-          this.draw();
           break;
         default:
           // console.log(e);
@@ -100,7 +106,7 @@ class Canvas extends React.Component {
       let [sanityX, sanityY] = assetDefinition.pos;
       if (sanityX <= 1920 && sanityY <= 1080 && sanityX >= 0 && sanityY >= 0) {
 
-        let assetObject = this.createObject(assetDefinition);
+        let assetObject = createObject(assetDefinition, this.draw.bind(this));
         sendFocus(assetObject);
         this.update(layer, assetObject);
       }
@@ -111,7 +117,7 @@ class Canvas extends React.Component {
 
   handleMouseDown(e) {
     let { canvas, assetParams, sendEphemeral, sendFocus } = this.props;
-    let { ephemeral, focus, layer} = this.props.canvas;
+    let { ephemeral, layer } = this.props.canvas;
 
     if (ephemeral || this.moved) {
       return;
@@ -119,11 +125,10 @@ class Canvas extends React.Component {
 
     let pos = getCursorPosition(e.target, e);
 
-    let objects = canvas[layer];
-
     if (assetParams.draw) {
       var newEphemeral = new Square({
-        pos, height: 1,
+        pos,
+        height: 1,
         width: 1,
         lineColor: assetParams.lineColor,
         fillColor: assetParams.fill && assetParams.fillColor,
@@ -133,6 +138,7 @@ class Canvas extends React.Component {
       sendEphemeral(newEphemeral);
     }
     else {
+      let objects = canvas[layer];
       for (var i = objects.length-1; i >= 0; i--) {
         if ((this.clickDiff = objects[i].isClicked(pos))) {
           sendFocus(objects[i]);
@@ -142,15 +148,11 @@ class Canvas extends React.Component {
       }
       sendFocus(null);
     }
-
     this.moved = null;
-
-    this.draw();
   }
 
   handleMouseMove(e) {
-    let { update } = this.props;
-    let { ephemeral, layer } = this.props.canvas;
+    let { ephemeral } = this.props.canvas;
 
     let [x, y] = getCursorPosition(e.target, e);
     if (ephemeral) {
@@ -162,7 +164,6 @@ class Canvas extends React.Component {
       let newX = x - this.clickDiff[0];
       let newY = y - this.clickDiff[1];
       this.moved.pos = [newX, newY];
-      // this.update(layer, this.moved);
     }
     (ephemeral || this.didMove) && this.draw();
   }
@@ -171,9 +172,10 @@ class Canvas extends React.Component {
   // Begin State Change Functions
 
   deleteFocusObject() {
+    let { focus, layer } = this.props.canvas;
     this.update(
-      this.layer,
-      merge(this.focusObject, { asset_class: 'delete'})
+      layer,
+      merge(focus, { asset_class: 'delete'})
     );
     this.props.sendFocus(null);
     this.moved = null;
