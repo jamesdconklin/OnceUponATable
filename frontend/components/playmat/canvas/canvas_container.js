@@ -1,11 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Painter from 'Painter';
-import { updateCanvas, receiveCanvas, receiveLayer } from 'CanvasActions';
+import Canvas from 'Canvas';
+import {
+  setDrawFn,
+  updateCanvas,
+  receiveCanvas,
+  receiveLayer,
+  receiveFocus,
+  receiveEphemeral
+} from 'CanvasActions';
 import { receiveAssetParams } from 'AssetActions';
 
 const mapStateToProps = ({canvas, assetLibrary}) => ({
-  canvas: canvas,
+  canvas,
   asset: assetLibrary.selected,
   assetParams: assetLibrary.asset_params
 });
@@ -14,9 +21,12 @@ const mapDispatchToProps = (dispatch) => ({
   update: (id) => (layer, delta) => dispatch(updateCanvas(id, layer, delta)),
   sendCanvas: (canvas) => dispatch(receiveCanvas(canvas)),
   sendParams: (params) => dispatch(receiveAssetParams(params)),
+  sendFocus: (focus) => dispatch(receiveFocus(focus)),
+  sendEphemeral: (ephemeral) => dispatch(receiveEphemeral(ephemeral)),
+  setDrawFn: (fn) => dispatch(setDrawFn(fn))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Painter);
+)(Canvas);

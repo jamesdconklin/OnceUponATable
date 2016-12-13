@@ -15,9 +15,17 @@ class ImageAsset extends Square {
         crop: "scale",
       }
     )[0];
-    this.img.onload = () => {
-      options.state.draw();
-    };
+  }
+
+  setCB(drawFN) {
+    if (!this.img.complete) {
+      this.img.onload = () => {
+        drawFN();
+      };
+    } else {
+      drawFN();
+    }
+
   }
 
   draw(ctx, focus) {

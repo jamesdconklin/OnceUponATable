@@ -5,7 +5,7 @@ import { REQUEST_MESSAGES, receiveMessages,
 import { fetchMessages, postMessage } from '../util/message_api_util';
 
 export default ({dispatch}) => next => action => {
-  console.log("MessageMiddleware caught", action);
+  // console.log("MessageMiddleware caught", action);
   switch (action.type) {
     case REQUEST_MESSAGES:
       fetchMessages(action.game_id)(

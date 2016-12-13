@@ -214,13 +214,8 @@ class CanvasState {
   }
 
   draw() {
-    let lightParchment = "#f8ebe4";
     let { fillStyle, strokeStyle } = this.props.ctx;
-    this.props.ctx.fillStyle = lightParchment;
-    this.props.ctx.strokeStyle = lightParchment;
-    this.props.ctx.beginPath();
-    this.props.ctx.rect(0, 0, this.width, this.height);
-    this.props.ctx.fill();
+    this.props.ctx.clearRect(0, 0, this.width, this.height);
     this.props.ctx.fillStyle = fillStyle;
     this.props.ctx.strokeStyle = strokeStyle;
     this.canvas.map.forEach(

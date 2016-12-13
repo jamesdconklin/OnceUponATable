@@ -4,7 +4,7 @@ import { RECEIVE_MESSAGE, RECEIVE_MESSAGES } from 'MessageActions';
 
   export default (state = _defaultState, action) => {
     Object.freeze(state);
-    console.log("MessageReducer caught ", action);
+    // console.log("MessageReducer caught ", action);
 
     switch (action.type) {
       case RECEIVE_MESSAGES:

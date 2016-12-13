@@ -9,7 +9,8 @@ import GameListingContainer from 'GameListingContainer';
 import { requestGameListing } from 'GameListingActions';
 import GameFormContainer from 'GameFormContainer';
 import Canvas from 'Canvas';
-import PainterContainer from 'PainterContainer';
+import CanvasContainer from 'CanvasContainer';
+// import PainterContainer from 'PainterContainer';
 import { requestCanvas } from 'CanvasActions';
 
 import { requestListedGames, requestListedUser } from 'GameIndexActions';
@@ -51,10 +52,8 @@ const Root = ({store}) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/canvas/" component={Canvas}>
-          <Route path="/canvas/:game_id" component={PainterContainer}
+          <Route path="/canvas/:game_id" component={CanvasContainer}
                  onEnter={(params) =>(_redirectIfLoggedOut() && _loadCanvas(params))}/>
-        </Route>
         <Route path="/" component={App} >
           <IndexRoute component={SplashContainer}
                       onEnter={_redirectIfLoggedIn}/>
