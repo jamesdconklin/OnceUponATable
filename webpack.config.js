@@ -30,6 +30,7 @@ module.exports = {
       GameIndexActions: "frontend/actions/game_index_actions.js",
       MessageActions: "frontend/actions/message_actions.js",
       SessionActions: "frontend/actions/session_actions.js",
+
       // Components
       Footer: "frontend/components/footer/footer.jsx",
       Header: "frontend/components/header/header.jsx",
@@ -68,7 +69,6 @@ module.exports = {
       CanvasContainer: "frontend/components/playmat/canvas/canvas_container.js",
 
       // Roots/Routes/Entries
-
       App: "frontend/components/app.jsx",
       Root: "frontend/components/root.jsx",
       Entry: "frontend/entry.jsx",
@@ -102,9 +102,7 @@ module.exports = {
       SessionUtil: "frontend/util/session_api_util.js",
       UserUtil: "frontend/util/user_api_util.js",
       CanvasElementUtil: "frontend/util/canvas_element_util.js",
-
       DemoLogin: "frontend/util/demo_login.js"
-
     },
     extensions: ["", ".js", ".jsx" ]
   }

@@ -43,6 +43,7 @@ module.exports = {
       GameIndexActions: "frontend/actions/game_index_actions.js",
       MessageActions: "frontend/actions/message_actions.js",
       SessionActions: "frontend/actions/session_actions.js",
+
       // Components
       Footer: "frontend/components/footer/footer.jsx",
       Header: "frontend/components/header/header.jsx",
@@ -63,8 +64,6 @@ module.exports = {
       CanvasState: "frontend/components/playmat/canvas/canvas_state.js",
       CanvasView: "frontend/components/playmat/canvas/canvas_view.js",
       Canvas: "frontend/components/playmat/canvas/canvas.jsx",
-      PainterContainer: "frontend/components/playmat/canvas/painter_container.js",
-      Painter: "frontend/components/playmat/canvas/painter.jsx",
       MessagesContainer: "frontend/components/playmat/messages/messages_container.js",
       Messages: "frontend/components/playmat/messages/messages.jsx",
       Sidebar: "frontend/components/playmat/sidebar/sidebar.jsx",
@@ -80,9 +79,9 @@ module.exports = {
       GamesTab: "frontend/components/header/games_tab.jsx",
       UserTab: "frontend/components/header/user_tab.jsx",
       HeaderContainer: "frontend/components/header/header_container.jsx",
+      CanvasContainer: "frontend/components/playmat/canvas/canvas_container.js",
 
       // Roots/Routes/Entries
-
       App: "frontend/components/app.jsx",
       Root: "frontend/components/root.jsx",
       Entry: "frontend/entry.jsx",
@@ -115,9 +114,8 @@ module.exports = {
       MessageUtil: "frontend/util/message_api_util.js",
       SessionUtil: "frontend/util/session_api_util.js",
       UserUtil: "frontend/util/user_api_util.js",
-
+      CanvasElementUtil: "frontend/util/canvas_element_util.js",
       DemoLogin: "frontend/util/demo_login.js"
-
     },
     extensions: ["", ".js", ".jsx" ]
   }
