@@ -72,7 +72,6 @@ class Canvas extends React.Component {
           this.deleteFocusObject();
           break;
         case "Escape":
-          this.props.asset = null;
           sendEphemeral(null);
           sendFocus(null);
           break;

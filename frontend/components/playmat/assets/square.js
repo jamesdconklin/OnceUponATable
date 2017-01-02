@@ -6,6 +6,16 @@ class Square extends CanvasObject {
     this.asset_class = "square";
     this.width = options.width || 80;
     this.height = options.height || 80;
+    let [x, y] = this.pos;
+    if (this.width < 0) {
+      x = x + this.width;
+      this.width = Math.abs(this.width);
+    }
+    if (this.height < 0) {
+      y = y + this.height;
+      this.height = Math.abs(this.height);
+    }
+    this.pos = [x,y];
   }
 
   drawFocus(ctx, focus) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Canvas from 'Canvas';
+
 import {
   setDrawFn,
   updateCanvas,
@@ -9,7 +10,11 @@ import {
   receiveFocus,
   receiveEphemeral
 } from 'CanvasActions';
-import { receiveAssetParams } from 'AssetActions';
+
+import {
+  receiveAssetParams,
+  receiveSelectedAsset
+} from 'AssetActions';
 
 const mapStateToProps = ({canvas, assetLibrary}) => ({
   canvas,
